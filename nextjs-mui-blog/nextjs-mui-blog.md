@@ -2,9 +2,9 @@
 
 In this tutorial, I will walk you through how to create a blog and portfolio website using Next.js and Material UI. This project is a lightweight, SEO-friendly, and highly customizable template that features dark mode support, token-based theming, a dynamic Table of Contents (TOC), code highlighting, and performance optimizations to achieve 90-100% Lighthouse scores.
 
-# Setup
+# Next.js Setup
 
-## Next.js Installation
+## Install Next.js
 
 To get started we will install the latest Next.js version and create a new project:
 
@@ -13,6 +13,8 @@ npx create-next-app@latest nextjs-mui-blog-starter
 ```
 
 When the installation starts, you will be prompted with a few questions. You can choose the default settings or customize them to your liking as long as you exlcude Tailwind CSS as we will be using Material UI for styling.
+
+## Test Next.js
 
 After the installation is complete, navigate to the project and run the following command to start and test the project:
 
@@ -23,7 +25,9 @@ npm run dev
 
 We should now see the default Next.js landing page.
 
-## Material UI Setup
+# Material UI Setup
+
+## Install Material UI
 
 Next, we will install Material UI and its dependencies:
 
@@ -32,6 +36,8 @@ npm install @mui/material @emotion/react @emotion/styled @mui/material-nextjs @e
 ```
 
 For styling, we will use the `@emotion/react` and `@emotion/styled` packages. The `@mui/material-nextjs` package is a custom server-side rendering (SSR) solution for Material UI that is optimized for Next.js.
+
+## Configure Material UI
 
 Now let's do some clean up and basic MUI addtions:
 
@@ -119,4 +125,94 @@ export default function RootLayout({
 
 If you see the blue header with the "My Blog" title and navigation buttons, Material UI is set up correctly for you!
 
-![Next.js and Material UI](https://example.com/nextjs-mui-blog.png)
+![Next.js and Material UI](./blog-header.png)
+
+# MDX Setup
+
+Now that we have Next.js and Material UI set up, let's create a blog post.
+
+## Install dependencies
+
+When writting a blog, the most common way to store the content is in Markdown or MDX format.
+
+To process Markdown and MDX in NextJS, we need to install the following dependencies:
+
+```bash
+npm install @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
+```
+
+## Configure `next.config.ts`
+
+Then configure `next.config.ts` to allow `.md` and `.mdx` pages to be accessible by the router:
+
+```ts
+import withMdx from "@next/mdx";
+
+const nextConfig = {
+  pageExtensions: ["ts", "tsx", "js", "jsx", "mdx"],
+};
+
+const mdxConfig = {
+  // Add plugins here
+};
+
+export default withMdx(mdxConfig)(nextConfig);
+```
+
+`nextMDX` is a plugin that allows you to use MDX files in your Next.js project. It automatically converts MDX files to React components and provides a way to render them in your application.
+
+## Add an `mdx-components.tsx` file
+
+Creating a `mdx-components.tsx` file is required as part of the configuration for MDX to work with the app router.
+
+We can create one at the same level as the `app` folder with the following content:
+
+```tsx
+import type { MDXComponents } from "mdx/types";
+
+export function useMDXComponents(components: MDXComponents): MDXComponents {
+  return {
+    ...components,
+  };
+}
+```
+
+## Create a test blog post
+
+We will create a new folder called `blogs` in the `app` directory that will contain all our blog posts. Inside the `blogs` folder, create a new folder called `my-first-blog-post` with a `page.mdx` file that will contain the content of the blog post.
+
+````mdx
+# My First Blog Post
+
+Welcome to my first blog post! In this post, I will share my journey of learning Next.js and Material UI. Stay tuned for more exciting content!
+
+## Setup
+
+To get started, we will install the latest Next.js version and create a new project:
+
+```bash
+npx create-next-app@latest nextjs-mui-blog-starter
+```
+````
+
+Now, when navigating to `http://localhost:3000/blogs/my-first-blog-post`, you should see the content of the blog post.
+
+Next JS app router is very powerful and can handle dynamic routes, nested routes, and more...(explain more). You can learn more about it [here](https://nextjs.org/docs/routing/introduction).
+
+Here is the final project structure:
+
+```plaintext
+nextjs-mui-blog-starter
+├── app
+│   ├── blogs
+│   │   └── my-first-blog-post
+│   │       └── page.mdx
+│   ├── components
+│   │   └── Header.tsx
+│   ├── layouts
+│   │   └── layout.tsx
+│   └── mdx-components.tsx
+├── next.config.ts
+├── package.json
+└── tsconfig.json
+```
