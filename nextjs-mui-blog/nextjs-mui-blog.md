@@ -216,3 +216,53 @@ nextjs-mui-blog-starter
 ├── package.json
 └── tsconfig.json
 ```
+
+# Adding Blog Features
+
+Now that we have the basic setup ready, let's add some features to our blog.
+
+## Dynamic routing
+
+Next.js allows us to create dynamic routes by using square brackets `[]`.
+
+Dynamic routing provides several advantage such as:
+
+- Scalability for large content collections.
+- Ability to manipulate the URL to filter and sort content.
+- Manage shared metadata across multiple pages like title, description, and image.
+- Create shared table of contents (TOC) for all blog posts.
+
+Some of those features we are implementing in this tutorial so it's better to get you all sorted out as early as possible!
+
+In Next.js, creating a folder with square brackets like `[slug]` inside the `blogs` folder, along with a `page.tsx` file inside [slug], is how you define a dynamic route in the `app` directory. Here’s how it works and why it enables dynamic routing:
+
+- Square brackets ([slug]) indicate a dynamic segment. This tells Next.js that the content inside the brackets (slug) is a variable part of the URL.
+- When a request comes in with a URL like /blogs/my-first-post, Next.js knows that the my-first-post portion of the URL should be treated as a parameter for the route defined by [slug].
+- Next.js then passes the value of my-first-post to the page component as a prop, which you can use to fetch and render the content for that specific blog post.
+
+Let's create the `[slug]` folder and `page.tsx` file with the following content:
+
+```plaintext
+nextjs-mui-blog-starter
+├── app
+│   ├── blogs
+│   │   ├── [slug]
+│   │   │   └── page.tsx
+│   │   └── my-first-blog-post
+│   │       └── page.mdx
+```
+
+```tsx
+import { MDXRemote } from "next-mdx-remote";
+
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+
+  return (
+    <div>
+      <h1>Blog Post: {slug}</h1>
+      {/* Render content based on slug */}
+    </div>
+  );
+}
+```
