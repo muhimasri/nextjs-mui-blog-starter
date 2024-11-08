@@ -1,13 +1,13 @@
-import { readFileSync, readdirSync } from "fs";
+import { existsSync, readFileSync, readdirSync } from "fs";
 import { compileMDX } from "next-mdx-remote/rsc";
 import path from "path";
 
-// Main page component for each dynamic blog post
-export default async function BlogPostPage({
-  params,
-}: {
+interface BlogPostPageProps {
   params: { slug: string };
-}) {
+}
+
+// Main page component for each dynamic blog post
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = params;
 
   // Construct the path to the MDX file
@@ -25,14 +25,12 @@ export default async function BlogPostPage({
 
   return (
     <div>
-      <h1>{slug}</h1>
+      <h1>{slug}asdasd</h1>
       <div>{mdxContent}</div>
-      {/* <MDXRemote {...source} /> */}
     </div>
   );
 }
 
-// generateStaticParams ensures all dynamic routes are generated at build time
 export async function generateStaticParams() {
   const blogDir = path.join(process.cwd(), "src/app/blogs");
   const slugs = readdirSync(blogDir);

@@ -41,7 +41,7 @@ For styling, we will use the `@emotion/react` and `@emotion/styled` packages. Th
 
 Now let's do some clean up and basic MUI addtions:
 
-- Get rid of the `globals.css` file as we will be using Material UI's built-in CSS-in-JS solution
+- Get rid of any global CSS files including `globals.css` or `page.module.css` files as we will be using Material UI's built-in CSS-in-JS solution
 - Clean up `pagee.tsx` to remove the default content
 - Make the following changes to the `layout.tsx` file:
 
