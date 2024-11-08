@@ -240,29 +240,153 @@ In Next.js, creating a folder with square brackets like `[slug]` inside the `blo
 - When a request comes in with a URL like /blogs/my-first-post, Next.js knows that the my-first-post portion of the URL should be treated as a parameter for the route defined by [slug].
 - Next.js then passes the value of my-first-post to the page component as a prop, which you can use to fetch and render the content for that specific blog post.
 
-Let's create the `[slug]` folder and `page.tsx` file with the following content:
+Let's create the `[slug]` folder and a `page.tsx` file with the following content:
+
+```tsx
+import { readdirSync } from "fs";
+import path from "path";
+
+interface BlogPostPageProps {
+  params: { slug: string };
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = params;
+
+  return (
+    <div>
+      <h1>{slug}</h1>
+    </div>
+  );
+}
+
+export async function generateStaticParams() {
+  const blogDir = path.join(process.cwd(), "src/app/blogs");
+  const slugs = readdirSync(blogDir);
+
+  return slugs.map((slug) => ({ slug }));
+}
+```
+
+`generateStaticParams` defines the Slugs and returns an array of parameters (usually slugs) that Next.js uses to generate static pages. We have full control over how many pages we want to generate and what data we want to pass to the page component.
+
+In this case, we are reading the blog directory and returning an array of slugs.
+
+`BlogPostPage` is a React component that receives the slug as a prop and renders the content of the blog post.
+
+Now, when navigating to `http://localhost:3000/blogs/my-first-blog-post`, you should see the slug of the blog post wihout any content. That's because we haven't fetched the content yet.
+
+### Fetching blog content
+
+When creating a dynamic routing system, it takes over the default configuration we created in the `next.config.ts` file to give us more control and flexibility. Initially we were using the `@next/mdx` plugin to handle the MDX files, but now we will use the `next-mdx-remote` package to fetch the content of the blog post.
+
+Why `next-mdx-remote`:
+
+- Fetch MDX content from anywhere: Unlike static .mdx files in the file system, next-mdx-remote lets you fetch MDX content dynamically, even from a CMS, API, or database.
+- Flexible for both SSR and SSG: You can use next-mdx-remote with both getStaticProps and getServerSideProps, so MDX content can be rendered on the server or statically generated at build time.
+- Dynamic routes with [slug]: Supports complex page structures by loading and compiling MDX content dynamically within Next.js dynamic routes (e.g., app/blogs/[slug]/page.tsx).
+- Remark and Rehype plugins: Easily customize your MDX content with plugins for syntax highlighting, TOC generation, or custom component rendering (e.g., code blocks, images).
+
+Let's install the `next-mdx-remote` package:
+
+```bash
+npm install next-mdx-remote
+```
+
+In the `page.tsx` file, we will update `BlogPostPage` and fetch the content of the blog post using the `next-mdx-remote` package:
+
+```tsx
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = params;
+
+  const filePath = path.join(process.cwd(), "src/app/blogs", slug, "page.mdx");
+  const fileContents = readFileSync(filePath, "utf8");
+
+  const { content: mdxContent } = await compileMDX({
+    source: fileContents,
+    options: {
+      mdxOptions: {},
+      parseFrontmatter: true,
+    },
+  });
+
+  return (
+    <div>
+      <h1>{slug}</h1>
+      <div>{mdxContent}</div>
+    </div>
+  );
+}
+```
+
+With unique `slug` for each page, we read the content of the MDX file and compile it using the `compileMDX` function from the `next-mdx-remote` package. The `compileMDX` function returns the compiled MDX content, which we can render in the component.
+
+Now given that `next-mdx-remote` allows us to read content from anywhere, we will make use of it and move all blog content to a new `content` folder in the root directory. This way we don't have to include hundreds of posts in the `app` folder.
+
+Let's re-arrange and create a new blog post to demnstrate the new structure:
 
 ```plaintext
 nextjs-mui-blog-starter
 ├── app
 │   ├── blogs
-│   │   ├── [slug]
-│   │   │   └── page.tsx
-│   │   └── my-first-blog-post
-│   │       └── page.mdx
+│   │   └── [slug]
+│   │       └── page.tsx
+│   └── components
+│       └── Header.tsx
+├── content
+│   └── blogs
+│       └── my-first-blog-post
+│           └── page.mdx
+│       └── my-second-blog-post
+│           └── page.mdx
+├── next.config.ts
 ```
 
-```tsx
-import { MDXRemote } from "next-mdx-remote";
+Here is the final `page.tsx` with the updated path to the MDX file:
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+```tsx
+import { existsSync, readFileSync, readdirSync } from "fs";
+import { compileMDX } from "next-mdx-remote/rsc";
+import path from "path";
+
+interface BlogPostPageProps {
+  params: { slug: string };
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = params;
+
+  const filePath = path.join(process.cwd(), "content", slug, "page.mdx");
+  const fileContents = readFileSync(filePath, "utf8");
+
+  const { content: mdxContent } = await compileMDX({
+    source: fileContents,
+    options: {
+      mdxOptions: {},
+      parseFrontmatter: true,
+    },
+  });
 
   return (
     <div>
-      <h1>Blog Post: {slug}</h1>
-      {/* Render content based on slug */}
+      <h1>{slug}</h1>
+      <div>{mdxContent}</div>
     </div>
   );
 }
+
+export async function generateStaticParams() {
+  const blogDir = path.join(process.cwd(), "content");
+  const slugs = readdirSync(blogDir);
+
+  return slugs.map((slug) => ({ slug }));
+}
 ```
+
+When running the project and navigating to `http://localhost:3000/blogs/my-first-blog-post` and `http://localhost:3000/blogs/my-second-blog-post`, you should see the content of the blog posts with the respective slugs.
+
+## Frontmatter and metadata
+
+Frontmatter is a block of YAML or JSON metadata at the beginning of a Markdown or MDX file that provides information about the content, such as the title, description, date, author, and tags.
+
+What we're done in the previous section is a perfect base to dynamically add metadata to each blog post from one place.
