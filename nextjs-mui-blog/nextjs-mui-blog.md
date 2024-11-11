@@ -182,7 +182,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 We will create a new folder called `blogs` in the `app` directory that will contain all our blog posts. Inside the `blogs` folder, create a new folder called `my-first-blog-post` with a `page.mdx` file that will contain the content of the blog post.
 
 ````mdx
-# My First Blog Post
+# Introduction
 
 Welcome to my first blog post! In this post, I will share my journey of learning Next.js and Material UI. Stay tuned for more exciting content!
 
@@ -345,7 +345,7 @@ nextjs-mui-blog-starter
 Here is the final `page.tsx` with the updated path to the MDX file:
 
 ```tsx
-import { existsSync, readFileSync, readdirSync } from "fs";
+import { readFileSync, readdirSync } from "fs";
 import { compileMDX } from "next-mdx-remote/rsc";
 import path from "path";
 
@@ -385,8 +385,117 @@ export async function generateStaticParams() {
 
 When running the project and navigating to `http://localhost:3000/blogs/my-first-blog-post` and `http://localhost:3000/blogs/my-second-blog-post`, you should see the content of the blog posts with the respective slugs.
 
+![Dynamic Routing](./dynamic-routing.png)
+
 ## Frontmatter and metadata
 
 Frontmatter is a block of YAML or JSON metadata at the beginning of a Markdown or MDX file that provides information about the content, such as the title, description, date, author, and tags.
 
-What we're done in the previous section is a perfect base to dynamically add metadata to each blog post from one place.
+What we've done in the previous section is a perfect structure to dynamically add metadata to each blog post from one place.
+
+Let's update both blog posts with frontmatter:
+
+```mdx
+---
+title: My First Blog Post
+description: Welcome to my first blog post! In this post, I will share my journey of learning Next.js and Material UI. Stay tuned for more exciting content!
+date: "2022-01-01"
+author: Muhi Masri
+tags: nextjs, material-ui
+---
+```
+
+```mdx
+---
+title: My Second Blog Post
+description: Welcome to my second blog post! This is a page created using MDX.
+date: "2022-01-02"
+author: Muhi Masri
+tags: mdx, react
+---
+```
+
+`gray-matter` is a lightweight package that parses frontmatter from Markdown and MDX files efficiently. It returns an object with the frontmatter data and the content of the file.:
+
+```bash
+npm install gray-matter
+```
+
+Let's update the `page.tsx` file to parse the frontmatter and extract the metadata:
+
+```tsx{15}
+import { readFileSync, readdirSync } from "fs";
+import { compileMDX } from "next-mdx-remote/rsc";
+import path from "path";
+import matter from "gray-matter";
+
+interface BlogPostPageProps {
+  params: { slug: string };
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = params;
+
+  const filePath = path.join(process.cwd(), "content", slug, "page.mdx");
+  const fileContents = readFileSync(filePath, "utf8");
+
+  const { content, data: frontmatter } = matter(fileContents);
+
+  const { content: mdxContent } = await compileMDX({
+    source: content,
+    options: {
+      mdxOptions: {},
+      parseFrontmatter: true,
+    },
+  });
+
+  return (
+    <div>
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.date}</p>
+      <p>{frontmatter.author}</p>
+      <p>{frontmatter.description}</p>
+      <p>{frontmatter.tags}</p>
+      <div>{mdxContent}</div>
+    </div>
+  );
+}
+
+export async function generateStaticParams() {
+  const blogDir = path.join(process.cwd(), "content");
+  const slugs = readdirSync(blogDir);
+
+  return slugs.map((slug) => ({ slug }));
+}
+```
+
+Now when navigating to `http://localhost:3000/blogs/my-first-blog-post` and `http://localhost:3000/blogs/my-second-blog-post`, you should see the metadata and content of the blog posts respectively.
+
+![Frontmatter](./frontmatter.png)
+
+## Table of Contents (TOC)
+
+Table of Contents (TOC) has plenty of benefits for both readers and SEO. It helps readers navigate through the content, find the information they need quickly, and understand the structure of the page. For SEO, it helps search engines understand the content and index it properly.
+
+When implementing a TOC, I like to create a dynamic one that is generated based on the headings in the content. This way, we don't have to manually create and maintain the TOC for each blog post.
+
+Let's start by creating a function called `extractHeadings` that utilizes few handy libraries to parse the content and extract the headings:
+
+```bash
+npm install unified remark-parse remark-mdx unist-util-visit
+```
+
+I know it's a lot of packages, but trust me, they are very small and efficient and trying to do this manually to hadle all edge cases is a nightmare!
+
+We are using:
+
+- `unified` to create a unified processor that can parse the content and convert it to a structured format.
+- `remark-parse` a unified plugin that parses Markdown content
+- `remark-mdx` another unified plugin that parses MDX content
+- `unist-util-visit` to visit the nodes and extract the headings in a very efficient way.
+
+Let's create the `extractHeadings` function:
+
+```tsx
+
+```
