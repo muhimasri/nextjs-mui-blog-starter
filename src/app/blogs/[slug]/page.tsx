@@ -78,7 +78,10 @@ async function extractHeadings(content: string): Promise<Heading[]> {
     headings.push({
       depth: node.depth, // h1, h2, h3, etc.
       text,
-      slug: text, // Create a slug for anchor links
+      slug: text
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w-]/g, ""), // Reaplce spaces with dashes and remove special characters
     });
   });
 

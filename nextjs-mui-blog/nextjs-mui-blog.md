@@ -493,9 +493,196 @@ We are using:
 - `remark-parse` a unified plugin that parses Markdown content
 - `remark-mdx` another unified plugin that parses MDX content
 - `unist-util-visit` to visit the nodes and extract the headings in a very efficient way.
+- `rehype-slug` to create slugs for the headings to be used as anchor links.
 
 Let's create the `extractHeadings` function:
 
 ```tsx
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkMdx from "remark-mdx";
+import { visit } from "unist-util-visit";
+import rehypeSlug from "rehype-slug";
+
+interface Heading {
+  depth: number;
+  text: string;
+  slug: string;
+}
+
+async function extractHeadings(content: string): Promise<Heading[]> {
+  const headings: Heading[] = [];
+
+  // Walk through the AST to extract heading nodes
+  const processor = unified().use(remarkParse).use(remarkMdx);
+
+  const ast = processor.parse(content);
+
+  visit(ast, "heading", (node: any) => {
+    const text = node.children.map((child: any) => child.value).join("");
+    headings.push({
+      depth: node.depth, // h1, h2, h3, etc.
+      text,
+      slug: text
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w-]/g, ""), // Reaplce spaces with dashes and remove special characters
+    });
+
+  return headings;
+}
+```
+
+Once the `unified` processor is set up, we can parse the content and walk through the Abstract Syntax Tree (AST) to extract the heading nodes. We then map the nodes to a structured format that includes the depth, text, and slug of each heading.
+
+For each heading node, we extract the text, depth (h1, h2, h3, etc.), and create a slug by converting the text to lowercase, replacing spaces with dashes, and removing special characters.
+
+Now, let's update the `page.tsx` file to use the `extractHeadings` function and render the TOC:
+
+```tsx
+import { readFileSync, readdirSync } from "fs";
+import { compileMDX } from "next-mdx-remote/rsc";
+import path from "path";
+import matter from "gray-matter";
+
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkMdx from "remark-mdx";
+import { visit } from "unist-util-visit";
+import rehypeSlug from "rehype-slug";
+
+interface BlogPostPageProps {
+  params: { slug: string };
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = params;
+
+  const filePath = path.join(process.cwd(), "content", slug, "page.mdx");
+  const fileContents = readFileSync(filePath, "utf8");
+
+  const { content, data: frontmatter } = matter(fileContents);
+
+  const headings = await extractHeadings(content);
+
+  const { content: mdxContent } = await compileMDX({
+    source: content,
+    options: {
+      mdxOptions: {
+        rehypePlugins: [rehypeSlug],
+      },
+      parseFrontmatter: true,
+    },
+  });
+
+  return (
+    <div>
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.date}</p>
+      <p>{frontmatter.author}</p>
+      <p>{frontmatter.description}</p>
+      <p>{frontmatter.tags}</p>
+      <ul>
+        {headings?.map(({ text, slug, depth }) => (
+          <li key={slug} style={{ marginLeft: `${depth - 1}rem` }}>
+            <a href={`#${slug}`}>{text}</a>
+          </li>
+        ))}
+      </ul>
+      <div>{mdxContent}</div>
+    </div>
+  );
+}
+
+export async function generateStaticParams() {
+  const blogDir = path.join(process.cwd(), "content");
+  const slugs = readdirSync(blogDir);
+
+  return slugs.map((slug) => ({ slug }));
+}
+
+interface Heading {
+  depth: number;
+  text: string;
+  slug: string;
+}
+
+async function extractHeadings(content: string): Promise<Heading[]> {
+  const headings: Heading[] = [];
+
+  // Walk through the AST to extract heading nodes
+  const processor = unified().use(remarkParse).use(remarkMdx);
+
+  const ast = processor.parse(content);
+
+  visit(ast, "heading", (node: any) => {
+    const text = node.children.map((child: any) => child.value).join("");
+    headings.push({
+      depth: node.depth, // h1, h2, h3, etc.
+      text,
+      slug: text
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w-]/g, ""), // Reaplce spaces with dashes and remove special characters
+    });
+  });
+
+  return headings;
+}
+```
+
+`rehypeSlug` us used in the `rehypePlugins` array to create slugs for the headings.
+
+Once we extract the headings, we can render them as a list with anchor links to each heading. The `style` attribute is used to indent the list items based on the heading depth.
+
+This approach can extract all headings levels (h1, h2, h3, etc.) and create a slug for each heading to be used as an anchor link.
+
+To see this in action, will update the blog posts with more headings:
+
+````mdx
+# Introduction
+
+Welcome to my first blog post! In this post, I will share my journey of learning Next.js and Material UI. Stay tuned for more exciting content!
+
+## Learning Next.js
+
+Let's start by learning Next.js!
+
+### Why Next.js?
+
+Next.js is a powerful React framework that enables server-side rendering, static site generation, and more. It provides a great developer experience with features like file-based routing, API routes, and built-in CSS support.
+
+### Getting Started
+
+To get started, we will install the latest Next.js version and create a new project:
+
+```bash
+npx create-next-app@latest nextjs-mui-blog-starter
+```
+
+# Learning Material UI
+
+## Why Material UI?
+
+Material UI is a popular React UI framework that implements Google's Material Design. It provides a set of reusable components that can be customized to fit your design needs.
+
+## Getting Started
+
+To get started, we will install Material UI and its dependencies:
+
+```bash
+npm install @mui/material @emotion/react @emotion/styled @mui/material-nextjs @emotion/cache
+```
+
+## Conclusion
+
+In this tutorial, we have set up a blog and portfolio website using Next.js and Material UI. We have also added dynamic routing, frontmatter, and a Table of Contents (TOC) to enhance the functionality of our blog. Stay tuned for more exciting content!
 
 ```
+
+```
+````
+
+Now when navigating to `http://localhost:3000/blogs/my-first-blog-post`, you should see the metadata, TOC, and content of the blog post.
+
+![Table of Contents](./table-of-contents.png)
