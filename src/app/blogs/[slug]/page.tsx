@@ -9,6 +9,9 @@ import remarkMdx from "remark-mdx";
 import { visit } from "unist-util-visit";
 import rehypeSlug from "rehype-slug";
 
+import rehypePrettyCode from "rehype-pretty-code";
+import Counter from "@/app/components/Counter";
+
 interface BlogPostPageProps {
   params: { slug: string };
 }
@@ -25,9 +28,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const { content: mdxContent } = await compileMDX({
     source: content,
+    components: { Counter },
     options: {
       mdxOptions: {
-        rehypePlugins: [rehypeSlug],
+        rehypePlugins: [
+          rehypeSlug,
+          [
+            rehypePrettyCode,
+            {
+              theme: "github-dark",
+              keepBackground: true,
+            },
+          ],
+        ],
       },
       parseFrontmatter: true,
     },

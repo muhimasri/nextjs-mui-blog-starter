@@ -40,6 +40,33 @@ To get started, we will install Material UI and its dependencies:
 npm install @mui/material @emotion/react @emotion/styled @mui/material-nextjs @emotion/cache
 ```
 
+# Code Highlighting
+
+Code highlighting is an essential feature for technical blogs that include code snippets. It helps readers distinguish between code and text, understand the code structure, and identify keywords and syntax.
+
+Here is an example of a code block with syntax highlighting:
+
+```jsx
+import { useState } from "react";
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => setCount((prevCount) => prevCount + 1);
+  const decrement = () => setCount((prevCount) => prevCount - 1);
+
+  return (
+    <div>
+      <button onClick={decrement}>-</button>
+      <span>{count}</span>
+      <button onClick={increment}>+</button>
+    </div>
+  );
+}
+```
+
+<Counter />
+
 ## Conclusion
 
 In this tutorial, we have set up a blog and portfolio website using Next.js and Material UI. We have also added dynamic routing, frontmatter, and a Table of Contents (TOC) to enhance the functionality of our blog. Stay tuned for more exciting content!

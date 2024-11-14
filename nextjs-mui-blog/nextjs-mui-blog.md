@@ -631,7 +631,7 @@ async function extractHeadings(content: string): Promise<Heading[]> {
 }
 ```
 
-`rehypeSlug` us used in the `rehypePlugins` array to create slugs for the headings.
+`rehypeSlug` us used in the `rehypePlugins` array to create slugs for the headings. In case you dont know what `rehype` is, it's a unified plugin that converts HTML to a structured format that can be manipulated and transformed easily.
 
 Once we extract the headings, we can render them as a list with anchor links to each heading. The `style` attribute is used to indent the list items based on the heading depth.
 
@@ -686,3 +686,148 @@ In this tutorial, we have set up a blog and portfolio website using Next.js and 
 Now when navigating to `http://localhost:3000/blogs/my-first-blog-post`, you should see the metadata, TOC, and content of the blog post.
 
 ![Table of Contents](./table-of-contents.png)
+
+## Code Highlighting
+
+Code highlighting is an essential feature for technical blogs that include code snippets. It helps readers distinguish between code and text, understand the code structure, and identify keywords and syntax.
+
+Ater using several libraries in the past, I found Shiki to be the best in terms of flexibility, customization, performance, theming and light-weight.
+
+To get started, we need to install the main Shiki package and the associated rehype plugin:
+
+```bash
+npm install shiki rehype-pretty-code
+```
+
+`rehype-pretty-code` is a rehype plugin that uses Shiki to highlight code blocks in MDX content.
+
+To get it working, we need to update the `page.tsx` file to use the `rehype-pretty-code` plugin:
+
+```tsx{15}
+...
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = params;
+
+  const filePath = path.join(process.cwd(), "content", slug, "page.mdx");
+  const fileContents = readFileSync(filePath, "utf8");
+
+  const { content, data: frontmatter } = matter(fileContents);
+
+  const headings = await extractHeadings(content);
+
+  const { content: mdxContent } = await compileMDX({
+    source: content,
+    options: {
+      mdxOptions: {
+        rehypePlugins: [
+          rehypeSlug,
+          [
+            rehypePrettyCode,
+            {
+              theme: "github-dark",
+              keepBackground: true,
+            },
+          ],
+        ],
+      },
+      parseFrontmatter: true,
+    },
+  });
+
+  return (
+    ...
+  );
+}
+```
+
+In the `rehypePlugins` array, we add the `rehypePrettyCode` plugin with the `theme` and `keepBackground` options. The `theme` option specifies the code highlighting theme, and the `keepBackground` option preserves the background color of the code block. There are several themes available, and you can customize the theme to match your blog design.
+
+Let's add this code snippet to the blog posts to see the code highlighting in action:
+
+````mdx
+# Code Highlighting
+
+Code highlighting is an essential feature for technical blogs that include code snippets. It helps readers distinguish between code and text, understand the code structure, and identify keywords and syntax.
+
+Here is an example of a code block with syntax highlighting:
+
+```jsx
+import React from "react";
+import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+
+export default function Header() {
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6" mr={5}>
+          My Blog
+        </Typography>
+        <Button color="inherit">Home</Button>
+        <Button color="inherit">Blog</Button>
+        <Button color="inherit">About</Button>
+      </Toolbar>
+    </AppBar>
+  );
+}
+```
+````
+
+Now when navigating to `http://localhost:3000/blogs/my-first-blog-post`, you should see the code block with syntax highlighting.
+
+![Code Highlighting](./code-highlighting.png)
+
+## Using React Components in MDX
+
+One of the powerful features of MDX is the ability to use React components directly in the content. This allows you to create interactive and dynamic content by embedding custom components within the Markdown content.
+
+Imagin you are writting a React tutorial and you are teaching how to create a counter component. Instead of just showing the code, you can actually render the component and let the user interact with it.
+
+The setup that we did already supports this feature, let's create a simple `Counter` component inside the `components` folder:
+
+```tsx
+import { useState } from "react";
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => setCount((prevCount) => prevCount + 1);
+  const decrement = () => setCount((prevCount) => prevCount - 1);
+
+  return (
+    <div>
+      <button onClick={decrement}>-</button>
+      <span>{count}</span>
+      <button onClick={increment}>+</button>
+    </div>
+  );
+}
+```
+
+To make the `Counter` component available for any of the blogs, we need to update the `compileMDX` function in the `page.tsx` file to include the `components` prop:
+
+```tsx{15}
+const { content: mdxContent } = await compileMDX({
+    source: content,
+    components: { Counter },
+    options: {
+      mdxOptions: {
+        rehypePlugins: [
+          rehypeSlug,
+          [
+            rehypePrettyCode,
+            {
+              theme: "github-dark",
+              keepBackground: true,
+            },
+          ],
+        ],
+      },
+      parseFrontmatter: true,
+    },
+  });
+```
+
+Now you can simple just add `<Counter />` to any of the blog posts and it will render the component:
+
+![React Components in MDX](./react-components-in-mdx.mp4)
