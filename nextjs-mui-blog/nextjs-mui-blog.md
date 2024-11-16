@@ -217,7 +217,7 @@ nextjs-mui-blog-starter
 └── tsconfig.json
 ```
 
-# Adding Blog Features
+# Building a Blog
 
 Now that we have the basic setup ready, let's add some features to our blog.
 
@@ -831,3 +831,188 @@ const { content: mdxContent } = await compileMDX({
 Now you can simple just add `<Counter />` to any of the blog posts and it will render the component:
 
 ![React Components in MDX](./react-components-in-mdx.mp4)
+
+## Creating list of blog posts
+
+Now that we have multiple blog posts, it would be nice to have a list of all blog posts in a specific `/blogs` page were reader can navigate and filter based on tags and categories.
+
+### Create a `blogs` page
+
+Because of the awsome Next.JS routing system, we can create a new `page.tsx` file inside the `blogs` folder and it will automatically be accessible at `/blogs`.
+
+```plaintext
+nextjs-mui-blog-starter
+├── app
+│   ├── blogs
+│   │   └── [slug]
+│   │       └── page.tsx
+│   └──     page.tsx
+```
+
+Quick recap on the blogs folder structure:
+
+- `blogs` folder contains the `[slug]` folder with the `page.tsx` file for dynamic routing of all blog posts.
+- `content` folder contains all the blog posts in Markdown format with frontmatter and content.
+- The new `page.tsx` file is directly inside the `blogs` folder and will be accessible at `/blogs` to view all blog posts.
+
+The `blogs/page.tsx` file will be responsible for fetching all blog posts and rendering them as a list. Let's start by fetching all blog posts and rendering the titles as links to the individual blog posts:
+
+```tsx
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import Link from "next/link";
+
+const blogsDirectory = path.join(process.cwd(), "content");
+
+export default function BlogsPage({}) {
+  const blogFolders = fs.readdirSync(blogsDirectory);
+
+  const allBlogs = blogFolders
+    .filter((folder) => folder !== "page.tsx")
+    .map((folder) => {
+      const filePath = path.join(blogsDirectory, folder, "page.mdx");
+
+      const fileContent = fs.readFileSync(filePath, "utf-8");
+      const { data: frontmatter } = matter(fileContent);
+
+      return {
+        slug: folder,
+        ...frontmatter,
+      };
+    });
+
+  return (
+    <div>
+      <h1>All Blogs</h1>
+      <ul>
+        {allBlogs.map((blog: any) => (
+          <li key={blog.slug}>
+            <Link href={`/blogs/${blog.slug}`}>
+              <h2>{blog.title}</h2>
+              <p>{blog.description}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+Similar to the `page.tsx` file for dynamic routing, the `blogs/page.tsx` file fetches all blog posts from the `content` folder, extracts the frontmatter, and renders the titles as links to the individual blog posts. Except here in the `blogs/page.tsx` file, we are fetching all blog posts and rendering them as a list rather than a single blog post.
+
+Now when navigating to `http://localhost:3000/blogs`, you should see a list of all blog posts with their titles and descriptions.
+
+![List of Blog Posts](./list-of-blog-posts.png)
+
+### Filtering blog posts
+
+Given that you will become a blogging superstar and have hundreds of blog posts, it would be nice to have a way to filter and search for blog posts based on tags.
+
+We already added tags to the frontmatter of each blog post, so let's create a simple filter system to filter blog posts based on tags.
+
+We are going to first add a `searchParam` to the component's props and use it to filter the blog posts based on the tags.
+
+```tsx
+export default function BlogsPage({
+  searchParams,
+}: {
+  searchParams: { tag?: string };
+}) {
+  const selectedTag = searchParams?.tag;
+
+  ...
+
+}
+```
+
+In Next.js 13+ with the `app` directory, we can directly access `searchParams` in any page component when working with the Server Components architecture.
+
+Now, based on the tag selected, we can filter the blog posts and render only the blog posts that match the selected tag:
+
+```tsx
+const filteredBlogs = selectedTag
+  ? allBlogs.filter((blog: any) => blog.tags?.includes(selectedTag))
+  : allBlogs;
+```
+
+Finally, we can render the filtered blog posts as a list, here is the full `BlogsPage` component:
+
+```tsx
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import Link from "next/link";
+
+const blogsDirectory = path.join(process.cwd(), "content");
+
+export default function BlogsPage({
+  searchParams,
+}: {
+  searchParams: { tag?: string };
+}) {
+  const selectedTag = searchParams?.tag;
+
+  const blogFolders = fs.readdirSync(blogsDirectory);
+
+  const allBlogs = blogFolders
+    .filter((folder) => folder !== "page.tsx")
+    .map((folder) => {
+      const filePath = path.join(blogsDirectory, folder, "page.mdx");
+
+      const fileContent = fs.readFileSync(filePath, "utf-8");
+      const { data: frontmatter } = matter(fileContent);
+
+      return {
+        slug: folder,
+        ...frontmatter,
+      };
+    });
+
+  const allTags = ["react", "material-ui", "mdx", "nextjs"];
+
+  const filteredBlogs = selectedTag
+    ? allBlogs.filter((blog: any) => blog.tags?.includes(selectedTag))
+    : allBlogs;
+
+  return (
+    <div>
+      <div>
+        <h2>Tags</h2>
+        <ul>
+          {allTags.map((tag) => (
+            <li key={tag}>
+              <Link
+                href={`/blogs?tag=${tag}`}
+                style={{
+                  fontWeight: tag === selectedTag ? "bold" : "normal",
+                }}
+              >
+                {tag}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <h1>All Blogs</h1>
+      <ul>
+        {filteredBlogs.map((blog: any) => (
+          <li key={blog.slug}>
+            <Link href={`/blogs/${blog.slug}`}>
+              <h2>{blog.title}</h2>
+              <p>{blog.description}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+We are list a static list of tags for now, but you can easily fetch the tags from the blog posts and render them dynamically.
+
+In the template, we render the tags as links. When a tag is selected, we filter the blog posts based on the selected tag and render only the blog posts that match the selected tag.
+
+Now when navigating to `http://localhost:3000/blogs?tag=nextjs`, you should see a list of blog posts with the "nextjs" tag.
