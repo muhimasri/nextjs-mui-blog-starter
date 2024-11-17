@@ -1016,3 +1016,5 @@ We are list a static list of tags for now, but you can easily fetch the tags fro
 In the template, we render the tags as links. When a tag is selected, we filter the blog posts based on the selected tag and render only the blog posts that match the selected tag.
 
 Now when navigating to `http://localhost:3000/blogs?tag=nextjs`, you should see a list of blog posts with the "nextjs" tag.
+
+![Filtering Blog Posts](./filtering-blog-posts.mp4)
