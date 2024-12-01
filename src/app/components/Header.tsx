@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 
 export default function Header() {
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="default" elevation={0}>
       <Toolbar>
         <Typography variant="h6" mr={5}>
           My Blog
