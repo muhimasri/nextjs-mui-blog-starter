@@ -400,7 +400,7 @@ Let's update both blog posts with frontmatter:
 title: My First Blog Post
 description: Welcome to my first blog post! In this post, I will share my journey of learning Next.js and Material UI. Stay tuned for more exciting content!
 date: "2022-01-01"
-author: Muhi Masri
+author: Mareli Ramos
 tags: nextjs, material-ui
 ---
 ```
@@ -410,7 +410,7 @@ tags: nextjs, material-ui
 title: My Second Blog Post
 description: Welcome to my second blog post! This is a page created using MDX.
 date: "2022-01-02"
-author: Muhi Masri
+author: Mareli Ramos
 tags: mdx, react
 ---
 ```
