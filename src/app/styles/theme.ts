@@ -30,7 +30,7 @@ const theme = createTheme({
           contrastText: colors.grey[50],
         },
         secondary: {
-          main: colors.purple[600],
+          main: colors.purple[500],
           contrastText: colors.grey[50],
         },
         common: {
@@ -38,9 +38,17 @@ const theme = createTheme({
         },
         text: {
           primary: colors.grey[900],
-          secondary: colors.grey[700],
+          secondary: colors.grey[600],
         },
-
+        background: {
+          default: "white",
+          paper: "white",
+          banner:
+            "linear-gradient(180deg, #fff 10%, var(--mui-palette-purple-50))",
+        },
+        AppBar: {
+          defaultBg: "white",
+        },
         green: colors.green,
         purple: colors.purple,
         grey: colors.grey,
@@ -49,11 +57,11 @@ const theme = createTheme({
     dark: {
       palette: {
         primary: {
-          main: colors.green[700],
+          main: colors.green[500],
           contrastText: colors.grey[50],
         },
         secondary: {
-          main: colors.purple[800],
+          main: colors.purple[900],
           contrastText: colors.grey[50],
         },
         common: {
@@ -61,11 +69,26 @@ const theme = createTheme({
         },
         text: {
           primary: colors.grey[50],
-          secondary: colors.grey[200],
+          secondary: colors.grey[300],
+        },
+        background: {
+          default: colors.grey[900],
+          paper: colors.grey[900],
+          banner:
+            "linear-gradient(180deg, var(--mui-palette-grey-900) 61%, #14171e)",
         },
         green: colors.green,
         purple: colors.purple,
         grey: colors.grey,
+      },
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: "capitalize",
+        },
       },
     },
   },

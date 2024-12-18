@@ -1,12 +1,14 @@
 "use client";
 
-import { Box, styled, Typography } from "@mui/material";
+import { Box, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
 
 const BannerImage = styled(Image)(({ theme }) => ({
   backgroundColor: theme.palette.grey[200],
   borderRadius: theme.shape.borderRadiusLarge,
   boxShadow: theme.shadows[4],
+  maxWidth: "100%",
+  maxHeight: "fit-content",
 }));
 
 function ImageFrame(): JSX.Element {
@@ -26,7 +28,7 @@ function TagLine(): JSX.Element {
       component="span"
       sx={{
         fontSize: { xs: "8", sm: "9" },
-        color: "#fff",
+        color: "text.primary",
         position: "relative",
         fontWeight: 500,
         maxWidth: 551,
@@ -38,4 +40,23 @@ function TagLine(): JSX.Element {
   );
 }
 
-export { ImageFrame, TagLine };
+function BannerContainer({ children }) {
+  return (
+    <Stack
+      flexDirection="column"
+      justifyContent="center"
+      sx={{
+        pt: 6,
+        pb: 8,
+        background: (theme) => theme.vars.palette.background.banner,
+        // ...theme.applyStyles("dark", {
+        //   background: "linear-gradient(180deg, #0c0c0c 61%, #141517)",
+        // }),
+      }}
+    >
+      {children}
+    </Stack>
+  );
+}
+
+export { ImageFrame, TagLine, BannerContainer };

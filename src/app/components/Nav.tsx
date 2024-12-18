@@ -65,8 +65,9 @@ const Nav = (): JSX.Element => {
         sx={{
           display: { xs: "inherit", md: "none" },
         }}
+        elevation={1}
       >
-        <NavList openMenu={setOpen} />
+        <NavList openMenu={setOpen} pl={4} />
       </Drawer>
       <NavList
         sx={{
@@ -92,7 +93,7 @@ const NavList = ({
       gap={5}
       mt={{ xs: 5, md: 0 }}
       width={{ xs: "185px", md: "100%" }}
-      height={{ xs: "100%", md: "auto" }}
+      height={{ xs: "100%", md: "34px" }}
       {...other}
     >
       {pages.map((page) => (
@@ -102,7 +103,7 @@ const NavList = ({
           component={Link}
           sx={{
             color: "text.primary",
-            fontSize: "3",
+            fontSize: "4",
             letterSpacing: (theme) => theme.typography.letterSpacingLarge,
             textDecoration: "none",
             position: "relative",
