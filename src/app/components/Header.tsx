@@ -23,7 +23,7 @@ export default function Header(): JSX.Element {
   const { mode, setMode } = useColorScheme();
 
   return (
-    <AppBar position="static" color="defualt" elevation={0}>
+    <AppBar position="static" color="default" elevation={0}>
       <Container>
         <Toolbar>
           <Link

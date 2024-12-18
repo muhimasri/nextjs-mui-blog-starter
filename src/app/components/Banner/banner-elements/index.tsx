@@ -1,6 +1,6 @@
 "use client";
-
-import { Box, Stack, styled, Typography } from "@mui/material";
+import type {} from "@mui/material/themeCssVarsAugmentation";
+import { Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
 
 const BannerImage = styled(Image)(({ theme }) => ({
@@ -49,9 +49,6 @@ function BannerContainer({ children }) {
         pt: 6,
         pb: 8,
         background: (theme) => theme.vars.palette.background.banner,
-        // ...theme.applyStyles("dark", {
-        //   background: "linear-gradient(180deg, #0c0c0c 61%, #141517)",
-        // }),
       }}
     >
       {children}

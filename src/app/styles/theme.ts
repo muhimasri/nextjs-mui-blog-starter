@@ -1,6 +1,6 @@
 "use client";
 
-import { createTheme } from "@mui/material";
+import { backdropClasses, createTheme } from "@mui/material";
 import {
   borderRadius,
   colors,
@@ -43,11 +43,13 @@ const theme = createTheme({
         background: {
           default: "white",
           paper: "white",
-          banner:
-            "linear-gradient(180deg, #fff 10%, var(--mui-palette-purple-50))",
         },
         AppBar: {
           defaultBg: "white",
+        },
+        banner: {
+          background:
+            "linear-gradient(180deg, #fff 10%, var(--mui-palette-purple-50))",
         },
         green: colors.green,
         purple: colors.purple,
@@ -74,9 +76,11 @@ const theme = createTheme({
         background: {
           default: colors.grey[900],
           paper: colors.grey[900],
-          banner:
-            "linear-gradient(180deg, var(--mui-palette-grey-900) 61%, #14171e)",
         },
+        banner: {
+          background:
+            "linear-gradient(180deg, var(--mui-palette-grey-900) 61%, #14171e)",
+        }
         green: colors.green,
         purple: colors.purple,
         grey: colors.grey,
@@ -92,26 +96,6 @@ const theme = createTheme({
       },
     },
   },
-  // palette: {
-  //   mode: "dark",
-  //   primary: {
-  //     main: colors.green[500],
-  //     contrastText: colors.grey[50],
-  //   },
-  //   secondary: {
-  //     main: colors.purple[600],
-  //     contrastText: colors.grey[50],
-  //   },
-  //   // background: {
-  //   //   //   default: mode === "dark" ? colors.grey[900] : colors.grey[100],
-  //   //   //   paper: mode === "dark" ? colors.grey[800] : colors.grey[50],
-  //   //   default: "white",
-  //   //   paper: "white",
-  //   // },
-  //   green: colors.green,
-  //   purple: colors.purple,
-  //   grey: colors.grey,
-  // },
   typography: {
     htmlFontSize: 10,
     fontFamily: poppins.style.fontFamily,
@@ -130,3 +114,20 @@ export default theme;
 
 // #98f3bf
 // #6767c6
+
+declare module "@mui/material/styles" {
+  interface PaletteOptions {
+    banner: {
+      background: string;
+    };
+    green: Record<string, string>;
+    purple: Record<string, string>;
+  }
+  interface Palette {
+    banner: {
+      background: string;
+    };
+    green: Record<string, string>;
+    purple: Record<string, string>;
+  }
+}

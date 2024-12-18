@@ -3,45 +3,46 @@ import { Stack, Link as MUILink, Drawer, Button } from "@mui/material";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const pages = [
-  { name: "Home", id: "/" },
-  { name: "Blog", id: "/blogs" },
-  { name: "About", id: "/about" },
+  { name: "Home", path: "/" },
+  { name: "Blog", path: "/blogs" },
+  { name: "About", path: "/about" },
 ];
 
 const afterStyle = {
   position: "absolute",
   height: 2,
   display: "block",
-  content: `""`,
+  content: '""',
   bottom: -5,
   transition: "width 0.3s ease-in-out",
   backgroundColor: "primary.main",
 };
 
-const activeStyle = (pageId: string) => {
-  if (typeof document !== "undefined") {
-    return document.location.pathname === `${pageId}`
-      ? {
-          color: "primary.main",
-          "&::after": {
-            width: 15,
-            ...afterStyle,
-          },
-        }
-      : null;
-  }
-};
+// Function to get active styles based on current pathname
+const getActiveStyles = (currentPath: string, linkPath: string) =>
+  currentPath === linkPath
+    ? {
+        color: "primary.main",
+        "&::after": {
+          width: 15,
+          ...afterStyle,
+        },
+      }
+    : {};
 
 const Nav = (): JSX.Element => {
   const [open, setOpen] = useState(false);
+
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
 
   return (
     <>
+      {/* Mobile Menu Button */}
       <Stack
         direction="row"
         justifyContent="flex-end"
@@ -58,6 +59,8 @@ const Nav = (): JSX.Element => {
           <MenuIcon />
         </Button>
       </Stack>
+
+      {/* Mobile Drawer */}
       <Drawer
         open={open}
         onClose={toggleDrawer(false)}
@@ -67,40 +70,45 @@ const Nav = (): JSX.Element => {
         }}
         elevation={1}
       >
-        <NavList openMenu={setOpen} pl={4} />
+        <NavList onMenuToggle={setOpen} pl={4} />
       </Drawer>
+
+      {/* Desktop Navigation */}
       <NavList
         sx={{
           display: { xs: "none", md: "inherit" },
         }}
-        openMenu={() => {}}
+        onMenuToggle={() => {}}
       />
     </>
   );
 };
 
 const NavList = ({
-  openMenu,
+  onMenuToggle,
   ...other
 }: {
-  openMenu: (open: boolean) => void;
+  onMenuToggle: (open: boolean) => void;
 }) => {
+  const pathname = usePathname(); // <-- Use Next.js router to get current path
+
   return (
     <Stack
       overflow="auto"
       flexDirection={{ xs: "column", md: "row" }}
-      alignItems={{ xs: "basline", md: "center" }}
+      alignItems={{ xs: "baseline", md: "center" }}
       gap={5}
       mt={{ xs: 5, md: 0 }}
       width={{ xs: "185px", md: "100%" }}
       height={{ xs: "100%", md: "34px" }}
       {...other}
     >
-      {pages.map((page) => (
+      {pages.map(({ name, path }) => (
         <MUILink
-          key={page.id}
-          href={`${page.id}`}
+          key={path}
+          href={path}
           component={Link}
+          onClick={() => onMenuToggle(false)}
           sx={{
             color: "text.primary",
             fontSize: "4",
@@ -119,10 +127,10 @@ const NavList = ({
                 width: 15,
               },
             },
-            ...activeStyle(page.id),
+            ...getActiveStyles(pathname, path),
           }}
         >
-          {page.name}
+          {name}
         </MUILink>
       ))}
     </Stack>

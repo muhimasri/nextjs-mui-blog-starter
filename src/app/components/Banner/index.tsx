@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Container, Stack, Typography, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
-import { TagLine, ImageFrame, BannerContainer } from "./banner-elements";
-import Header from "./Header";
+import { BannerContainer, TagLine, ImageFrame } from "./banner-elements";
+import Header from "../Header";
 
 function Banner(): JSX.Element {
   return (
