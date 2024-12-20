@@ -2,18 +2,7 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import {
-  Box,
-  Container,
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Link,
-  Radio,
-  RadioGroup,
-  useColorScheme,
-} from "@mui/material";
+import { Container, Link, useColorScheme } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
@@ -45,7 +34,7 @@ export default function Header(): JSX.Element {
           <Nav />
           <IconButton
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
-            sx={{ color: "grey.400" }}
+            // sx={{ color: "grey.400" }}
           >
             {mode === "light" ? <DarkModeIcon /> : <LightModeIcon />}
           </IconButton>

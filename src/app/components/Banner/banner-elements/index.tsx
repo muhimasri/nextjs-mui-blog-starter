@@ -4,7 +4,6 @@ import { Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
 
 const BannerImage = styled(Image)(({ theme }) => ({
-  backgroundColor: theme.palette.grey[200],
   borderRadius: theme.shape.borderRadiusLarge,
   boxShadow: theme.shadows[4],
   maxWidth: "100%",
@@ -48,7 +47,7 @@ function BannerContainer({ children }) {
       sx={{
         pt: 6,
         pb: 8,
-        background: (theme) => theme.vars.palette.background.banner,
+        background: (theme) => theme.vars.palette.banner.background,
       }}
     >
       {children}

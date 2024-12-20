@@ -80,7 +80,7 @@ const theme = createTheme({
         banner: {
           background:
             "linear-gradient(180deg, var(--mui-palette-grey-900) 61%, #14171e)",
-        }
+        },
         green: colors.green,
         purple: colors.purple,
         grey: colors.grey,
@@ -104,6 +104,7 @@ const theme = createTheme({
     ...font.size,
   },
   shape: {
+    borderRadius: 4,
     ...borderRadius,
   },
   spacing: Object.values(spacing),
@@ -129,5 +130,15 @@ declare module "@mui/material/styles" {
     };
     green: Record<string, string>;
     purple: Record<string, string>;
+  }
+}
+
+declare module "@mui/material/styles" {
+  interface Shape {
+    borderRadiusSmall: string;
+    borderRadiusMedium: string;
+    borderRadiusLarge: string;
+    borderRadiusPill: string;
+    borderRadiusCircle: string;
   }
 }
