@@ -38,7 +38,7 @@ const theme = createTheme({
         },
         text: {
           primary: colors.grey[900],
-          secondary: colors.grey[600],
+          secondary: colors.grey[500],
         },
         background: {
           default: "white",
@@ -49,7 +49,7 @@ const theme = createTheme({
         },
         banner: {
           background:
-            "linear-gradient(180deg, #fff 10%, var(--mui-palette-purple-50))",
+            "linear-gradient(180deg, #fff 10%, var(--mui-palette-grey-100))",
         },
         green: colors.green,
         purple: colors.purple,
@@ -71,7 +71,7 @@ const theme = createTheme({
         },
         text: {
           primary: colors.grey[50],
-          secondary: colors.grey[300],
+          secondary: colors.grey[500],
         },
         background: {
           default: colors.grey[900],
@@ -93,6 +93,11 @@ const theme = createTheme({
         root: {
           textTransform: "capitalize",
         },
+      },
+    },
+    MuiCard: {
+      defaultProps: {
+        elevation: 0,
       },
     },
   },

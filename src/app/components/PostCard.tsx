@@ -1,3 +1,4 @@
+"use client";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -19,7 +20,7 @@ interface PostCardProps {
     src: string;
     alt: string;
   };
-  categories: string[];
+  tags: string;
   description: string;
   link: string;
 }
@@ -27,7 +28,7 @@ interface PostCardProps {
 export default function PostCard({
   title,
   image,
-  categories,
+  tags,
   description,
   link,
 }: PostCardProps) {
@@ -51,7 +52,7 @@ export default function PostCard({
               fontWeight: 600,
               lineHeight: (theme) => theme.typography.letterSpacingSmall,
               fontSize: "6",
-              color: "grey.800",
+              color: "text.primary",
             }}
             gutterBottom
           >
@@ -60,7 +61,7 @@ export default function PostCard({
         </PostLink>
         <Typography
           sx={{
-            color: "grey.600",
+            color: "text.secondary",
             fontSize: "3",
           }}
           component="p"
@@ -70,7 +71,7 @@ export default function PostCard({
       </CardContent>
 
       <CardActions sx={{ p: 0, pl: 1 }}>
-        {categories.map((cat, index) => (
+        {tags.split(",").map((cat, index) => (
           <Tag
             size="small"
             label={cat}

@@ -31,7 +31,7 @@ function Banner(): JSX.Element {
                 <TagLine />
                 <Typography
                   sx={{
-                    fontSize: { xs: "4", sm: "5" },
+                    fontSize: { xs: "3", sm: "4" },
                     color: "text.secondary",
                     position: "relative",
                     maxWidth: 560,
@@ -39,7 +39,7 @@ function Banner(): JSX.Element {
                     fontWeight: 300,
                     pl: 3,
                     borderLeft: "3px solid",
-                    borderColor: "purple.200",
+                    borderColor: "purple.100",
                   }}
                   component="div"
                 >
