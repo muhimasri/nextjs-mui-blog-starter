@@ -11,7 +11,7 @@ type TagProps = {
 const chipStyle = {
   backgroundColor: "green.200",
   fontSize: "1",
-  borderRadius: borderRadius.borderRadiusMedium,
+  borderRadius: borderRadius.medium,
   color: "grey.800",
 };
 

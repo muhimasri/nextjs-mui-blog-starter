@@ -2,6 +2,9 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
+import Tag from "../components/Tag";
+import { Box, Container, Grid, Stack } from "@mui/material";
+import PostCard from "../components/PostCard";
 
 const blogsDirectory = path.join(process.cwd(), "content");
 
@@ -31,39 +34,35 @@ export default function BlogsPage({
   const allTags = ["react", "material-ui", "mdx", "nextjs"];
 
   const filteredBlogs = selectedTag
-    ? allBlogs.filter((blog: any) => blog.tags?.includes(selectedTag))
+    ? allBlogs.filter((blog: Blog) => blog.tags?.includes(selectedTag))
     : allBlogs;
 
   return (
-    <div>
-      <div>
-        <h2>Tags</h2>
-        <ul>
-          {allTags.map((tag) => (
-            <li key={tag}>
-              <Link
-                href={`/blogs?tag=${tag}`}
-                style={{
-                  fontWeight: tag === selectedTag ? "bold" : "normal",
-                }}
-              >
-                {tag}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <h1>All Blogs</h1>
-      <ul>
-        {filteredBlogs.map((blog: any) => (
-          <li key={blog.slug}>
-            <Link href={`/blogs/${blog.slug}`}>
-              <h2>{blog.title}</h2>
-              <p>{blog.description}</p>
-            </Link>
-          </li>
+    <Container>
+      <h2>Search by topic</h2>
+      <Stack gap={3} direction="row">
+        {allTags.map((tag, index) => (
+          <Tag
+            label={tag}
+            link={`/blogs?tag=${tag}`}
+            key={index}
+            size="large"
+          />
         ))}
-      </ul>
-    </div>
+      </Stack>
+      <Grid container spacing={2}>
+        {filteredBlogs.map((blog, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <PostCard
+              title={blog.title}
+              image={blog.featuredImage}
+              tags={blog.tags}
+              description={blog.description}
+              link={blog.slug}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   );
 }

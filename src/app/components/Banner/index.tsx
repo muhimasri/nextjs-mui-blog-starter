@@ -7,7 +7,6 @@ import Header from "../Header";
 function Banner(): JSX.Element {
   return (
     <BannerContainer>
-      <Header />
       <Container>
         <Grid
           container
@@ -86,5 +85,3 @@ function Banner(): JSX.Element {
 }
 
 export default Banner;
-
-// background: linear-gradient(180deg, #0c0c0c 61%, #141517);

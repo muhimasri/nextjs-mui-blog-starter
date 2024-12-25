@@ -12,11 +12,11 @@ const globalStyles = (
           width: 10,
         },
         "&::-webkit-scrollbar-track": {
-          borderRadius: theme.shape.borderRadius.borderRadiusSmall,
+          borderRadius: theme.shape.radius.small,
         },
         "&::-webkit-scrollbar-thumb": {
           background: theme.palette.grey[500],
-          borderRadius: theme.shape.borderRadius.borderRadiusMedium,
+          borderRadius: theme.shape.radius.medium,
         },
       },
     })}

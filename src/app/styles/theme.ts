@@ -1,6 +1,6 @@
 "use client";
 
-import { backdropClasses, createTheme } from "@mui/material";
+import { createTheme } from "@mui/material";
 import {
   borderRadius,
   colors,
@@ -104,13 +104,13 @@ const theme = createTheme({
   typography: {
     htmlFontSize: 10,
     fontFamily: poppins.style.fontFamily,
-    ...letterSpacing,
+    letterSpacing: letterSpacing,
     ...lineHeight,
     ...font.size,
   },
   shape: {
     borderRadius: 4,
-    ...borderRadius,
+    radius: borderRadius,
   },
   spacing: Object.values(spacing),
   shadows: Object.values(shadows),
@@ -120,30 +120,3 @@ export default theme;
 
 // #98f3bf
 // #6767c6
-
-declare module "@mui/material/styles" {
-  interface PaletteOptions {
-    banner: {
-      background: string;
-    };
-    green: Record<string, string>;
-    purple: Record<string, string>;
-  }
-  interface Palette {
-    banner: {
-      background: string;
-    };
-    green: Record<string, string>;
-    purple: Record<string, string>;
-  }
-}
-
-declare module "@mui/material/styles" {
-  interface Shape {
-    borderRadiusSmall: string;
-    borderRadiusMedium: string;
-    borderRadiusLarge: string;
-    borderRadiusPill: string;
-    borderRadiusCircle: string;
-  }
-}

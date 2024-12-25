@@ -39,7 +39,7 @@ export default function PostCard({
           <Image
             src={image.src}
             alt={image.alt}
-            style={{ borderRadius: borderRadius.borderRadiusMedium }}
+            style={{ borderRadius: borderRadius.medium }}
             width={355}
             height={200}
           />

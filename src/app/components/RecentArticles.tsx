@@ -8,17 +8,6 @@ import Link from "next/link";
 
 const blogsDirectory = path.join(process.cwd(), "content");
 
-interface Blog {
-  slug: string;
-  title: string;
-  featuredImage: {
-    src: string;
-    alt: string;
-  };
-  tags: string;
-  description: string;
-}
-
 export default function RecentArticles() {
   const blogFolders = fs.readdirSync(blogsDirectory);
 
@@ -37,8 +26,6 @@ export default function RecentArticles() {
     });
 
   const recentBlogs = allBlogs.slice(0, 6);
-
-  console.log(recentBlogs);
 
   return (
     <Container sx={{ px: { xs: 3, lg: 5 }, py: { xs: 8, lg: 9 } }}>

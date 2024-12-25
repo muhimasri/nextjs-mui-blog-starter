@@ -108,15 +108,15 @@ export const {
     10: "0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
   },
   borderRadius: {
-    borderRadiusSmall: "4px",
-    borderRadiusMedium: "7px",
-    borderRadiusLarge: "10px",
-    borderRadiusPill: "50px",
-    borderRadiusCircle: "50%",
+    small: "4px",
+    medium: "7px",
+    large: "10px",
+    pill: "50px",
+    circle: "50%",
   },
   letterSpacing: {
-    letterSpacingLarge: "0.05em",
-    letterSpacingXlarge: "0.1em",
+    large: "0.05em",
+    xLarge: "0.1em",
   },
   lineHeight: {
     letterSpacingXsmall: "1.2em",

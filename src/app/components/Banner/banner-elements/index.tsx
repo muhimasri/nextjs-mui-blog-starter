@@ -4,7 +4,7 @@ import { Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
 
 const BannerImage = styled(Image)(({ theme }) => ({
-  borderRadius: theme.shape.borderRadiusLarge,
+  borderRadius: theme.shape.radius.large,
   boxShadow: theme.shadows[4],
   maxWidth: "100%",
   maxHeight: "fit-content",
