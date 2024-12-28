@@ -3,8 +3,10 @@ import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
 import Tag from "../components/Tag";
-import { Box, Container, Grid, Stack } from "@mui/material";
+import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import PostCard from "../components/PostCard";
+import Header from "../components/Header";
+import { SearchContainer } from "./blogs-elements";
 
 const blogsDirectory = path.join(process.cwd(), "content");
 
@@ -14,7 +16,7 @@ export default function BlogsPage({
   searchParams: { tag?: string };
 }) {
   const selectedTag = searchParams?.tag;
-
+  console.log(selectedTag);
   const blogFolders = fs.readdirSync(blogsDirectory);
 
   const allBlogs = blogFolders
@@ -33,36 +35,54 @@ export default function BlogsPage({
 
   const allTags = ["react", "material-ui", "mdx", "nextjs"];
 
+  const handleTagClick = (tag: string) => {
+    if (tag === selectedTag) {
+      return "/blogs";
+    }
+    return `/blogs?tag=${tag}`;
+  };
+
   const filteredBlogs = selectedTag
     ? allBlogs.filter((blog: Blog) => blog.tags?.includes(selectedTag))
     : allBlogs;
 
   return (
-    <Container>
-      <h2>Search by topic</h2>
-      <Stack gap={3} direction="row">
-        {allTags.map((tag, index) => (
-          <Tag
-            label={tag}
-            link={`/blogs?tag=${tag}`}
-            key={index}
-            size="large"
-          />
-        ))}
-      </Stack>
-      <Grid container spacing={2}>
-        {filteredBlogs.map((blog, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <PostCard
-              title={blog.title}
-              image={blog.featuredImage}
-              tags={blog.tags}
-              description={blog.description}
-              link={blog.slug}
-            />
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    <>
+      <Header />
+      <SearchContainer>
+        <Container>
+          <Typography variant="h5" component="h1" sx={{ mb: 5, px: 3 }}>
+            {" "}
+            Search by topic:{" "}
+          </Typography>
+          <Stack gap={3} direction="row" px={3}>
+            {allTags.map((tag, index) => (
+              <Tag
+                label={tag}
+                link={handleTagClick(tag)}
+                key={index}
+                size="large"
+                selected={tag === selectedTag}
+              />
+            ))}
+          </Stack>
+        </Container>
+      </SearchContainer>
+      <Container sx={{ mt: 6 }}>
+        <Grid container spacing={2}>
+          {filteredBlogs.map((blog, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <PostCard
+                title={blog.title}
+                image={blog.featuredImage}
+                tags={blog.tags}
+                description={blog.description}
+                link={blog.slug}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </>
   );
 }

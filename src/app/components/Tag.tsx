@@ -6,19 +6,19 @@ type TagProps = {
   size?: "small" | "large";
   label: String;
   link: String;
+  selected?: boolean;
 };
 
-const chipStyle = {
+const chipStyle = (selected: boolean) => ({
   backgroundColor: "green.200",
-  fontSize: "1",
-  borderRadius: borderRadius.medium,
+  borderRadius: borderRadius.pill,
   color: "grey.800",
-};
+  border: selected ? "2px solid" : "none",
+  borderColor: selected ? "primary.dark" : "transparent",
+});
 
 const largeStyle = {
-  mr: 1,
-  mb: 1,
-  height: "21px",
+  px: 2,
   fontSize: "2",
   cursor: "pointer",
 };
@@ -26,9 +26,16 @@ const largeStyle = {
 const smallStyle = {
   height: "19px",
   cursor: "pointer",
+  fontSize: "1",
 };
 
-const Tag = ({ size, label, link, ...other }: TagProps): JSX.Element => {
+const Tag = ({
+  size,
+  label,
+  link,
+  selected = false,
+  ...other
+}: TagProps): JSX.Element => {
   return (
     <Link href={`${link}`}>
       <Chip
@@ -36,8 +43,8 @@ const Tag = ({ size, label, link, ...other }: TagProps): JSX.Element => {
         label={label?.replace("-", " ")}
         sx={
           size === "small"
-            ? { ...smallStyle, ...chipStyle }
-            : { ...largeStyle, ...chipStyle }
+            ? { ...chipStyle(selected), ...smallStyle }
+            : { ...chipStyle(selected), ...largeStyle }
         }
       />
     </Link>

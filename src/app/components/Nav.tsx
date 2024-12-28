@@ -97,7 +97,7 @@ const NavList = ({
       overflow="auto"
       flexDirection={{ xs: "column", md: "row" }}
       alignItems={{ xs: "baseline", md: "center" }}
-      gap={5}
+      gap={6}
       mt={{ xs: 5, md: 0 }}
       width={{ xs: "185px", md: "100%" }}
       height={{ xs: "100%", md: "34px" }}
@@ -117,6 +117,7 @@ const NavList = ({
             position: "relative",
             transition: "color 0.3s ease-in-out",
             whiteSpace: "nowrap",
+            fontWeight: 500,
             "&::after": {
               width: 0,
               ...afterStyle,

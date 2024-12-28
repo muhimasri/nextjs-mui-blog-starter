@@ -37,7 +37,7 @@ const theme = createTheme({
           onBackground: colors.grey[900],
         },
         text: {
-          primary: colors.grey[900],
+          primary: colors.grey[800],
           secondary: colors.grey[500],
         },
         background: {
@@ -70,7 +70,7 @@ const theme = createTheme({
           onBackground: colors.grey[50],
         },
         text: {
-          primary: colors.grey[50],
+          primary: colors.grey[100],
           secondary: colors.grey[500],
         },
         background: {

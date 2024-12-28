@@ -14,17 +14,17 @@ export default function Header(): JSX.Element {
   return (
     <AppBar position="static" color="default" elevation={0}>
       <Container>
-        <Toolbar>
+        <Toolbar sx={{ py: 7 }}>
           <Link
             sx={{
               textDecoration: "none",
+              mr: 7,
             }}
             href="/"
           >
             <Typography
               fontSize="7"
               fontWeight="500"
-              mr={5}
               whiteSpace="nowrap"
               color="green.500"
             >
