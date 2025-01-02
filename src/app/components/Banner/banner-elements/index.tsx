@@ -31,7 +31,7 @@ function TagLine(): JSX.Element {
         position: "relative",
         fontWeight: 500,
         maxWidth: 551,
-        lineHeight: (theme) => theme.typography.letterSpacingSmall,
+        lineHeight: (theme) => theme.typography.lineHeight.small,
       }}
     >
       I help developers and teams build quality software

@@ -8,13 +8,17 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import Nav from "./Nav";
 
-export default function Header(): JSX.Element {
+interface HeaderProps {
+  size?: "small" | "large";
+}
+
+export default function Header({ size = "large" }: HeaderProps): JSX.Element {
   const { mode, setMode } = useColorScheme();
 
   return (
     <AppBar position="static" color="default" elevation={0}>
       <Container>
-        <Toolbar sx={{ py: 7 }}>
+        <Toolbar sx={{ py: size === "large" ? 7 : 4 }}>
           <Link
             sx={{
               textDecoration: "none",

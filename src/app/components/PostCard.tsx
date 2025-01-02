@@ -50,7 +50,7 @@ export default function PostCard({
           <Typography
             sx={{
               fontWeight: 600,
-              lineHeight: (theme) => theme.typography.letterSpacingSmall,
+              lineHeight: (theme) => theme.typography.lineHeight.small,
               fontSize: "6",
               color: "text.primary",
             }}

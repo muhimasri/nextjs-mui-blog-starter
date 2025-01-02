@@ -10,7 +10,7 @@ import {
   shadows,
   spacing,
 } from "./tokens";
-import { Poppins } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -105,7 +105,7 @@ const theme = createTheme({
     htmlFontSize: 10,
     fontFamily: poppins.style.fontFamily,
     letterSpacing: letterSpacing,
-    ...lineHeight,
+    lineHeight: lineHeight,
     ...font.size,
   },
   shape: {

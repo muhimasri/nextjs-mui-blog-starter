@@ -11,6 +11,10 @@ import rehypeSlug from "rehype-slug";
 
 import rehypePrettyCode from "rehype-pretty-code";
 import Counter from "@/app/components/Counter";
+import { Box, Container, Stack, Typography } from "@mui/material";
+import { colors, spacing } from "@/app/styles/tokens";
+import Header from "@/app/components/Header";
+import { BlogContent, FeaturedImage } from "../blogs-elements";
 
 interface BlogPostPageProps {
   params: { slug: string };
@@ -47,21 +51,95 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   });
 
   return (
-    <div>
-      <h1>{frontmatter.title}</h1>
-      <p>{frontmatter.date}</p>
-      <p>{frontmatter.author}</p>
-      <p>{frontmatter.description}</p>
-      <p>{frontmatter.tags}</p>
-      <ul>
-        {headings?.map(({ text, slug, depth }) => (
-          <li key={slug} style={{ marginLeft: `${depth - 1}rem` }}>
-            <a href={`#${slug}`}>{text}</a>
-          </li>
-        ))}
-      </ul>
-      <div>{mdxContent}</div>
-    </div>
+    <>
+      <Header size="small" />
+      <Box
+        sx={{
+          backgroundColor: "purple.500",
+          py: 8,
+          position: "relative",
+          ":after": {
+            content: `""`,
+            position: "absolute",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: "33%",
+            backgroundColor: "white",
+            zIndex: 1,
+          },
+        }}
+      >
+        <Container sx={{ textAlign: "center" }}>
+          <Typography
+            variant="h4"
+            component="h1"
+            color="white"
+            fontWeight="600"
+          >
+            {frontmatter.title}
+          </Typography>
+          <Typography variant="body2" sx={{ mt: 5 }} color="white">
+            Last Updated: {frontmatter.date}
+          </Typography>
+          <Box
+            sx={{
+              position: "relative",
+              mt: 8,
+            }}
+          >
+            <FeaturedImage frontmatter={frontmatter} />
+          </Box>
+        </Container>
+      </Box>
+
+      {/* White content area */}
+      <Container>
+        <Stack gap={6} direction="row">
+          {/* Table of content on the left */}
+          <Box
+            component="nav"
+            sx={{
+              position: "sticky",
+              top: spacing[6],
+              height: `calc(100vh - ${spacing[6]})`,
+              overflowY: "auto",
+            }}
+          >
+            <Typography variant="h6" sx={{ mb: 2 }}>
+              Contents
+            </Typography>
+            <Box component="ul" sx={{ listStyle: "none", p: 0 }}>
+              {headings?.map(({ text, slug: headingSlug, depth }) => (
+                <Box
+                  component="li"
+                  key={headingSlug}
+                  sx={{ ml: `${depth - 1}rem`, mb: 1 }}
+                >
+                  <Typography
+                    component="a"
+                    href={`#${headingSlug}`}
+                    variant="body2"
+                    sx={{
+                      textDecoration: "none",
+                      color: isHeadingSelected(headingSlug)
+                        ? "secondary.main"
+                        : "text.primary",
+                      "&:hover, &:focus": { color: "secondary.main" },
+                    }}
+                  >
+                    {text}
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+
+          {/* Main content */}
+          <BlogContent mdxContent={mdxContent} />
+        </Stack>
+      </Container>
+    </>
   );
 }
 
@@ -99,4 +177,10 @@ async function extractHeadings(content: string): Promise<Heading[]> {
   });
 
   return headings;
+}
+
+function isHeadingSelected(heading: string) {
+  if (typeof window === "undefined") return false;
+  console.log(window.location.hash);
+  return window.location.hash === `#${heading}`;
 }

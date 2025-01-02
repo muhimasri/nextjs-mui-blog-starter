@@ -119,7 +119,8 @@ export const {
     xLarge: "0.1em",
   },
   lineHeight: {
-    letterSpacingXsmall: "1.2em",
-    letterSpacingSmall: "1.3em",
+    small: "1.3em",
+    medium: "1.4em",
+    large: "1.5em",
   },
 };
