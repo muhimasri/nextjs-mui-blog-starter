@@ -59,8 +59,9 @@ function BlogContent({ mdxContent }) {
             padding: 4,
             borderRadius: (theme) => theme.vars.shape.radius.medium,
             overflowX: "auto",
+            position: "relative",
           },
-          "& p": {
+          "& p, & h1, & h2, & h3": {
             lineHeight: (theme) => theme.typography.lineHeight.large,
             "& code": {
               backgroundColor: "purple.50",
@@ -68,6 +69,17 @@ function BlogContent({ mdxContent }) {
               borderRadius: (theme) => theme.vars.shape.radius.medium,
               px: 2,
               py: "0.2rem",
+            },
+          },
+          "& [data-highlighted-line]": {
+            "&::before": {
+              content: "' '",
+              position: "absolute",
+              left: 0,
+              borderLeft: "4px solid",
+              borderColor: "purple.400",
+              backgroundColor: "rgb(184 173 255 / 10%)", // Changed to RGB with opacity
+              width: "100%",
             },
           },
         }}

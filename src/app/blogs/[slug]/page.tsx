@@ -15,6 +15,7 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import { colors, spacing } from "@/app/styles/tokens";
 import Header from "@/app/components/Header";
 import { BlogContent, FeaturedImage } from "../blogs-elements";
+import TableOfContents from "@/app/components/TableOfContents";
 
 interface BlogPostPageProps {
   params: { slug: string };
@@ -97,43 +98,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <Container>
         <Stack gap={6} direction="row">
           {/* Table of content on the left */}
-          <Box
-            component="nav"
-            sx={{
-              position: "sticky",
-              top: spacing[6],
-              height: `calc(100vh - ${spacing[6]})`,
-              overflowY: "auto",
-            }}
-          >
-            <Typography variant="h6" sx={{ mb: 2 }}>
-              Contents
-            </Typography>
-            <Box component="ul" sx={{ listStyle: "none", p: 0 }}>
-              {headings?.map(({ text, slug: headingSlug, depth }) => (
-                <Box
-                  component="li"
-                  key={headingSlug}
-                  sx={{ ml: `${depth - 1}rem`, mb: 1 }}
-                >
-                  <Typography
-                    component="a"
-                    href={`#${headingSlug}`}
-                    variant="body2"
-                    sx={{
-                      textDecoration: "none",
-                      color: isHeadingSelected(headingSlug)
-                        ? "secondary.main"
-                        : "text.primary",
-                      "&:hover, &:focus": { color: "secondary.main" },
-                    }}
-                  >
-                    {text}
-                  </Typography>
-                </Box>
-              ))}
-            </Box>
-          </Box>
+          <TableOfContents headings={headings} />
 
           {/* Main content */}
           <BlogContent mdxContent={mdxContent} />
