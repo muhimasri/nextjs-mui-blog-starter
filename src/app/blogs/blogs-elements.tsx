@@ -41,9 +41,9 @@ function BlogContent({ mdxContent }) {
         component="article"
         sx={{
           "& h1": {
-            color: "secondary.main",
-            fontSize: "8",
-            fontWeight: "600",
+            color: "blog.h1Color",
+            fontSize: "2.8rem",
+            fontWeight: 500,
             "&:first-child": {
               mt: 0,
             },
@@ -60,12 +60,13 @@ function BlogContent({ mdxContent }) {
             borderRadius: (theme) => theme.vars.shape.radius.medium,
             overflowX: "auto",
             position: "relative",
+            backgroundColor: "blog.preBgColor",
           },
-          "& p, & h1, & h2, & h3": {
+          "& p, & h1, & h2, & h3, & ul": {
             lineHeight: (theme) => theme.typography.lineHeight.large,
             "& code": {
               backgroundColor: "purple.50",
-              color: "purple.400",
+              color: "purple.500",
               borderRadius: (theme) => theme.vars.shape.radius.medium,
               px: 2,
               py: "0.2rem",

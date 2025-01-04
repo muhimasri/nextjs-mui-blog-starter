@@ -16,6 +16,7 @@ import { colors, spacing } from "@/app/styles/tokens";
 import Header from "@/app/components/Header";
 import { BlogContent, FeaturedImage } from "../blogs-elements";
 import TableOfContents from "@/app/components/TableOfContents";
+import Tag from "@/app/components/Tag";
 
 interface BlogPostPageProps {
   params: { slug: string };
@@ -42,7 +43,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             rehypePrettyCode,
             {
               theme: "github-dark",
-              keepBackground: true,
+              keepBackground: false,
             },
           ],
         ],
@@ -56,7 +57,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <Header size="small" />
       <Box
         sx={{
-          backgroundColor: "purple.500",
+          backgroundColor: "blog.headerBgColor",
           py: 8,
           position: "relative",
           ":after": {
@@ -66,7 +67,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             right: 0,
             bottom: 0,
             height: "33%",
-            backgroundColor: "white",
+            backgroundColor: "background.default",
             zIndex: 1,
           },
         }}
@@ -76,17 +77,45 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             variant="h4"
             component="h1"
             color="white"
-            fontWeight="600"
+            fontWeight="500"
+            mb={2}
           >
             {frontmatter.title}
           </Typography>
-          <Typography variant="body2" sx={{ mt: 5 }} color="white">
-            Last Updated: {frontmatter.date}
+          <Typography
+            variant="h6"
+            fontWeight="300"
+            color="purple.200"
+            mb={6}
+            maxWidth={600}
+            mx="auto"
+          >
+            {frontmatter.description}
           </Typography>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            mb={3}
+            gap={2}
+          >
+            <Typography variant="body2" color="purple.200">
+              Last Updated: {frontmatter.date}
+            </Typography>
+            <Stack direction="row" gap={1}>
+              {frontmatter.tags.split(",").map((tag) => (
+                <Tag
+                  key={tag}
+                  size="small"
+                  label={tag}
+                  link={`/blogs?tag=${tag}`}
+                />
+              ))}
+            </Stack>
+          </Stack>
           <Box
             sx={{
               position: "relative",
-              mt: 8,
             }}
           >
             <FeaturedImage frontmatter={frontmatter} />

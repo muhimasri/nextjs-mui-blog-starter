@@ -51,6 +51,11 @@ const theme = createTheme({
           background:
             "linear-gradient(180deg, #fff 10%, var(--mui-palette-grey-100))",
         },
+        blog: {
+          headerBgColor: colors.purple[500],
+          h1Color: colors.purple[500],
+          preBgColor: colors.grey[100],
+        },
         green: colors.green,
         purple: colors.purple,
         grey: colors.grey,
@@ -80,6 +85,11 @@ const theme = createTheme({
         banner: {
           background:
             "linear-gradient(180deg, var(--mui-palette-grey-900) 61%, #14171e)",
+        },
+        blog: {
+          headerBgColor: colors.purple[800],
+          h1Color: colors.purple[300],
+          preBgColor: colors.grey[800],
         },
         green: colors.green,
         purple: colors.purple,

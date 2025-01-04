@@ -57,6 +57,7 @@ export default function TableOfContents({ headings }: TOCProps) {
                 color:
                   activeHeading === slug ? "text.primary" : "text.secondary",
                 "&:hover, &:focus": { color: "text.primary" },
+                fontWeight: activeHeading === slug ? "600" : "normal",
               }}
             >
               {text}
