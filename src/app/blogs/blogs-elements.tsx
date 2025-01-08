@@ -61,12 +61,14 @@ function BlogContent({ mdxContent }) {
             overflowX: "auto",
             position: "relative",
             backgroundColor: "blog.preBgColor",
+            outline: "1px solid",
+            outlineColor: "blog.preBorderColor",
           },
           "& p, & h1, & h2, & h3, & ul": {
             lineHeight: (theme) => theme.typography.lineHeight.large,
             "& code": {
-              backgroundColor: "purple.50",
-              color: "purple.500",
+              backgroundColor: "blog.codeBgColor",
+              color: "blog.codeColor",
               borderRadius: (theme) => theme.vars.shape.radius.medium,
               px: 2,
               py: "0.2rem",

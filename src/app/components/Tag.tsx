@@ -10,11 +10,11 @@ type TagProps = {
 };
 
 const chipStyle = (selected: boolean) => ({
-  backgroundColor: "green.200",
+  backgroundColor: selected ? "green.200" : "grey.200",
   borderRadius: borderRadius.pill,
   color: "grey.800",
-  border: selected ? "2px solid" : "none",
-  borderColor: selected ? "primary.dark" : "transparent",
+  // border: selected ? "2px solid" : "none",
+  // borderColor: selected ? "primary.dark" : "transparent",
 });
 
 const largeStyle = {

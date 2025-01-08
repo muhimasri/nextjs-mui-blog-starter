@@ -1,6 +1,6 @@
 "use client";
 
-import { createTheme } from "@mui/material";
+import { createTheme, darken } from "@mui/material";
 import {
   borderRadius,
   colors,
@@ -54,7 +54,10 @@ const theme = createTheme({
         blog: {
           headerBgColor: colors.purple[500],
           h1Color: colors.purple[500],
-          preBgColor: colors.grey[100],
+          preBgColor: colors.grey[800],
+          preBorderColor: colors.purple[300],
+          codeBgColor: colors.grey[200],
+          codeColor: colors.purple[400],
         },
         green: colors.green,
         purple: colors.purple,
@@ -75,7 +78,7 @@ const theme = createTheme({
           onBackground: colors.grey[50],
         },
         text: {
-          primary: colors.grey[100],
+          primary: colors.grey[200],
           secondary: colors.grey[500],
         },
         background: {
@@ -87,9 +90,12 @@ const theme = createTheme({
             "linear-gradient(180deg, var(--mui-palette-grey-900) 61%, #14171e)",
         },
         blog: {
-          headerBgColor: colors.purple[800],
+          headerBgColor: "black",
           h1Color: colors.purple[300],
-          preBgColor: colors.grey[800],
+          preBgColor: darken(colors.grey[800], 0.4),
+          preBorderColor: colors.purple[700],
+          codeBgColor: colors.grey[800],
+          codeColor: colors.purple[400],
         },
         green: colors.green,
         purple: colors.purple,
