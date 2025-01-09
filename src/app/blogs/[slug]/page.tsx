@@ -103,7 +103,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Last Updated: {frontmatter.date}
             </Typography>
             <Stack direction="row" gap={1}>
-              {frontmatter.tags.split(",").map((tag) => (
+              {frontmatter.tags.split(",").map((tag: string) => (
                 <Tag
                   key={tag}
                   size="small"

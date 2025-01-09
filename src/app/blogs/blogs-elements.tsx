@@ -1,8 +1,21 @@
 "use client";
 
 import { Box } from "@mui/material";
+import { ReactNode } from "react";
 
-function SearchContainer({ children }) {
+interface SearchContainerProps {
+  children: ReactNode;
+}
+
+interface FeaturedImageProps {
+  [key: string]: any;
+}
+
+interface BlogContentProps {
+  mdxContent: ReactNode;
+}
+
+function SearchContainer({ children }: SearchContainerProps) {
   return (
     <Box
       flexDirection="column"
@@ -18,7 +31,7 @@ function SearchContainer({ children }) {
   );
 }
 
-function FeaturedImage({ frontmatter }) {
+function FeaturedImage({ frontmatter }: FeaturedImageProps) {
   return (
     <Box
       component="img"
@@ -34,7 +47,7 @@ function FeaturedImage({ frontmatter }) {
   );
 }
 
-function BlogContent({ mdxContent }) {
+function BlogContent({ mdxContent }: BlogContentProps) {
   return (
     <Box sx={{ maxWidth: "720px" }}>
       <Box

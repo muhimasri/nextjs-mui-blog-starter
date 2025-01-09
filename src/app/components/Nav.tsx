@@ -4,6 +4,7 @@ import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { SxProps, Theme } from "@mui/system";
 
 const pages = [
   { name: "Home", path: "/" },
@@ -70,7 +71,12 @@ const Nav = (): JSX.Element => {
         }}
         elevation={1}
       >
-        <NavList onMenuToggle={setOpen} pl={4} />
+        <NavList
+          onMenuToggle={setOpen}
+          sx={{
+            pl: 4,
+          }}
+        />
       </Drawer>
 
       {/* Desktop Navigation */}
@@ -86,14 +92,17 @@ const Nav = (): JSX.Element => {
 
 const NavList = ({
   onMenuToggle,
+  sx,
   ...other
 }: {
   onMenuToggle: (open: boolean) => void;
+  sx?: SxProps<Theme>;
 }) => {
-  const pathname = usePathname(); // <-- Use Next.js router to get current path
+  const pathname = usePathname();
 
   return (
     <Stack
+      sx={sx}
       overflow="auto"
       flexDirection={{ xs: "column", md: "row" }}
       alignItems={{ xs: "baseline", md: "center" }}
@@ -112,7 +121,7 @@ const NavList = ({
           sx={{
             color: "text.primary",
             fontSize: "4",
-            letterSpacing: (theme) => theme.typography.letterSpacingLarge,
+            letterSpacing: (theme) => theme.typography.letterSpacing.large,
             textDecoration: "none",
             position: "relative",
             transition: "color 0.3s ease-in-out",

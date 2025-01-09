@@ -31,7 +31,7 @@ export default function BlogsPage({
         slug: folder,
         ...frontmatter,
       };
-    });
+    }) as Blog[];
 
   const allTags = ["react", "material-ui", "mdx", "nextjs"];
 
@@ -70,7 +70,7 @@ export default function BlogsPage({
       </SearchContainer>
       <Container sx={{ mt: 6 }}>
         <Grid container spacing={2}>
-          {filteredBlogs.map((blog, index) => (
+          {filteredBlogs.map((blog: Blog, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <PostCard
                 title={blog.title}

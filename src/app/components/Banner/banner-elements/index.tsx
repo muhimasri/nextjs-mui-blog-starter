@@ -2,6 +2,7 @@
 import type {} from "@mui/material/themeCssVarsAugmentation";
 import { Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
+import { ReactNode } from "react";
 
 const BannerImage = styled(Image)(({ theme }) => ({
   borderRadius: theme.shape.radius.large,
@@ -39,7 +40,7 @@ function TagLine(): JSX.Element {
   );
 }
 
-function BannerContainer({ children }) {
+function BannerContainer({ children }: { children: ReactNode }) {
   return (
     <Stack
       flexDirection="column"

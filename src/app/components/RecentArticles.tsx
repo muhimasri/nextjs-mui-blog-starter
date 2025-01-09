@@ -11,7 +11,7 @@ const blogsDirectory = path.join(process.cwd(), "content");
 export default function RecentArticles() {
   const blogFolders = fs.readdirSync(blogsDirectory);
 
-  const allBlogs: Blog[] = blogFolders
+  const allBlogs = blogFolders
     .filter((folder) => folder !== "page.tsx")
     .map((folder) => {
       const filePath = path.join(blogsDirectory, folder, "page.mdx");
@@ -22,8 +22,8 @@ export default function RecentArticles() {
       return {
         slug: folder,
         ...frontmatter,
-      } as Blog;
-    });
+      };
+    }) as Blog[];
 
   const recentBlogs = allBlogs.slice(0, 6);
 
@@ -43,7 +43,7 @@ export default function RecentArticles() {
         </Typography>
       </Box>
       <Grid container spacing={2}>
-        {recentBlogs.map((blog, index) => (
+        {recentBlogs.map((blog: Blog, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <PostCard
               title={blog.title}

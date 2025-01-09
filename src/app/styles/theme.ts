@@ -1,6 +1,6 @@
 "use client";
 
-import { createTheme, darken } from "@mui/material";
+import { createTheme, darken, Shadows } from "@mui/material";
 import {
   borderRadius,
   colors,
@@ -129,7 +129,7 @@ const theme = createTheme({
     radius: borderRadius,
   },
   spacing: Object.values(spacing),
-  shadows: Object.values(shadows),
+  shadows: Object.values(shadows) as Shadows,
 });
 
 export default theme;

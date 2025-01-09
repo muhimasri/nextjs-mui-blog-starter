@@ -15,6 +15,12 @@ type LetterSpacing = {
   xLarge: string;
 };
 
+type LineHeight = {
+  small: string;
+  medium: string;
+  large: string;
+};
+
 declare module "@mui/material/styles" {
   interface Palette {
     banner: {
@@ -28,19 +34,27 @@ declare module "@mui/material/styles" {
     banner?: {
       background: string;
     };
+    blog?: {
+      headerBgColor: string;
+      h1Color: string;
+      preBgColor: string;
+      preBorderColor: string;
+      codeBgColor: string;
+      codeColor: string;
+    };
     green?: Record<string, string>;
     purple?: Record<string, string>;
   }
 }
 
-declare module "@mui/system/typography";
-{
+declare module "@mui/material/styles/createTypography" {
   interface Typography {
     letterSpacing: LetterSpacing;
+    lineHeight: LineHeight;
   }
-
   interface TypographyOptions {
-    letterSpacing: LetterSpacing;
+    letterSpacing?: LetterSpacing;
+    lineHeight?: LineHeight;
   }
 }
 
