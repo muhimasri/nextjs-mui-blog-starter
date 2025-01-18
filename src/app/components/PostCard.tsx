@@ -23,6 +23,7 @@ interface PostCardProps {
   tags: string;
   description: string;
   link: string;
+  maxWidth?: { xs: number; lg: number };
 }
 
 export default function PostCard({
@@ -31,9 +32,10 @@ export default function PostCard({
   tags,
   description,
   link,
+  maxWidth,
 }: PostCardProps) {
   return (
-    <Card sx={{ maxWidth: 355 }}>
+    <Card sx={{ maxWidth }}>
       <Box sx={{ display: { xs: "none", lg: "initial" } }}>
         <PostLink href={`/blogs/${link}/`}>
           <Image

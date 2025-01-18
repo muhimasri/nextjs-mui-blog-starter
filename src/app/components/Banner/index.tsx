@@ -10,9 +10,10 @@ function Banner(): JSX.Element {
       <Container>
         <Grid
           container
-          mt={6}
-          spacing={6}
+          mt={{ xs: 2, lg: 6 }}
+          gap={7}
           direction={{ xs: "column-reverse", lg: "row" }}
+          flexWrap="nowrap"
           alignItems="center"
           width="auto"
         >
@@ -23,7 +24,7 @@ function Banner(): JSX.Element {
                 flexDirection: "column",
                 alignItems: "baseline",
                 gap: 7,
-                maxWidth: "541px",
+                maxWidth: 554,
               }}
             >
               <Stack>

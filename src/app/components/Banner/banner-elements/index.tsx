@@ -31,7 +31,6 @@ function TagLine(): JSX.Element {
         color: "text.primary",
         position: "relative",
         fontWeight: 500,
-        maxWidth: 551,
         lineHeight: (theme) => theme.typography.lineHeight.small,
       }}
     >
@@ -46,7 +45,7 @@ function BannerContainer({ children }: { children: ReactNode }) {
       flexDirection="column"
       justifyContent="center"
       sx={{
-        pt: 6,
+        pt: { xs: 0, lg: 6 },
         pb: 8,
         background: (theme) => theme.vars.palette.banner.background,
       }}

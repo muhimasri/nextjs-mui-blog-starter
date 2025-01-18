@@ -12,7 +12,6 @@ import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
 import Counter from "@/app/components/Counter";
 import { Box, Container, Stack, Typography } from "@mui/material";
-import { colors, spacing } from "@/app/styles/tokens";
 import Header from "@/app/components/Header";
 import { BlogContent, FeaturedImage } from "../blogs-elements";
 import TableOfContents from "@/app/components/TableOfContents";
@@ -78,16 +77,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             component="h1"
             color="white"
             fontWeight="500"
-            mb={2}
+            mb={3}
           >
             {frontmatter.title}
           </Typography>
           <Typography
-            variant="h6"
+            variant="body1"
             fontWeight="300"
             color="purple.200"
             mb={6}
-            maxWidth={600}
+            maxWidth={554}
             mx="auto"
           >
             {frontmatter.description}
@@ -96,7 +95,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             direction="row"
             alignItems="center"
             justifyContent="center"
-            mb={3}
+            mb={4}
             gap={2}
           >
             <Typography variant="body2" color="purple.200">
@@ -113,23 +112,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               ))}
             </Stack>
           </Stack>
-          <Box
-            sx={{
-              position: "relative",
-            }}
-          >
+          <Box>
             <FeaturedImage frontmatter={frontmatter} />
           </Box>
         </Container>
       </Box>
-
-      {/* White content area */}
       <Container>
         <Stack gap={6} direction="row">
-          {/* Table of content on the left */}
           <TableOfContents headings={headings} />
-
-          {/* Main content */}
           <BlogContent mdxContent={mdxContent} />
         </Stack>
       </Container>
@@ -171,10 +161,4 @@ async function extractHeadings(content: string): Promise<Heading[]> {
   });
 
   return headings;
-}
-
-function isHeadingSelected(heading: string) {
-  if (typeof window === "undefined") return false;
-  console.log(window.location.hash);
-  return window.location.hash === `#${heading}`;
 }

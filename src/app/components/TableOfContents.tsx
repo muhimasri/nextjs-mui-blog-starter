@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { spacing } from "../styles/tokens";
 
 interface TOCProps {
@@ -10,6 +10,7 @@ interface TOCProps {
 
 export default function TableOfContents({ headings }: TOCProps) {
   const [activeHeading, setActiveHeading] = useState<string | null>(null);
+  const isLargeScreen = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,7 +33,7 @@ export default function TableOfContents({ headings }: TOCProps) {
     return () => observer.disconnect(); // Cleanup the observer on unmount
   }, [headings]);
 
-  return (
+  return isLargeScreen ? (
     <Box
       component="nav"
       sx={{
@@ -66,5 +67,5 @@ export default function TableOfContents({ headings }: TOCProps) {
         ))}
       </Box>
     </Box>
-  );
+  ) : null;
 }

@@ -28,8 +28,14 @@ export default function RecentArticles() {
   const recentBlogs = allBlogs.slice(0, 6);
 
   return (
-    <Container sx={{ px: { xs: 3, lg: 5 }, py: { xs: 8, lg: 9 } }}>
-      <Box textAlign="center" mb={7}>
+    <Container
+      sx={{
+        px: { xs: 3, lg: 5 },
+        py: { xs: 8, lg: 9 },
+        maxWidth: { xs: "100%", sm: 554, lg: 1200 },
+      }}
+    >
+      <Box textAlign={{ xs: "left", lg: "center" }} mb={{ xs: 5, lg: 7 }}>
         <Typography
           variant="h4"
           component="h2"
@@ -42,22 +48,31 @@ export default function RecentArticles() {
           Recent Articles
         </Typography>
       </Box>
-      <Grid container spacing={2}>
+      <Grid
+        container
+        gap={{ xs: 4, lg: 2 }}
+        sx={{ flexWrap: { xs: "wrap", lg: "nowrap" } }}
+      >
         {recentBlogs.map((blog: Blog, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
+          <Grid item xs={12} lg={4} key={index}>
             <PostCard
               title={blog.title}
               image={blog.featuredImage}
               tags={blog.tags}
               description={blog.description}
               link={blog.slug}
+              maxWidth={{ xs: 554, lg: 355 }}
             />
           </Grid>
         ))}
       </Grid>
-      <Stack alignItems="center">
+      <Stack
+        alignItems="center"
+        mt={6}
+        sx={{ "& > a": { textDecoration: "none" } }}
+      >
         <Link href="/blogs/">
-          <Typography component="span" fontSize="4">
+          <Typography component="span" fontSize="4" color="primary">
             Read More Tutorials →
           </Typography>
         </Link>
