@@ -69,9 +69,9 @@ export default function BlogsPage({
         </Container>
       </SearchContainer>
       <Container sx={{ mt: 6 }}>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ rowGap: { xs: 4, lg: 0 } }}>
           {filteredBlogs.map((blog: Blog, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid item xs={12} lg={4} key={index}>
               <PostCard
                 title={blog.title}
                 image={blog.featuredImage}
