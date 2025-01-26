@@ -56,7 +56,7 @@ export default function TableOfContents({ headings }: TOCProps) {
               sx={{
                 textDecoration: "none",
                 color:
-                  activeHeading === slug ? "text.primary" : "text.secondary",
+                  activeHeading === slug ? "text.primary" : "blog.linkColor",
                 "&:hover, &:focus": { color: "text.primary" },
                 fontWeight: activeHeading === slug ? "600" : "normal",
               }}

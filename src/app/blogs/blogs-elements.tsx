@@ -49,7 +49,7 @@ function FeaturedImage({ frontmatter }: FeaturedImageProps) {
 
 function BlogContent({ mdxContent }: BlogContentProps) {
   return (
-    <Box sx={{ maxWidth: "720px" }}>
+    <Box sx={{ maxWidth: "720px", margin: { xs: "auto", lg: "inherit" } }}>
       <Box
         component="article"
         sx={{

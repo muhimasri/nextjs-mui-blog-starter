@@ -118,7 +118,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </Container>
       </Box>
       <Container>
-        <Stack gap={6} direction="row">
+        <Stack gap={7} direction="row">
           <TableOfContents headings={headings} />
           <BlogContent mdxContent={mdxContent} />
         </Stack>

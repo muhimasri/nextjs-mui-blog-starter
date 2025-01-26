@@ -41,6 +41,7 @@ declare module "@mui/material/styles" {
       preBorderColor: string;
       codeBgColor: string;
       codeColor: string;
+      linkColor: string;
     };
     green?: Record<string, string>;
     purple?: Record<string, string>;
