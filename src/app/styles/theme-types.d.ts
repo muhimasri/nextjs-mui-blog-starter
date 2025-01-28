@@ -43,6 +43,10 @@ declare module "@mui/material/styles" {
       codeColor: string;
       linkColor: string;
     };
+    subscribe?: {
+      bgColor: string;
+      headerColor: string;
+    };
     green?: Record<string, string>;
     purple?: Record<string, string>;
   }

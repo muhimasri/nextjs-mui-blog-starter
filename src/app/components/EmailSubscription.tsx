@@ -32,7 +32,10 @@ const EmailSubscription = (): JSX.Element => {
   };
 
   return (
-    <Box bgcolor="grey.100" sx={{ px: { xs: 2, lg: 4 }, py: { xs: 7, lg: 8 } }}>
+    <Box
+      bgcolor="subscribe.bgColor"
+      sx={{ px: { xs: 2, lg: 4 }, py: { xs: 7, lg: 8 } }}
+    >
       <Box sx={{ textAlign: "center", m: "auto", maxWidth: "700px" }}>
         <Typography
           sx={{

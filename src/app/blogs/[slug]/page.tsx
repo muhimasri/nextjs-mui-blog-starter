@@ -76,7 +76,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <Typography
             variant="h4"
             component="h1"
-            color="white"
+            color="text.primary"
             fontWeight="500"
             mb={3}
           >
@@ -84,8 +84,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </Typography>
           <Typography
             variant="body1"
-            fontWeight="300"
-            color="purple.200"
+            fontWeight="400"
+            color="text.secondary"
             mb={6}
             maxWidth={554}
             mx="auto"
@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             mb={4}
             gap={2}
           >
-            <Typography variant="body2" color="purple.200">
+            <Typography variant="body2" color="grey.500">
               Last Updated: {frontmatter.date}
             </Typography>
             <Stack direction="row" gap={1}>
@@ -109,6 +109,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   size="small"
                   label={tag}
                   link={`/blogs?tag=${tag}`}
+                  bgColor="primary.200"
                 />
               ))}
             </Stack>

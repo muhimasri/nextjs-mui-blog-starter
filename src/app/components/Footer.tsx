@@ -16,7 +16,6 @@ const Footer: React.FC = () => {
         flexDirection: "column",
         alignItems: "center",
         py: 3,
-        mt: 5,
         borderTop: 1,
         borderColor: "divider",
       }}

@@ -79,6 +79,7 @@ export default function PostCard({
             label={cat}
             link={`/blogs?category=${cat}`}
             key={index}
+            bgColor="primary.200"
           />
         ))}
       </CardActions>

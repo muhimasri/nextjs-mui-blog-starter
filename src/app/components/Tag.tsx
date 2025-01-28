@@ -7,10 +7,16 @@ type TagProps = {
   label: String;
   link: String;
   selected?: boolean;
+  bgColor?: string;
+  selectedColor?: string;
 };
 
-const chipStyle = (selected: boolean) => ({
-  backgroundColor: selected ? "green.200" : "grey.200",
+const chipStyle = (
+  selected: boolean,
+  bgColor?: string,
+  selectedColor?: string
+) => ({
+  backgroundColor: selected ? selectedColor : bgColor,
   borderRadius: borderRadius.pill,
   color: "grey.800",
   // border: selected ? "2px solid" : "none",
@@ -34,6 +40,8 @@ const Tag = ({
   label,
   link,
   selected = false,
+  bgColor,
+  selectedColor,
   ...other
 }: TagProps): JSX.Element => {
   return (
@@ -43,8 +51,8 @@ const Tag = ({
         label={label?.replace("-", " ")}
         sx={
           size === "small"
-            ? { ...chipStyle(selected), ...smallStyle }
-            : { ...chipStyle(selected), ...largeStyle }
+            ? { ...chipStyle(selected, bgColor, selectedColor), ...smallStyle }
+            : { ...chipStyle(selected, bgColor, selectedColor), ...largeStyle }
         }
       />
     </Link>

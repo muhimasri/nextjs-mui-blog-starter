@@ -63,6 +63,8 @@ export default function BlogsPage({
                 key={index}
                 size="large"
                 selected={tag === selectedTag}
+                bgColor="grey.200"
+                selectedColor="primary.200"
               />
             ))}
           </Stack>

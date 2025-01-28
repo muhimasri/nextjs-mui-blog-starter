@@ -28,10 +28,12 @@ const theme = createTheme({
         primary: {
           main: colors.green[500],
           contrastText: colors.grey[50],
+          ...colors.green,
         },
         secondary: {
           main: colors.purple[500],
           contrastText: colors.grey[50],
+          ...colors.purple,
         },
         common: {
           onBackground: colors.grey[900],
@@ -52,13 +54,17 @@ const theme = createTheme({
             "linear-gradient(180deg, #fff 10%, var(--mui-palette-grey-100))",
         },
         blog: {
-          headerBgColor: colors.purple[500],
+          headerBgColor: colors.purple[50],
           h1Color: colors.purple[500],
           preBgColor: colors.grey[800],
           preBorderColor: colors.purple[300],
           codeBgColor: colors.grey[200],
           codeColor: colors.purple[400],
           linkColor: colors.grey[700],
+        },
+        subscribe: {
+          bgColor: colors.green[100],
+          headerColor: colors.green[800],
         },
         green: colors.green,
         purple: colors.purple,
@@ -70,10 +76,12 @@ const theme = createTheme({
         primary: {
           main: colors.green[500],
           contrastText: colors.grey[50],
+          ...colors.green,
         },
         secondary: {
           main: colors.purple[900],
           contrastText: colors.grey[50],
+          ...colors.purple,
         },
         common: {
           onBackground: colors.grey[50],
@@ -98,6 +106,10 @@ const theme = createTheme({
           codeBgColor: colors.grey[800],
           codeColor: colors.purple[400],
           linkColor: colors.grey[400],
+        },
+        subscribe: {
+          bgColor: darken(colors.grey[800], 0.4),
+          headerColor: colors.grey[50],
         },
         green: colors.green,
         purple: colors.purple,
