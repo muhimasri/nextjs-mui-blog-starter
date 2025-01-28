@@ -118,6 +118,17 @@ const theme = createTheme({
         elevation: 0,
       },
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          "&:hover:not(.Mui-focused)": {
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: colors.grey[400],
+            },
+          },
+        },
+      },
+    },
   },
   typography: {
     htmlFontSize: 10,

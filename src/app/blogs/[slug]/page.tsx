@@ -16,6 +16,7 @@ import Header from "@/app/components/Header";
 import { BlogContent, FeaturedImage } from "../blogs-elements";
 import TableOfContents from "@/app/components/TableOfContents";
 import Tag from "@/app/components/Tag";
+import SuggestedArticles from "@/app/components/SuggestedArticles";
 
 interface BlogPostPageProps {
   params: { slug: string };
@@ -122,6 +123,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <TableOfContents headings={headings} />
           <BlogContent mdxContent={mdxContent} />
         </Stack>
+        <SuggestedArticles currentTags={frontmatter.tags.split(",")} />
       </Container>
     </>
   );
