@@ -50,8 +50,8 @@ export default function RecentArticles() {
       </Box>
       <Grid
         container
-        gap={{ xs: 4, lg: 2 }}
-        sx={{ flexWrap: { xs: "wrap", lg: "nowrap" } }}
+        spacing={{ xs: 4, lg: 2 }}
+        // sx={{ flexWrap: { xs: "wrap", lg: "nowrap" } }}
       >
         {recentBlogs.map((blog: Blog, index) => (
           <Grid item xs={12} lg={4} key={index}>

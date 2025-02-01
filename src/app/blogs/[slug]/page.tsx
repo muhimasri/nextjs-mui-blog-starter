@@ -10,7 +10,7 @@ import { visit } from "unist-util-visit";
 import rehypeSlug from "rehype-slug";
 
 import rehypePrettyCode from "rehype-pretty-code";
-import Counter from "@/app/components/Counter";
+import Counter from "@/app/components/tutorial/Counter";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Header from "@/app/components/Header";
 import { BlogContent, FeaturedImage } from "../blogs-elements";

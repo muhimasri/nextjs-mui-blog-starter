@@ -1,0 +1,89 @@
+---
+title: Understanding useState in React
+description: Exploring the useState hook in React.
+date: "2022-01-01"
+author: Mareli Ramos
+tags: React, JavaScript, Hooks
+featuredImage:
+  src: /images/cover-2.webp
+  alt: Cover Image
+---
+
+# Understanding the basics
+
+React provides a powerful hook called `useState` for managing state in functional components. In this blog post, we will explore how to use `useState` and some common patterns.
+
+## useState Hook
+
+The `useState` hook allows you to add state to functional components. It returns an array with two elements: the current state value and a function to update it.
+
+```javascript {1, 3}
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
+}
+```
+
+<Counter />
+
+In the above example, `count` is the state variable, and `setCount` is the function to update it.
+
+## Initial State
+
+You can pass an initial state value to `useState`. This value will be used as the initial state for the variable.
+
+```javascript
+const [name, setName] = useState("John Doe");
+```
+
+In the above example, `name` is initialized with the value `'John Doe'`.
+
+# Updating State
+
+To update the state, call the state update function with the new value. React will re-render the component with the updated state.
+
+```javascript {4, 7}
+const [age, setAge] = useState(25);
+
+function increaseAge() {
+  setAge(age + 1);
+}
+```
+
+In the above example, calling `increaseAge` will update the `age` state and re-render the component.
+
+# Common Patterns
+
+- **Toggling State:** Use `useState` to toggle boolean values.
+
+```javascript
+const [isVisible, setIsVisible] = useState(false);
+
+function toggleVisibility() {
+  setIsVisible(!isVisible);
+}
+```
+
+- **Using Previous State:** When updating state based on the previous state, use a function.
+
+```javascript
+const [count, setCount] = useState(0);
+
+function increment() {
+  setCount((prevCount) => prevCount + 1);
+}
+```
+
+# Conclusion
+
+Understanding how to use the `useState` hook is essential for managing state in React functional components. It allows you to add stateful logic to your components in a clean and concise way.
+
+Happy coding!
