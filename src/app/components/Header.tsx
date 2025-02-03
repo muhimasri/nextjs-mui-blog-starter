@@ -2,29 +2,34 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Container, Link, useColorScheme } from "@mui/material";
+import { Container, Link as MUILink, useColorScheme } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import Nav from "./Nav";
+import Link from "next/link";
 
 interface HeaderProps {
   size?: "small" | "large";
 }
 
 export default function Header({ size = "large" }: HeaderProps): JSX.Element {
-  const { mode, setMode } = useColorScheme();
+  const { mode, setMode, systemMode } = useColorScheme();
+
+  const isDark =
+    mode === "dark" || (mode === "system" && systemMode === "dark");
 
   return (
     <AppBar position="static" color="default" elevation={0}>
       <Container>
         <Toolbar sx={{ py: size === "large" ? 7 : 4 }}>
-          <Link
+          <MUILink
             sx={{
               textDecoration: "none",
               mr: 7,
             }}
             href="/"
+            component={Link}
           >
             <Typography
               fontSize="7"
@@ -34,14 +39,13 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
             >
               Mareli Ramos
             </Typography>
-          </Link>
+          </MUILink>
           <Nav />
-          <IconButton
-            onClick={() => setMode(mode === "light" ? "dark" : "light")}
-            // sx={{ color: "grey.400" }}
-          >
-            {mode === "light" ? <DarkModeIcon /> : <LightModeIcon />}
-          </IconButton>
+          {mode && (
+            <IconButton onClick={() => setMode(isDark ? "light" : "dark")}>
+              {isDark ? <LightModeIcon /> : <DarkModeIcon />}
+            </IconButton>
+          )}
         </Toolbar>
       </Container>
     </AppBar>

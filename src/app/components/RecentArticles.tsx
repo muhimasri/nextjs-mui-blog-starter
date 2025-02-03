@@ -48,11 +48,7 @@ export default function RecentArticles() {
           Recent Articles
         </Typography>
       </Box>
-      <Grid
-        container
-        spacing={{ xs: 4, lg: 2 }}
-        // sx={{ flexWrap: { xs: "wrap", lg: "nowrap" } }}
-      >
+      <Grid container spacing={{ xs: 4, lg: 2 }}>
         {recentBlogs.map((blog: Blog, index) => (
           <Grid item xs={12} lg={4} key={index}>
             <PostCard

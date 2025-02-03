@@ -1,6 +1,6 @@
 "use client";
 
-import { createTheme, darken, Shadows } from "@mui/material";
+import { createTheme, darken, lighten, Shadows } from "@mui/material";
 import {
   borderRadius,
   colors,
@@ -50,11 +50,13 @@ const theme = createTheme({
           defaultBg: "white",
         },
         banner: {
-          background:
-            "linear-gradient(180deg, #fff 10%, var(--mui-palette-grey-100))",
+          background: `linear-gradient(180deg, #fff 10%, ${lighten(
+            colors.grey[200],
+            0.5
+          )})`,
         },
         blog: {
-          headerBgColor: colors.purple[50],
+          headerBgColor: lighten(colors.purple[100], 0.4),
           h1Color: colors.purple[500],
           preBgColor: colors.grey[800],
           preBorderColor: colors.purple[300],
@@ -63,7 +65,7 @@ const theme = createTheme({
           linkColor: colors.grey[700],
         },
         subscribe: {
-          bgColor: colors.green[100],
+          bgColor: colors.grey[100],
           headerColor: colors.green[800],
         },
         green: colors.green,
