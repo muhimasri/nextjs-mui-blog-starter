@@ -47,6 +47,15 @@ declare module "@mui/material/styles" {
       bgColor: string;
       headerColor: string;
     };
+    about?: {
+      headerTitle: string;
+      headerText: string;
+      sectionBg: string;
+      sectionBorder: string;
+      sectionTitle: string;
+      sectionText: string;
+      sectionIcon: string;
+    };
     green?: Record<string, string>;
     purple?: Record<string, string>;
   }

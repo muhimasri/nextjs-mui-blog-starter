@@ -39,7 +39,13 @@ function TagLine(): JSX.Element {
   );
 }
 
-function BannerContainer({ children }: { children: ReactNode }) {
+function BannerContainer({
+  children,
+  sx,
+}: {
+  children: ReactNode;
+  sx?: object;
+}) {
   return (
     <Stack
       flexDirection="column"
@@ -48,6 +54,7 @@ function BannerContainer({ children }: { children: ReactNode }) {
         pt: { xs: 0, lg: 6 },
         pb: 8,
         background: (theme) => theme.vars.palette.banner.background,
+        ...sx,
       }}
     >
       {children}
