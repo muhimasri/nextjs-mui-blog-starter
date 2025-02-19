@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 
 const BannerImage = styled(Image)(({ theme }) => ({
   borderRadius: theme.shape.radius.large,
-  boxShadow: theme.shadows[4],
+  boxShadow: theme.shadows[2],
   maxWidth: "100%",
   maxHeight: "fit-content",
 }));
@@ -30,7 +30,7 @@ function TagLine(): JSX.Element {
         fontSize: { xs: "8", sm: "9" },
         color: "text.primary",
         position: "relative",
-        fontWeight: 500,
+        fontWeight: 600,
         lineHeight: (theme) => theme.typography.lineHeight.small,
       }}
     >

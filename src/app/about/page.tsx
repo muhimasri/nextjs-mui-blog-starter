@@ -16,6 +16,8 @@ import ContactMailIcon from "@mui/icons-material/ContactMail"; // New Icon
 import LocationOnIcon from "@mui/icons-material/LocationOn"; // New Icon
 // Import the reusable AboutSection component
 import AboutSection from "./AboutSection";
+import EmailSubscription from "../components/EmailSubscription";
+import Footer from "../components/Footer";
 
 function AboutPage(): JSX.Element {
   return (
@@ -98,7 +100,7 @@ function AboutPage(): JSX.Element {
       </BannerContainer>
 
       {/* New Section using CSS masonry layout with re-usable components */}
-      <Container sx={{ mt: 5, mb: 4 }}>
+      <Container sx={{ my: 6 }}>
         <Box sx={{ columnWidth: 300, columnGap: 5 }}>
           <AboutSection
             title="Passionate Software Architect"
@@ -174,6 +176,8 @@ function AboutPage(): JSX.Element {
           </AboutSection>
         </Box>
       </Container>
+      <EmailSubscription />
+      <Footer />
     </>
   );
 }

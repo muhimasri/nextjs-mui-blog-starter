@@ -17,6 +17,8 @@ import { BlogContent, FeaturedImage } from "../blogs-elements";
 import TableOfContents from "@/app/components/TableOfContents";
 import Tag from "@/app/components/Tag";
 import SuggestedArticles from "@/app/components/SuggestedArticles";
+import EmailSubscription from "@/app/components/EmailSubscription";
+import Footer from "@/app/components/Footer";
 
 interface BlogPostPageProps {
   params: { slug: string };
@@ -126,6 +128,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </Stack>
         <SuggestedArticles currentTags={frontmatter.tags.split(",")} />
       </Container>
+      <EmailSubscription />
+      <Footer />
     </>
   );
 }

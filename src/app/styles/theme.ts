@@ -40,7 +40,7 @@ const theme = createTheme({
         },
         text: {
           primary: colors.grey[800],
-          secondary: colors.grey[500],
+          secondary: colors.grey[600],
         },
         background: {
           default: "white",
@@ -99,7 +99,7 @@ const theme = createTheme({
         },
         text: {
           primary: colors.grey[200],
-          secondary: colors.grey[500],
+          secondary: colors.grey[400],
         },
         background: {
           default: colors.grey[900],

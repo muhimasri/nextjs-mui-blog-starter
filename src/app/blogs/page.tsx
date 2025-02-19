@@ -7,6 +7,8 @@ import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import PostCard from "../components/PostCard";
 import Header from "../components/Header";
 import { SearchContainer } from "./blogs-elements";
+import EmailSubscription from "../components/EmailSubscription";
+import Footer from "../components/Footer";
 
 const blogsDirectory = path.join(process.cwd(), "content");
 
@@ -70,7 +72,7 @@ export default function BlogsPage({
           </Stack>
         </Container>
       </SearchContainer>
-      <Container sx={{ mt: 6 }}>
+      <Container sx={{ my: 6 }}>
         <Grid container spacing={2} sx={{ rowGap: { xs: 4, lg: 0 } }}>
           {filteredBlogs.map((blog: Blog, index) => (
             <Grid item xs={12} lg={4} key={index}>
@@ -85,6 +87,8 @@ export default function BlogsPage({
           ))}
         </Grid>
       </Container>
+      <EmailSubscription />
+      <Footer />
     </>
   );
 }
