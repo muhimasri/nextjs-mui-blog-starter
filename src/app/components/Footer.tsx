@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
         py: 3,
         borderTop: 1,
         borderColor: "divider",
-        bgcolor: "grey.100",
+        bgcolor: "common.background",
       }}
     >
       <Container>

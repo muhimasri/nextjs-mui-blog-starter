@@ -21,7 +21,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
         width: "100%",
         mb: 5,
         p: 4,
-        backgroundColor: "about.sectionBg",
+        backgroundColor: "common.background",
         borderRadius: 2,
         border: "1px solid",
         borderColor: "about.sectionBorder",

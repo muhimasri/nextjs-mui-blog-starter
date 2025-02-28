@@ -37,20 +37,17 @@ declare module "@mui/material/styles" {
     blog?: {
       headerBgColor: string;
       h1Color: string;
-      preBgColor: string;
       preBorderColor: string;
       codeBgColor: string;
       codeColor: string;
       linkColor: string;
     };
     subscribe?: {
-      bgColor: string;
       headerColor: string;
     };
     about?: {
       headerTitle: string;
       headerText: string;
-      sectionBg: string;
       sectionBorder: string;
       sectionTitle: string;
       sectionText: string;

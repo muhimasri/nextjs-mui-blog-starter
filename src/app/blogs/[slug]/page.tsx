@@ -122,8 +122,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </Container>
       </Box>
       <Container>
-        <Stack gap={7} direction="row">
-          <TableOfContents headings={headings} />
+        <Stack gap={7} direction={{ xs: "column", lg: "row" }}>
+          <Box
+            sx={{
+              display: { xs: "none", lg: "block" },
+              width: { lg: "250px" },
+            }}
+          >
+            <TableOfContents headings={headings} />
+          </Box>
           <BlogContent mdxContent={mdxContent} />
         </Stack>
         <SuggestedArticles currentTags={frontmatter.tags.split(",")} />

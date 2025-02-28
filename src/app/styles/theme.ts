@@ -37,6 +37,7 @@ const theme = createTheme({
         },
         common: {
           onBackground: colors.grey[900],
+          background: colors.grey[100],
         },
         text: {
           primary: colors.grey[800],
@@ -44,7 +45,6 @@ const theme = createTheme({
         },
         background: {
           default: "white",
-          paper: "white",
         },
         AppBar: {
           defaultBg: "white",
@@ -58,20 +58,17 @@ const theme = createTheme({
         blog: {
           headerBgColor: lighten(colors.purple[100], 0.4),
           h1Color: colors.purple[500],
-          preBgColor: colors.grey[800],
           preBorderColor: colors.purple[300],
           codeBgColor: colors.grey[200],
           codeColor: colors.purple[400],
           linkColor: colors.grey[700],
         },
         subscribe: {
-          bgColor: colors.grey[100],
           headerColor: colors.green[800],
         },
         about: {
           headerTitle: colors.grey[800],
           headerText: colors.grey[700],
-          sectionBg: colors.grey[100],
           sectionBorder: colors.purple[100],
           sectionTitle: colors.grey[800],
           sectionText: colors.grey[700],
@@ -85,7 +82,7 @@ const theme = createTheme({
     dark: {
       palette: {
         primary: {
-          main: colors.green[500],
+          main: colors.green[600],
           contrastText: colors.grey[50],
           ...colors.green,
         },
@@ -96,6 +93,7 @@ const theme = createTheme({
         },
         common: {
           onBackground: colors.grey[50],
+          background: darken(colors.grey[800], 0.4),
         },
         text: {
           primary: colors.grey[200],
@@ -112,20 +110,17 @@ const theme = createTheme({
         blog: {
           headerBgColor: "black",
           h1Color: colors.purple[300],
-          preBgColor: darken(colors.grey[800], 0.4),
           preBorderColor: colors.purple[700],
           codeBgColor: colors.grey[800],
           codeColor: colors.purple[400],
           linkColor: colors.grey[400],
         },
         subscribe: {
-          bgColor: darken(colors.grey[800], 0.4),
           headerColor: colors.grey[50],
         },
         about: {
           headerTitle: colors.grey[200],
           headerText: colors.grey[400],
-          sectionBg: colors.grey[800],
           sectionBorder: colors.purple[700],
           sectionTitle: colors.grey[200],
           sectionText: colors.grey[400],

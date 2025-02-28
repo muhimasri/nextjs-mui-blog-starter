@@ -73,7 +73,7 @@ function BlogContent({ mdxContent }: BlogContentProps) {
             borderRadius: (theme) => theme.vars.shape.radius.medium,
             overflowX: "auto",
             position: "relative",
-            backgroundColor: "blog.preBgColor",
+            backgroundColor: "common.background",
             outline: "1px solid",
             outlineColor: "blog.preBorderColor",
           },

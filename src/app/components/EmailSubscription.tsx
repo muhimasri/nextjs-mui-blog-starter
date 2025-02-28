@@ -33,7 +33,7 @@ const EmailSubscription = (): JSX.Element => {
 
   return (
     <Box
-      bgcolor="subscribe.bgColor"
+      bgcolor="common.background"
       sx={{ px: { xs: 2, lg: 4 }, py: { xs: 7, lg: 8 } }}
     >
       <Box sx={{ textAlign: "center", m: "auto", maxWidth: "700px" }}>
@@ -91,6 +91,7 @@ const EmailSubscription = (): JSX.Element => {
                 textTransform: "none",
                 fontSize: "4",
                 width: "200px",
+                height: "48px",
                 "&.Mui-disabled": {
                   backgroundColor: "grey.200",
                 },

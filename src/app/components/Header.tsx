@@ -33,7 +33,7 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
           >
             <Typography
               fontSize="7"
-              fontWeight="500"
+              fontWeight="600"
               whiteSpace="nowrap"
               color="green.500"
             >
