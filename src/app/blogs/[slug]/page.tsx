@@ -59,7 +59,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <Header size="small" />
       <Box
         sx={{
-          backgroundColor: "blog.headerBgColor",
+          backgroundColor: "common.background",
           py: 8,
           position: "relative",
           ":after": {
@@ -98,7 +98,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             direction="row"
             alignItems="center"
             justifyContent="center"
-            mb={4}
+            mb={5}
             gap={2}
           >
             <Typography variant="body2" color="grey.600">

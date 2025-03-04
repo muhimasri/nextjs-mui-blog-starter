@@ -35,7 +35,19 @@ export default function BlogsPage({
       };
     }) as Blog[];
 
-  const allTags = ["react", "material-ui", "mdx", "nextjs"];
+  const allTags = [
+    "javascript",
+    "css",
+    "react",
+    "scope",
+    "variable",
+    "loop",
+    "context",
+    "hook",
+    "border",
+    "display",
+    "spacing",
+  ];
 
   const handleTagClick = (tag: string) => {
     if (tag === selectedTag) {

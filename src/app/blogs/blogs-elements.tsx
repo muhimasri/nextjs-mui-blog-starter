@@ -38,7 +38,7 @@ function FeaturedImage({ frontmatter }: FeaturedImageProps) {
       src={frontmatter.featuredImage.src}
       alt={frontmatter.featuredImage.alt}
       sx={{
-        maxWidth: "600px",
+        maxWidth: "500px",
         borderRadius: (theme) => theme.vars.shape.radius.large,
         position: "relative",
         zIndex: 2,

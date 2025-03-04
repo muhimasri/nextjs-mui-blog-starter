@@ -1,0 +1,89 @@
+---
+title: Harnessing the Power of useEffect in React
+description: A comprehensive guide to the useEffect hook in React.
+date: "2022-02-01"
+author: Mareli Ramos
+tags: react, hooks
+featuredImage:
+  src: /images/react-useeffect.jpg
+  alt: Cover Image
+---
+
+# Introduction to useEffect
+
+The `useEffect` hook is one of the most commonly used hooks in React. It allows you to perform side effects in your function components. In this blog post, we will explore how to use `useEffect` and some common use cases.
+
+## Basic Usage
+
+The `useEffect` hook takes two arguments: a function and a dependency array. The function is executed after the component renders, and the dependency array determines when the effect should be re-run.
+
+```javascript
+import React, { useEffect, useState } from "react";
+
+function ExampleComponent() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  }, [count]);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
+}
+```
+
+In the above example, the document title is updated every time the `count` state changes.
+
+## Cleaning Up Effects
+
+Sometimes, effects need to clean up after themselves to avoid memory leaks. You can return a cleanup function from the effect.
+
+```javascript
+useEffect(() => {
+  const timer = setInterval(() => {
+    console.log("This will run every second");
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, []);
+```
+
+In this example, the interval is cleared when the component unmounts.
+
+# Conditional Effects
+
+You can conditionally run effects by specifying dependencies in the dependency array. The effect will only re-run if one of the dependencies changes.
+
+```javascript
+useEffect(() => {
+  console.log("This will run only when count changes");
+}, [count]);
+```
+
+# Fetching Data
+
+A common use case for `useEffect` is fetching data from an API.
+
+```javascript
+useEffect(() => {
+  async function fetchData() {
+    const response = await fetch("https://api.example.com/data");
+    const data = await response.json();
+    console.log(data);
+  }
+
+  fetchData();
+}, []);
+```
+
+In this example, data is fetched from an API when the component mounts.
+
+# Conclusion
+
+The `useEffect` hook is a powerful tool for managing side effects in React components. By understanding how to use it effectively, you can write more predictable and maintainable code.
+
+Happy coding!

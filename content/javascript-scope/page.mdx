@@ -1,0 +1,88 @@
+---
+title: Unveiling JavaScript Scope
+description: A guide to understanding and using JavaScript scope.
+date: "2022-06-01"
+author: Mareli Ramos
+tags: javascript, scope
+featuredImage:
+  src: /images/javascript-scope.jpg
+  alt: Cover Image
+---
+
+# Introduction to JavaScript Scope
+
+JavaScript scope determines the accessibility of variables, objects, and functions in different parts of your code. In this blog post, we will explore the different types of scope in JavaScript and how to use them effectively.
+
+# Types of Scope
+
+JavaScript has three types of scope: global scope, function scope, and block scope.
+
+## Global Scope
+
+Variables declared outside any function are in the global scope. They can be accessed from anywhere in the code.
+
+```javascript
+var globalVariable = "I am global";
+
+function showGlobalVariable() {
+  console.log(globalVariable); // I am global
+}
+
+showGlobalVariable();
+```
+
+## Function Scope
+
+Variables declared inside a function are in the function scope. They can only be accessed within that function.
+
+```javascript
+function showFunctionScope() {
+  var functionVariable = "I am local to the function";
+  console.log(functionVariable); // I am local to the function
+}
+
+showFunctionScope();
+console.log(functionVariable); // ReferenceError: functionVariable is not defined
+```
+
+## Block Scope
+
+Variables declared with `let` or `const` inside a block (e.g., inside an `if` statement or a loop) are in the block scope. They can only be accessed within that block.
+
+```javascript
+if (true) {
+  let blockVariable = "I am local to the block";
+  console.log(blockVariable); // I am local to the block
+}
+
+console.log(blockVariable); // ReferenceError: blockVariable is not defined
+```
+
+# Scope Chain
+
+When a variable is used, JavaScript will look up the scope chain to find the variable. It starts from the current scope and moves up to the global scope.
+
+```javascript
+var globalVariable = "I am global";
+
+function outerFunction() {
+  var outerVariable = "I am in the outer function";
+
+  function innerFunction() {
+    var innerVariable = "I am in the inner function";
+    console.log(innerVariable); // I am in the inner function
+    console.log(outerVariable); // I am in the outer function
+    console.log(globalVariable); // I am global
+  }
+
+  innerFunction();
+}
+
+outerFunction();
+```
+
+# Conclusion
+
+Understanding JavaScript scope is essential for writing clean and efficient code. By knowing how scope works, you can avoid common pitfalls and make your code more maintainable.
+
+Happy coding!
