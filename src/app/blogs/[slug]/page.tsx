@@ -110,7 +110,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   key={tag}
                   size="small"
                   label={tag}
-                  link={`/blogs?tag=${tag}`}
+                  link={`/blogs?tag=${tag.trimStart()}`}
                   bgColor="primary.300"
                 />
               ))}

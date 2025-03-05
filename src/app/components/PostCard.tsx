@@ -74,13 +74,15 @@ export default function PostCard({
 
       <CardActions sx={{ p: 0, pl: 1 }}>
         {tags.split(",").map((cat, index) => (
-          <Tag
-            size="small"
-            label={cat}
-            link={`/blogs?category=${cat}`}
-            key={index}
-            bgColor="primary.200"
-          />
+          <>
+            <Tag
+              size="small"
+              label={cat}
+              link={`/blogs?tag=${cat.trimStart()}`}
+              key={index}
+              bgColor="primary.200"
+            />
+          </>
         ))}
       </CardActions>
     </Card>

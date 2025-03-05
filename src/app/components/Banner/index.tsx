@@ -3,6 +3,7 @@ import { Box, Container, Stack, Typography, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import { BannerContainer, TagLine, ImageFrame } from "./banner-elements";
 import Header from "../Header";
+import Link from "next/link";
 
 function Banner(): JSX.Element {
   return (
@@ -51,6 +52,8 @@ function Banner(): JSX.Element {
               </Stack>
               <Stack direction="row" gap={3}>
                 <Button
+                  href="/blogs/"
+                  component={Link}
                   variant="contained"
                   sx={{
                     fontWeight: 500,
@@ -60,6 +63,8 @@ function Banner(): JSX.Element {
                   Read Blog
                 </Button>
                 <Button
+                  href="/about/"
+                  component={Link}
                   variant="outlined"
                   sx={{
                     fontWeight: 500,
