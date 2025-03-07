@@ -37,17 +37,16 @@ function Banner(): JSX.Element {
                     position: "relative",
                     maxWidth: 560,
                     mt: 7,
-                    fontWeight: 300,
+                    fontWeight: 400,
                     pl: 3,
                     borderLeft: "3px solid",
                     borderColor: "purple.100",
                   }}
                   component="div"
                 >
-                  I teach thousands of developers monthly through my tutorials
-                  to build efficient, reusable components with React. My
-                  dedication to the frontend space empowers teams through expert
-                  consulting.
+                  Empowering teams to build innovative and scalable software
+                  solutions. My expertise in frontend development drives success
+                  through cutting-edge technologies and best practices.
                 </Typography>
               </Stack>
               <Stack direction="row" gap={3}>

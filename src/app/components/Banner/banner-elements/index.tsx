@@ -30,11 +30,19 @@ function TagLine(): JSX.Element {
         fontSize: { xs: "8", sm: "9" },
         color: "text.primary",
         position: "relative",
-        fontWeight: 600,
+        fontWeight: 700,
         lineHeight: (theme) => theme.typography.lineHeight.small,
       }}
     >
-      I help developers and teams build quality software
+      Innovating the Future of{" "}
+      <Typography
+        fontSize="inherit"
+        fontWeight="inherit"
+        component="span"
+        sx={{ color: "primary.main" }}
+      >
+        Software Development
+      </Typography>
     </Typography>
   );
 }
