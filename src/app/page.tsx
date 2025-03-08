@@ -1,5 +1,5 @@
 import Footer from "./components/Footer";
-import Banner from "./components/banner";
+import Banner from "./components/banner/index";
 import Header from "./components/Header";
 import RecentArticles from "./components/RecentArticles";
 import EmailSubscription from "./components/EmailSubscription";
