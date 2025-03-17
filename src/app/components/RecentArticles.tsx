@@ -25,6 +25,11 @@ export default function RecentArticles() {
       };
     }) as Blog[];
 
+  // Sort blogs by date
+  allBlogs.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
   const recentBlogs = allBlogs.slice(0, 6);
 
   return (
@@ -48,7 +53,7 @@ export default function RecentArticles() {
           Recent Articles
         </Typography>
       </Box>
-      <Grid container spacing={{ xs: 4, lg: 2 }}>
+      <Grid container rowGap={{ xs: 3, lg: 5 }}>
         {recentBlogs.map((blog: Blog, index) => (
           <Grid item xs={12} lg={4} key={index}>
             <PostCard

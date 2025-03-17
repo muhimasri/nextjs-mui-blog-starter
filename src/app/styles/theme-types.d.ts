@@ -53,6 +53,13 @@ declare module "@mui/material/styles" {
       sectionText: string;
       sectionIcon: string;
     };
+    postCard?: {
+      tagBgColor: string;
+    };
+    blogs?: {
+      tagBgColor: string;
+      tagSelectedColor: string;
+    };
     green?: Record<string, string>;
     purple?: Record<string, string>;
   }

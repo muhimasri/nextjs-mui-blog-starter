@@ -74,6 +74,13 @@ const theme = createTheme({
           sectionText: colors.grey[700],
           sectionIcon: colors.purple[500],
         },
+        postCard: {
+          tagBgColor: colors.green[200],
+        },
+        blogs: {
+          tagBgColor: colors.grey[200],
+          tagSelectedColor: colors.green[400],
+        },
         green: colors.green,
         purple: colors.purple,
         grey: colors.grey,
@@ -125,6 +132,13 @@ const theme = createTheme({
           sectionTitle: colors.grey[200],
           sectionText: colors.grey[400],
           sectionIcon: colors.purple[300],
+        },
+        postCard: {
+          tagBgColor: colors.green[400],
+        },
+        blogs: {
+          tagBgColor: colors.grey[400],
+          tagSelectedColor: colors.green[400],
         },
         green: colors.green,
         purple: colors.purple,

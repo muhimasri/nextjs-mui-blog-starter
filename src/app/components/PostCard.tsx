@@ -80,7 +80,7 @@ export default function PostCard({
               label={cat}
               link={`/blogs?tag=${cat.trimStart()}`}
               key={index}
-              bgColor="primary.200"
+              bgColor="postCard.tagBgColor"
             />
           </>
         ))}

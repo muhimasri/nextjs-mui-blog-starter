@@ -55,6 +55,7 @@ function AboutPage(): JSX.Element {
                       fontWeight: "bold",
                       color: "about.headerTitle",
                       mb: 7,
+                      fontSize: { xs: "9", sm: "10" },
                     }}
                   >
                     Hello, I'm Mareli 👋

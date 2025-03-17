@@ -49,7 +49,12 @@ function FeaturedImage({ frontmatter }: FeaturedImageProps) {
 
 function BlogContent({ mdxContent }: BlogContentProps) {
   return (
-    <Box sx={{ maxWidth: "720px", margin: { xs: "auto", lg: "inherit" } }}>
+    <Box
+      sx={{
+        maxWidth: { xs: "100%", md: "720px" },
+        margin: { xs: "auto", lg: "inherit" },
+      }}
+    >
       <Box
         component="article"
         sx={{
@@ -94,7 +99,7 @@ function BlogContent({ mdxContent }: BlogContentProps) {
               left: 0,
               borderLeft: "4px solid",
               borderColor: "purple.400",
-              backgroundColor: "rgb(184 173 255 / 10%)", // Changed to RGB with opacity
+              backgroundColor: "rgb(184 173 255 / 10%)",
               width: "100%",
             },
           },

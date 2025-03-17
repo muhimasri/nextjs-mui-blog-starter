@@ -1,9 +1,8 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import Link from "next/link";
 import Tag from "../components/Tag";
-import { Box, Container, Grid, Stack, Typography } from "@mui/material";
+import { Container, Grid, Stack, Typography } from "@mui/material";
 import PostCard from "../components/PostCard";
 import Header from "../components/Header";
 import { SearchContainer } from "./blogs-elements";
@@ -18,7 +17,6 @@ export default function BlogsPage({
   searchParams: { tag?: string };
 }) {
   const selectedTag = searchParams?.tag;
-  console.log(selectedTag);
   const blogFolders = fs.readdirSync(blogsDirectory);
 
   const allBlogs = blogFolders
@@ -60,6 +58,10 @@ export default function BlogsPage({
     ? allBlogs.filter((blog: Blog) => blog.tags?.includes(selectedTag))
     : allBlogs;
 
+  filteredBlogs.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
   return (
     <>
       <Header />
@@ -69,7 +71,7 @@ export default function BlogsPage({
             {" "}
             Search by topic:{" "}
           </Typography>
-          <Stack gap={3} direction="row" px={3}>
+          <Stack gap={3} direction="row" px={3} flexWrap="wrap">
             {allTags.map((tag, index) => (
               <Tag
                 label={tag}
@@ -77,15 +79,15 @@ export default function BlogsPage({
                 key={index}
                 size="large"
                 selected={tag === selectedTag}
-                bgColor="grey.200"
-                selectedColor="primary.200"
+                bgColor="blogs.tagBgColor"
+                selectedColor="blogs.tagSelectedColor"
               />
             ))}
           </Stack>
         </Container>
       </SearchContainer>
       <Container sx={{ my: 6 }}>
-        <Grid container spacing={2} sx={{ rowGap: { xs: 4, lg: 0 } }}>
+        <Grid container rowGap={{ xs: 3, lg: 5 }}>
           {filteredBlogs.map((blog: Blog, index) => (
             <Grid item xs={12} lg={4} key={index}>
               <PostCard

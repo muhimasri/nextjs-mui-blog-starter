@@ -1,6 +1,7 @@
 interface Blog {
   slug: string;
   title: string;
+  date: string;
   featuredImage: {
     src: string;
     alt: string;

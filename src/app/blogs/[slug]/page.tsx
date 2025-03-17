@@ -68,7 +68,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             left: 0,
             right: 0,
             bottom: 0,
-            height: "33%",
+            height: { xs: "15%", md: "33%" },
             backgroundColor: "background.default",
             zIndex: 1,
           },
@@ -116,7 +116,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               ))}
             </Stack>
           </Stack>
-          <Box>
+          <Box
+            sx={{
+              display: { xs: "none", md: "block" },
+            }}
+          >
             <FeaturedImage frontmatter={frontmatter} />
           </Box>
         </Container>
