@@ -10,10 +10,10 @@ import { visit } from "unist-util-visit";
 import rehypeSlug from "rehype-slug";
 
 import rehypePrettyCode from "rehype-pretty-code";
-import Counter from "@/app/components/tutorial/Counter";
+import Counter from "@/app/blogs/components/tutorials/Counter";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Header from "@/app/components/Header";
-import { BlogContent, FeaturedImage } from "../blogs-elements";
+import { BlogContent, FeaturedImage } from "../components";
 import TableOfContents from "@/app/components/TableOfContents";
 import Tag from "@/app/components/Tag";
 import SuggestedArticles from "@/app/components/SuggestedArticles";

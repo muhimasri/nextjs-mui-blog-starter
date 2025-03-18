@@ -1,7 +1,9 @@
 import React from "react";
 import { Box, Container, Stack, Typography, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
-import { BannerContainer, TagLine, ImageFrame } from "./banner-elements";
+import BannerContainer from "./BannerContainer";
+import TagLine from "./TagLine";
+import ImageFrame from "./ImageFrame";
 import Header from "../Header";
 import Link from "next/link";
 

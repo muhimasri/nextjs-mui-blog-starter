@@ -3,51 +3,11 @@
 import { Box } from "@mui/material";
 import { ReactNode } from "react";
 
-interface SearchContainerProps {
-  children: ReactNode;
-}
-
-interface FeaturedImageProps {
-  [key: string]: any;
-}
-
 interface BlogContentProps {
   mdxContent: ReactNode;
 }
 
-function SearchContainer({ children }: SearchContainerProps) {
-  return (
-    <Box
-      flexDirection="column"
-      justifyContent="center"
-      sx={{
-        pt: 1,
-        pb: 7,
-        background: (theme) => theme.vars.palette.banner.background,
-      }}
-    >
-      {children}
-    </Box>
-  );
-}
-
-function FeaturedImage({ frontmatter }: FeaturedImageProps) {
-  return (
-    <Box
-      component="img"
-      src={frontmatter.featuredImage.src}
-      alt={frontmatter.featuredImage.alt}
-      sx={{
-        maxWidth: "500px",
-        borderRadius: (theme) => theme.vars.shape.radius.large,
-        position: "relative",
-        zIndex: 2,
-      }}
-    />
-  );
-}
-
-function BlogContent({ mdxContent }: BlogContentProps) {
+export default function BlogContent({ mdxContent }: BlogContentProps) {
   return (
     <Box
       sx={{
@@ -110,5 +70,3 @@ function BlogContent({ mdxContent }: BlogContentProps) {
     </Box>
   );
 }
-
-export { SearchContainer, FeaturedImage, BlogContent };

@@ -5,7 +5,7 @@ import Tag from "../components/Tag";
 import { Container, Grid, Stack, Typography } from "@mui/material";
 import PostCard from "../components/PostCard";
 import Header from "../components/Header";
-import { SearchContainer } from "./blogs-elements";
+import { SearchContainer } from "./components";
 import EmailSubscription from "../components/EmailSubscription";
 import Footer from "../components/Footer";
 
