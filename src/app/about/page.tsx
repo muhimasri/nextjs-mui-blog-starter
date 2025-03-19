@@ -4,7 +4,7 @@ import Image from "next/image";
 import {
   BannerContainer,
   ImageFrame,
-} from "../components/banner/banner-elements";
+} from "../components/Banner/banner-elements";
 import Header from "../components/Header";
 // New icon imports
 import SchoolIcon from "@mui/icons-material/School";
