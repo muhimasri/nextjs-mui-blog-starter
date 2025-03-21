@@ -11,12 +11,12 @@ export interface NavListProps {
   [key: string]: any;
 }
 
-export interface MobileDrawerProps {
-  open: boolean;
-  toggleDrawer: (open: boolean) => () => void;
+export interface MobileMenuButtonProps {
   setOpen: (open: boolean) => void;
 }
 
-export interface MobileMenuButtonProps {
-  toggleDrawer: (open: boolean) => () => void;
+export interface NavLinkProps {
+  name: string;
+  path: string;
+  onMenuToggle: (open: boolean) => void;
 }

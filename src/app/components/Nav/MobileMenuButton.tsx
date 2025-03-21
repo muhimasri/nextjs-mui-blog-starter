@@ -2,7 +2,7 @@ import { Button, Stack } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { MobileMenuButtonProps } from "./types";
 
-const MobileMenuButton = ({ toggleDrawer }: MobileMenuButtonProps) => (
+const MobileMenuButton = ({ setOpen }: MobileMenuButtonProps) => (
   <Stack
     direction="row"
     justifyContent="flex-end"
@@ -13,7 +13,7 @@ const MobileMenuButton = ({ toggleDrawer }: MobileMenuButtonProps) => (
   >
     <Button
       variant="text"
-      onClick={toggleDrawer(true)}
+      onClick={() => setOpen(true)}
       sx={{ color: "grey.700" }}
     >
       <MenuIcon />

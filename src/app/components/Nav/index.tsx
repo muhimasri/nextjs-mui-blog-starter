@@ -1,16 +1,10 @@
-"use client";
-import MobileMenuButton from "./MobileMenuButton";
 import MobileDrawer from "./MobileDrawer";
 import NavList from "./NavList";
-import useDrawer from "./useDrawer";
 
 const Nav = (): JSX.Element => {
-  const { open, setOpen, toggleDrawer } = useDrawer();
-
   return (
     <>
-      <MobileMenuButton toggleDrawer={toggleDrawer} />
-      <MobileDrawer open={open} toggleDrawer={toggleDrawer} setOpen={setOpen} />
+      <MobileDrawer />
 
       {/* Desktop Navigation */}
       <NavList

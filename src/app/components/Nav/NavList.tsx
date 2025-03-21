@@ -1,13 +1,9 @@
-"use client";
-import { Stack, Link as MUILink } from "@mui/material";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Stack } from "@mui/material";
 import { NavListProps } from "./types";
-import { afterStyle, getActiveStyles, pages } from "./styles";
+import { pages } from "./styles";
+import NavLink from "./NavLink";
 
 const NavList = ({ onMenuToggle, sx, ...other }: NavListProps) => {
-  const pathname = usePathname();
-
   return (
     <Stack
       sx={sx}
@@ -21,35 +17,12 @@ const NavList = ({ onMenuToggle, sx, ...other }: NavListProps) => {
       {...other}
     >
       {pages.map(({ name, path }) => (
-        <MUILink
+        <NavLink 
           key={path}
-          href={path}
-          component={Link}
-          onClick={() => onMenuToggle(false)}
-          sx={{
-            color: "text.primary",
-            fontSize: "4",
-            letterSpacing: (theme) => theme.typography.letterSpacing.large,
-            textDecoration: "none",
-            position: "relative",
-            transition: "color 0.3s ease-in-out",
-            whiteSpace: "nowrap",
-            fontWeight: 500,
-            "&::after": {
-              width: 0,
-              ...afterStyle,
-            },
-            "&:hover": {
-              color: "primary.main",
-              "&::after": {
-                width: 15,
-              },
-            },
-            ...getActiveStyles(pathname, path),
-          }}
-        >
-          {name}
-        </MUILink>
+          name={name}
+          path={path}
+          onMenuToggle={onMenuToggle}
+        />
       ))}
     </Stack>
   );
