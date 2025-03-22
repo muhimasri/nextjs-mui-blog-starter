@@ -4,7 +4,7 @@ import Copyright from "./Copyright";
 import FooterNav from "./FooterNav";
 import SocialLinks from "./SocialLinks";
 
-const Footer: React.FC = () => {
+const Footer = (): JSX.Element => {
     return (
       <Box
         component="footer"

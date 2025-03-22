@@ -5,7 +5,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 
-const SocialLinks: React.FC = () => (
+const SocialLinks = (): JSX.Element => (
   <Stack direction="row" gap={1}>
     <IconButton
       component="a"

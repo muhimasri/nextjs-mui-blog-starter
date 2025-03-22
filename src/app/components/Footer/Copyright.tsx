@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Link } from "@mui/material";
 
-const Copyright: React.FC = () => {
+const Copyright = (): JSX.Element => {
   const currentYear = new Date().getFullYear();
   
   return (

@@ -9,11 +9,11 @@ interface AboutSectionProps {
   children: React.ReactNode;
 }
 
-const AboutSection: React.FC<AboutSectionProps> = ({
+const AboutSection = ({
   title,
   icon,
   children,
-}) => {
+}: AboutSectionProps): JSX.Element => {
   return (
     <Box
       sx={{

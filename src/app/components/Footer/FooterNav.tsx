@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Stack } from "@mui/material";
 
-const FooterNav: React.FC = () => (
+const FooterNav = (): JSX.Element => (
   <Stack direction="row" gap={2}>
     <Link
       href="/"

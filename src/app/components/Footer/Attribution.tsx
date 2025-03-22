@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Link } from "@mui/material";
 
-const Attribution: React.FC = () => (
+const Attribution = (): JSX.Element => (
   <Typography variant="body2" color="text.secondary" mt={1}>
     Made by
     <Link
