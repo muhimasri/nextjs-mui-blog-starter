@@ -19,8 +19,6 @@ const chipStyle = (
   backgroundColor: selected ? selectedColor : bgColor,
   borderRadius: borderRadius.pill,
   color: "grey.800",
-  // border: selected ? "2px solid" : "none",
-  // borderColor: selected ? "primary.dark" : "transparent",
 });
 
 const largeStyle = {
