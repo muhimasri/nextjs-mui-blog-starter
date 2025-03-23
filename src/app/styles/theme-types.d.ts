@@ -60,6 +60,10 @@ declare module "@mui/material/styles" {
       tagBgColor: string;
       tagSelectedColor: string;
     };
+    button?: {
+      disabledBgColor: string;
+      disabledColor: string;
+    };
     green?: Record<string, string>;
     purple?: Record<string, string>;
   }

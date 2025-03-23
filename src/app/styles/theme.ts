@@ -81,6 +81,10 @@ const theme = createTheme({
           tagBgColor: colors.grey[200],
           tagSelectedColor: colors.green[400],
         },
+        button: {
+          disabledBgColor: colors.grey[200],
+          disabledColor: colors.grey[400],
+        },
         green: colors.green,
         purple: colors.purple,
         grey: colors.grey,
@@ -140,6 +144,10 @@ const theme = createTheme({
           tagBgColor: colors.grey[400],
           tagSelectedColor: colors.green[400],
         },
+        button: {
+          disabledBgColor: colors.grey[800],
+          disabledColor: colors.grey[600],
+        },
         green: colors.green,
         purple: colors.purple,
         grey: colors.grey,
@@ -151,6 +159,10 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: "capitalize",
+          "&.MuiButton-contained.Mui-disabled": {
+            backgroundColor: "var(--mui-palette-button-disabledBgColor)",
+            color: "var(--mui-palette-button-disabledColor)",
+          },
         },
       },
     },
