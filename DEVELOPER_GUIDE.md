@@ -1,3 +1,75 @@
+# Technologies and Tools
+
+This project leverages the following technologies and tools to build a modern, responsive, and feature-rich blog application:
+
+- **Next.js**: A React framework for building server-side rendered and statically generated web applications.
+- **Material-UI (MUI)**: A popular React UI framework for building responsive and accessible user interfaces.
+- **TypeScript**: A strongly typed programming language that builds on JavaScript, providing better tooling and error checking.
+- **MDX**: A format that allows you to write JSX in Markdown, enabling the use of React components in blog posts.
+- **rehype-pretty-code**: A plugin for syntax highlighting in code blocks within MDX files.
+- **CSS Variables**: Used for dynamic styling and theme management.
+
+## Running the Project
+
+To run the project locally, follow these steps:
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone <repository-url>
+   cd nextjs-mui-blog-starter
+   ```
+
+2. **Install Dependencies**:
+   Use your preferred package manager (e.g., npm or yarn) to install the required dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Start the Development Server**:
+   Run the following command to start the development server:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+   The application will be available at `http://localhost:3000`.
+
+4. **Build for Production**:
+   To create an optimized production build, use the following command:
+
+   ```bash
+   npm run build
+   # or
+   yarn build
+   ```
+
+5. **Run the Production Build**:
+   After building the project, you can start the production server with:
+
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
+
+6. **Linting and Formatting**:
+   To check for linting errors and format the code, use:
+   ```bash
+   npm run lint
+   npm run format
+   # or
+   yarn lint
+   yarn format
+   ```
+
+By following these steps, you can set up and run the project locally for development or production purposes.
+
 # Developer Guide for Next.js Blog Template with MUI
 
 This guide provides an overview of the project structure and styling system to help developers navigate, understand, and extend the codebase efficiently.
