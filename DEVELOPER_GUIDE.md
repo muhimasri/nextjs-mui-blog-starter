@@ -1,3 +1,33 @@
+# Features
+
+- Blog list
+- Blog page
+- Interactive blog
+- Table of Content
+- Code Highlighting
+- Home page
+- About page
+- Subscribe form
+- Good Lighthouse score
+- Responsive and mobile support
+- Themeable with tokens and main theme configurations
+- Dark/light mode
+- MDX
+- Dynamic Routing
+- Tag Filtering
+- Featured Images
+- Interactive Components
+- Suggested Articles
+- Recent Articles Section
+- Customizable Design Tokens
+- Global Styles
+- Custom Fonts
+- SEO Optimizations
+- Video and Image Support
+- Accessibility Features
+- Linting and Formatting
+- Static Assets
+
 # Technologies and Tools
 
 This project leverages the following technologies and tools to build a modern, responsive, and feature-rich blog application:
