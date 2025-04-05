@@ -1,3 +1,27 @@
+# Table of Contents
+
+- [Features](#features)
+- [Technologies and Tools](#technologies-and-tools)
+- [Running the Project](#running-the-project)
+- [Roadmap](#roadmap)
+- [Developer Guide for Next.js Blog Template with MUI](#developer-guide-for-nextjs-blog-template-with-mui)
+  - [Project Structure Guide](#project-structure-guide)
+    - [Overview](#overview)
+    - [content/](#content)
+    - [public/](#public)
+    - [src/](#src)
+      - [app/](#app)
+  - [Blog System](#blog-system)
+    - [Blog Pages](#blog-pages)
+      - [All Blogs Page](#all-blogs-page)
+      - [Blog Post Page](#blog-post-page)
+    - [Adding a New Blog Post](#adding-a-new-blog-post)
+  - [Styling Guide](#styling-guide)
+    - [tokens.ts](#tokensts)
+    - [theme.ts](#themets)
+    - [global.tsx](#globaltsx)
+    - [Component Styling](#component-styling)
+
 # nextjs-mui-blog-starter-starter
 
 A lightweight, SEO-friendly, and highly customizable portfolio and blog template built with Next.js and Material UI. This starter features dark mode support, token-based theming, a dynamic Table of Contents (TOC), code highlighting, and performance optimizations to achieve 90-100% Lighthouse scores.
@@ -43,7 +67,7 @@ This project leverages the following technologies and tools to build a modern, r
 - **rehype-pretty-code**: A plugin for syntax highlighting in code blocks within MDX files.
 - **CSS Variables**: Used for dynamic styling and theme management.
 
-## Running the Project
+# Running the Project
 
 To run the project locally, follow these steps:
 
@@ -103,6 +127,22 @@ To run the project locally, follow these steps:
    ```
 
 By following these steps, you can set up and run the project locally for development or production purposes.
+
+# Roadmap
+
+- Fix Accessibility
+- Increase Lighthouse Performance Score
+- RSS
+- Sitemap
+- Internationalization (i18n)
+- Analytics Integration
+- Github Commenting System
+- Social Sharing
+- Dark Mode Toggle
+- Progressive Web App (PWA) Support
+- Search Functionality
+- Newsletter Integration
+- Custom 404 and 500 Pages
 
 # Developer Guide for Next.js Blog Template with MUI
 
