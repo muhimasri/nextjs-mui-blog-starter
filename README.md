@@ -1,148 +1,117 @@
-# Table of Contents
+# nextjs-mui-blog-starter
+
+![Next.js](https://img.shields.io/badge/Next.js-14-blue?logo=nextdotjs)
+![Material UI](https://img.shields.io/badge/MUI-6-blueviolet?logo=mui)
+![License: MIT](https://img.shields.io/badge/license-MIT-green)
+![SEO Optimized](https://img.shields.io/badge/SEO-Optimized-success)
+![Lighthouse Score: 100](https://img.shields.io/badge/Lighthouse-Performance%3A%20100-brightgreen)
+
+A fast, modern, and SEO-friendly blog and portfolio template built with **Next.js 14**, **Material UI (MUI 6)**, and **MDX**. Ideal for developers who want to launch a customizable blog or technical portfolio site with built-in support for dark mode, code highlighting, design tokens, and accessibility.
+
+---
+
+## 🔗 Live Demo
+
+[https://nextjs-mui-blog-starter.vercel.app](#) _(Update with actual URL)_
+
+## 📸 Screenshots
+
+![Homepage Screenshot](./public/images/demo-home.png)
+![Blog Post Screenshot](./public/images/demo-blog.png)
+
+---
+
+## 📚 Table of Contents
 
 - [Features](#features)
+- [Why Use This Template?](#why-use-this-template)
 - [Technologies and Tools](#technologies-and-tools)
 - [Running the Project](#running-the-project)
 - [Roadmap](#roadmap)
-- [Developer Guide for Next.js Blog Template with MUI](#developer-guide-for-nextjs-blog-template-with-mui)
-  - [Project Structure Guide](#project-structure-guide)
-    - [Overview](#overview)
-    - [content/](#content)
-    - [public/](#public)
-    - [src/](#src)
-      - [app/](#app)
-  - [Blog System](#blog-system)
-    - [Blog Pages](#blog-pages)
-      - [All Blogs Page](#all-blogs-page)
-      - [Blog Post Page](#blog-post-page)
-    - [Adding a New Blog Post](#adding-a-new-blog-post)
-  - [Styling Guide](#styling-guide)
-    - [tokens.ts](#tokensts)
-    - [theme.ts](#themets)
-    - [global.tsx](#globaltsx)
-    - [Component Styling](#component-styling)
+- [Developer Guide](#developer-guide)
 
-# nextjs-mui-blog-starter-starter
+---
 
-A lightweight, SEO-friendly, and highly customizable portfolio and blog template built with Next.js and Material UI. This starter features dark mode support, token-based theming, a dynamic Table of Contents (TOC), code highlighting, and performance optimizations to achieve 90-100% Lighthouse scores.
+## 🚀 Features
 
-# Features
-
-- Blog list
-- Blog page
-- Interactive blog
-- Table of Content
-- Code Highlighting
-- Home page
-- About page
-- Subscribe form
-- Good Lighthouse score
-- Responsive and mobile support
-- Themeable with tokens and main theme configurations
-- Dark/light mode
-- MDX
+- Home & About Pages
+- MDX Blog System with Frontmatter
 - Dynamic Routing
-- Tag Filtering
-- Featured Images
-- Interactive Components
-- Suggested Articles
-- Recent Articles Section
-- Customizable Design Tokens
-- Global Styles
-- Custom Fonts
-- SEO Optimizations
-- Video and Image Support
+- Tag Filtering & Search
+- Featured Images & Suggested Articles
+- Table of Contents (TOC)
+- Code Highlighting with Shiki (via rehype-pretty-code)
+- Dark/Light Mode (MUI v6 Theme Tokens)
+- SEO Metadata with Open Graph
 - Accessibility Features
-- Linting and Formatting
-- Static Assets
+- Fully Responsive
+- 90-100% Lighthouse Scores
+- Developer-Friendly Architecture
 
-# Technologies and Tools
+---
 
-This project leverages the following technologies and tools to build a modern, responsive, and feature-rich blog application:
+## 💡 Why Use This Template?
 
-- **Next.js**: A React framework for building server-side rendered and statically generated web applications.
-- **Material-UI (MUI)**: A popular React UI framework for building responsive and accessible user interfaces.
-- **TypeScript**: A strongly typed programming language that builds on JavaScript, providing better tooling and error checking.
-- **MDX**: A format that allows you to write JSX in Markdown, enabling the use of React components in blog posts.
-- **rehype-pretty-code**: A plugin for syntax highlighting in code blocks within MDX files.
-- **CSS Variables**: Used for dynamic styling and theme management.
+- ✅ Built with the latest Next.js App Router (14+)
+- 🧩 Write MDX content with embedded React components
+- 🎨 Custom theming and design tokens using Material UI
+- 🧱 Responsive layout and component-based structure
+- 🧠 Automatically generated Table of Contents
+- 🌐 SEO-friendly with dynamic meta & Open Graph tags
+- 🔒 Accessibility and performance best practices
 
-# Running the Project
+---
 
-To run the project locally, follow these steps:
+## 🛠 Technologies and Tools
 
-1. **Clone the Repository**:
+- **Next.js 14** – App Router architecture
+- **Material UI v6** – Responsive components and design system
+- **MDX** – Write JSX inside Markdown files
+- **rehype-pretty-code** – Syntax highlighting with Shiki
+- **TypeScript** – Safer, more maintainable code
+- **ESLint + Prettier** – Code quality and formatting
 
-   ```bash
-   git clone <repository-url>
-   cd nextjs-mui-blog-starter
-   ```
+---
 
-2. **Install Dependencies**:
-   Use your preferred package manager (e.g., npm or yarn) to install the required dependencies:
+## 🧪 Running the Project
 
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+```bash
+# Clone the repository
+$ git clone <repository-url>
+$ cd nextjs-mui-blog-starter
 
-3. **Start the Development Server**:
-   Run the following command to start the development server:
+# Install dependencies
+$ npm install
 
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+# Run the development server
+$ npm run dev
 
-   The application will be available at `http://localhost:3000`.
+# Build for production
+$ npm run build
 
-4. **Build for Production**:
-   To create an optimized production build, use the following command:
+# Start the production server
+$ npm start
 
-   ```bash
-   npm run build
-   # or
-   yarn build
-   ```
+# Lint and format
+$ npm run lint
+$ npm run format
+```
 
-5. **Run the Production Build**:
-   After building the project, you can start the production server with:
+---
 
-   ```bash
-   npm start
-   # or
-   yarn start
-   ```
+## 🗺 Roadmap
 
-6. **Linting and Formatting**:
-   To check for linting errors and format the code, use:
-   ```bash
-   npm run lint
-   npm run format
-   # or
-   yarn lint
-   yarn format
-   ```
+- [ ] Accessibility Improvements
+- [ ] RSS Feed
+- [ ] Sitemap.xml
+- [ ] i18n Support
+- [ ] GitHub-based Commenting System
+- [ ] Social Sharing Buttons
+- [ ] PWA Support
+- [ ] Full-Text Search
+- [ ] Newsletter Integration
 
-By following these steps, you can set up and run the project locally for development or production purposes.
-
-# Roadmap
-
-- Fix Accessibility
-- Increase Lighthouse Performance Score
-- RSS
-- Sitemap
-- Internationalization (i18n)
-- Analytics Integration
-- Github Commenting System
-- Social Sharing
-- Dark Mode Toggle
-- Progressive Web App (PWA) Support
-- Search Functionality
-- Newsletter Integration
-- Custom 404 and 500 Pages
+---
 
 # Developer Guide for Next.js Blog Template with MUI
 
