@@ -19,6 +19,7 @@ import Tag from "@/app/components/Tag";
 import SuggestedArticles from "@/app/components/SuggestedArticles";
 import EmailSubscription from "@/app/components/EmailSubscription";
 import Footer from "@/app/components/Footer";
+import { Metadata } from "next";
 
 interface BlogPostPageProps {
   params: { slug: string };
@@ -179,4 +180,35 @@ async function extractHeadings(content: string): Promise<Heading[]> {
   });
 
   return headings;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const filePath = path.join(process.cwd(), "content", params.slug, "page.mdx");
+  const fileContents = readFileSync(filePath, "utf8");
+  const { data: frontmatter } = matter(fileContents);
+
+  return {
+    title: frontmatter.title,
+    description: frontmatter.description,
+    openGraph: {
+      title: frontmatter.title,
+      description: frontmatter.description,
+      images: [
+        {
+          url: frontmatter.featuredImage.src,
+          alt: frontmatter.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: frontmatter.title,
+      description: frontmatter.description,
+      images: [frontmatter.featuredImage],
+    },
+  };
 }
