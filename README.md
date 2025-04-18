@@ -8,17 +8,14 @@
 
 A fast, modern, and SEO-friendly blog and portfolio template built with **Next.js 14**, **Material UI (MUI 6)**, and **MDX**. Ideal for developers who want to launch a customizable blog or technical portfolio site with built-in support for dark mode, code highlighting, design tokens, and accessibility.
 
----
-
-## 🔗 Live Demo
-
 [https://nextjs-mui-blog-starter.vercel.app](#) _(Update with actual URL)_
 
-## 📸 Screenshots
-
-![Homepage Screenshot](./public/images/demo-home.png)
-![Blog Post Screenshot](./public/images/demo-blog.png)
-
+<div align="center">
+  <img src="./public/images/demo-1.png" width="30%" style="margin: 10px;" />
+  <img src="./public/images/demo-2.png" width="30%" style="margin: 10px;" />
+  <img src="./public/images/demo-3.png" width="30%" style="margin: 10px;" />
+  <img src="./public/images/demo-4.png" width="30%" style="margin: 10px;" />
+</div>
 ---
 
 ## 📚 Table of Contents
@@ -108,6 +105,7 @@ $ npm run format
 - [ ] Social Sharing Buttons
 - [ ] PWA Support
 - [ ] Newsletter Integration
+- [ ] Custom sytax highlighting theme with light and dark mode support
 
 ---
 
