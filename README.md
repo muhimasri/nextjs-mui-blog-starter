@@ -207,10 +207,6 @@ public/
 
 Contributions and suggestions are welcome! Feel free to fork the repo and submit a pull request.
 
-## 📄 License
-
-MIT © [Muhi Masri]
-
 ---
 
-> Made with ❤️ using Next.js, Material UI, and MDX
+> Made with ❤️ by [Muhi Masri](https://muhimasri.com/)
