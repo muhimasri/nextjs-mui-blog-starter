@@ -8,12 +8,13 @@
 
 A fast, modern, and SEO-friendly blog and portfolio template built with **Next.js 14**, **Material UI (MUI 6)**, and **MDX**. Ideal for developers who want to launch a customizable blog or technical portfolio site with built-in support for dark mode, code highlighting, design tokens, and accessibility.
 
-<div tyle="column-count: 2; column-gap: 1rem;">
-  <img src="./public/images/demo-1.png" style="width: 100%; margin-bottom: 1rem;" />
-  <img src="./public/images/demo-2.png" style="width: 100%; margin-bottom: 1rem;" />
-  <img src="./public/images/demo-3.png" style="width: 100%; margin-bottom: 1rem;" />
-  <img src="./public/images/demo-4.png" style="width: 100%; margin-bottom: 1rem;" />
-</div>
+<p align="center">
+  <img src="./public/images/demo-1.png" width="45%" style="margin: 10px;" />
+  <img src="./public/images/demo-2.png" width="45%" style="margin: 10px;" />
+  <br />
+  <img src="./public/images/demo-3.png" width="45%" style="margin: 10px;" />
+  <img src="./public/images/demo-4.png" width="45%" style="margin: 10px;" />
+</p>
 
 ---
 
