@@ -51,13 +51,13 @@ A fast, modern, and SEO-friendly blog and portfolio template built with **Next.j
 
 ## 💡 Why Use This Template?
 
-✅ Built with the latest Next.js App Router (14+)
-🧩 Write MDX content with embedded React components
-🎨 Custom theming and design tokens using Material UI
-🧱 Responsive layout and component-based structure
-🧠 Automatically generated Table of Contents
-🌐 SEO-friendly with dynamic meta & Open Graph tags
-🔒 Accessibility and performance best practices
+- ✅ Built with the latest Next.js App Router (14+)
+- 🧩 Write MDX content with embedded React components
+- 🎨 Custom theming and design tokens using Material UI
+- 🧱 Responsive layout and component-based structure
+- 🧠 Automatically generated Table of Contents
+- 🌐 SEO-friendly with dynamic meta & Open Graph tags
+- 🔒 Accessibility and performance best practices
 
 ---
 
