@@ -4,7 +4,7 @@
 ![Material UI](https://img.shields.io/badge/MUI-6-blueviolet?logo=mui)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![SEO Optimized](https://img.shields.io/badge/SEO-Optimized-success)
-![Lighthouse Score: 90](https://img.shields.io/badge/Lighthouse-Performance%3A%20100-brightgreen)
+![Lighthouse Score: 90](https://img.shields.io/badge/Lighthouse-Performance%3A%2090-brightgreen)
 
 A fast, modern, and SEO-friendly blog and portfolio template built with **Next.js 14**, **Material UI (MUI 6)**, and **MDX**. Ideal for developers who want to launch a customizable blog or technical portfolio site with built-in support for dark mode, code highlighting, design tokens, and accessibility.
 
