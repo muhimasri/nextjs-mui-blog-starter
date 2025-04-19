@@ -1,0 +1,110 @@
+---
+title: Demystifying React Context
+description: A guide to understanding and using React Context.
+date: "2022-01-15"
+author: Mareli Ramos
+tags: react, context
+featuredImage:
+  src: /images/cover-2.webp
+  alt: Cover Image
+---
+
+# Introduction to React Context
+
+React Context provides a way to pass data through the component tree without having to pass props down manually at every level. In this blog post, we will explore how to use React Context to manage state and share data across your application.
+
+# Creating a Context
+
+To create a context, use the `createContext` function from the React library.
+
+```javascript
+import React, { createContext } from "react";
+
+const MyContext = createContext();
+```
+
+# Providing Context
+
+To make the context available to components, wrap them with the `Provider` component and pass the value you want to share.
+
+```javascript
+import React, { createContext } from "react";
+
+const MyContext = createContext();
+
+function App() {
+  return (
+    <MyContext.Provider value={{ data: "Hello, World!" }}>
+      <MyComponent />
+    </MyContext.Provider>
+  );
+}
+```
+
+# Consuming Context
+
+To consume the context, use the `useContext` hook or the `Consumer` component.
+
+## Using `useContext` Hook
+
+```javascript
+import React, { useContext } from "react";
+import { MyContext } from "./MyContext";
+
+function MyComponent() {
+  const context = useContext(MyContext);
+  return <div>{context.data}</div>;
+}
+```
+
+## Using `Consumer` Component
+
+```javascript
+import React from "react";
+import { MyContext } from "./MyContext";
+
+function MyComponent() {
+  return (
+    <MyContext.Consumer>
+      {(context) => <div>{context.data}</div>}
+    </MyContext.Consumer>
+  );
+}
+```
+
+# Updating Context
+
+To update the context value, you can pass a function to the `Provider` and call it from a consumer component.
+
+```javascript
+import React, { createContext, useState } from "react";
+
+const MyContext = createContext();
+
+function App() {
+  const [data, setData] = useState("Hello, World!");
+
+  return (
+    <MyContext.Provider value={{ data, setData }}>
+      <MyComponent />
+    </MyContext.Provider>
+  );
+}
+
+function MyComponent() {
+  const { data, setData } = useContext(MyContext);
+
+  return (
+    <div>
+      <p>{data}</p>
+      <button onClick={() => setData("Hello, React Context!")}>Update</button>
+    </div>
+  );
+}
+```
+
+# Conclusion
+
+React Context is a powerful tool for managing state and sharing data across your application. By understanding how to create, provide, consume, and update context, you can simplify your component tree and avoid prop drilling.
+
+Happy coding!

@@ -1,0 +1,108 @@
+---
+title: Unlocking the Secrets of CSS Display Property
+description: A guide to understanding and using the CSS display property.
+date: "2022-08-16"
+author: Mareli Ramos
+tags: css, display
+featuredImage:
+  src: /images/css-display.jpg
+  alt: Cover Image
+---
+
+# Introduction to CSS Display Property
+
+The CSS `display` property is one of the most important properties for controlling the layout of elements on a web page. In this blog post, we will explore the different values of the `display` property and how to use them effectively.
+
+# Block and Inline Elements
+
+HTML elements are by default either block-level or inline-level elements. The `display` property can change this behavior.
+
+## Block Elements
+
+Block-level elements take up the full width available and start on a new line.
+
+```css
+.block-element {
+  display: block;
+}
+```
+
+## Inline Elements
+
+Inline-level elements take up only as much width as necessary and do not start on a new line.
+
+```css
+.inline-element {
+  display: inline;
+}
+```
+
+# Display Values
+
+## display: none
+
+The `display: none` value hides the element and it will not take up any space in the layout.
+
+```css
+.hidden-element {
+  display: none;
+}
+```
+
+## display: flex
+
+The `display: flex` value makes the element a flex container, allowing you to use flexbox layout properties.
+
+```css
+.flex-container {
+  display: flex;
+}
+```
+
+## display: grid
+
+The `display: grid` value makes the element a grid container, allowing you to use grid layout properties.
+
+```css
+.grid-container {
+  display: grid;
+}
+```
+
+## display: inline-block
+
+The `display: inline-block` value makes the element behave like an inline element but allows setting width and height.
+
+```css
+.inline-block-element {
+  display: inline-block;
+}
+```
+
+# Examples
+
+## Flexbox Layout
+
+```css
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+## Grid Layout
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+```
+
+# Conclusion
+
+The `display` property is a powerful tool for controlling the layout of elements on a web page. By understanding the different values and how to use them, you can create more flexible and responsive designs.
+
+Happy coding!

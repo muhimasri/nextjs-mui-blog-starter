@@ -1,0 +1,104 @@
+---
+title: Exploring JavaScript Loops
+description: Exploring various loops in JavaScript and their usage.
+date: "2022-09-01"
+author: Mareli Ramos
+tags: javascript, loops
+featuredImage:
+  src: /images/javascript-loops.jpg
+  alt: Cover Image
+---
+
+# Understanding the basics
+
+JavaScript provides several ways to iterate over data structures. In this blog post, we will explore different types of loops and when to use each one.
+
+## for Loop
+
+The `for` loop is the most commonly used loop in JavaScript. It has three parts: initialization, condition, and increment/decrement.
+
+```javascript {1, 3, 5}
+for (let i = 0; i < 5; i++) {
+  console.log(i); // 0, 1, 2, 3, 4
+}
+```
+
+In the above example, the loop runs five times, logging the values from 0 to 4.
+
+## while Loop
+
+The `while` loop continues to execute as long as the specified condition is true.
+
+```javascript
+let i = 0;
+while (i < 5) {
+  console.log(i); // 0, 1, 2, 3, 4
+  i++;
+}
+```
+
+In the above example, the loop runs while `i` is less than 5.
+
+## do...while Loop
+
+The `do...while` loop is similar to the `while` loop, but it executes the block of code at least once before checking the condition.
+
+```javascript
+let i = 0;
+do {
+  console.log(i); // 0, 1, 2, 3, 4
+  i++;
+} while (i < 5);
+```
+
+In the above example, the loop runs at least once and continues while `i` is less than 5.
+
+# Highlighting differences
+
+- `for` loop is best when the number of iterations is known.
+- `while` loop is useful when the number of iterations is not known and depends on a condition.
+- `do...while` loop ensures the code block runs at least once.
+
+```javascript {1, 6, 11}
+for (let i = 0; i < 3; i++) {
+  console.log(i); // 0, 1, 2
+}
+
+let j = 0;
+while (j < 3) {
+  console.log(j); // 0, 1, 2
+  j++;
+}
+
+let k = 0;
+do {
+  console.log(k); // 0, 1, 2
+  k++;
+} while (k < 3);
+```
+
+# When to use different loops
+
+Use `for` loop when you know the exact number of iterations. Use `while` loop when the number of iterations depends on a condition. Use `do...while` loop when you need to ensure the code block runs at least once.
+
+```javascript
+for (let i = 0; i < 10; i++) {
+  console.log(i); // Use for loop for known iterations
+}
+
+let condition = true;
+while (condition) {
+  // Use while loop for condition-based iterations
+  condition = false;
+}
+
+do {
+  // Use do...while loop to run code at least once
+} while (false);
+```
+
+# Conclusion
+
+Understanding the differences between various loops in JavaScript is crucial for writing efficient and readable code. Use the appropriate loop based on your specific needs.
+
+Happy coding!
