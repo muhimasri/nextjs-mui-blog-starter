@@ -38,7 +38,7 @@ export default function BlogContent({ mdxContent }: BlogContentProps) {
             borderRadius: (theme) => theme.vars.shape.radius.medium,
             overflowX: "auto",
             position: "relative",
-            backgroundColor: "common.background",
+            backgroundColor: "blog.preBgColor", // TODO: need to support ligh mode
             outline: "1px solid",
             outlineColor: "blog.preBorderColor",
           },

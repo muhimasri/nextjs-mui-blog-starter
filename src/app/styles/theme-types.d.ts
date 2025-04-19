@@ -38,6 +38,7 @@ declare module "@mui/material/styles" {
       headerBgColor: string;
       h1Color: string;
       preBorderColor: string;
+      preBgColor: string;
       codeBgColor: string;
       codeColor: string;
       linkColor: string;
