@@ -12,10 +12,10 @@ A fast, modern, and SEO-friendly blog and portfolio template built with **Next.j
 
 <p align="center">
   <img src="./public/images/demo-1.png" width="45%" style="margin: 10px;" />
-  <img src="./public/images/demo-2.png" width="45%" style="margin: 10px;" />
-  <br />
-  <img src="./public/images/demo-3.png" width="45%" style="margin: 10px;" />
   <img src="./public/images/demo-5.png" width="45%" style="margin: 10px;" />
+  <br />
+  <img src="./public/images/demo-2.png" width="45%" style="margin: 10px;" />
+  <img src="./public/images/demo-3.png" width="45%" style="margin: 10px;" />
 </p>
 
 ---
@@ -184,10 +184,59 @@ public/
 
 ### Styling with Tokens and Theme
 
-- Theme is created from `tokens.ts` to support light/dark mode via MUI's color scheme.
-- Design primitives (spacing, fontSize, shadows) are tokenized.
-- Use the `sx` prop for custom styling.
-- Responsive styles via breakpoints:
+- Theme is created from `tokens.ts` with design primitives tokenized to support quick and centralized custom theming:
+
+  - `colors`
+  - `font`
+  - `spacing`
+  - `shadows`
+  - `borderRadius`
+  - `letterSpacing`
+  - `lineHeight`
+
+- Tokens are used in `theme.ts` as values for the theme palette, supporting light/dark mode via MUI’s color scheme.
+
+- Theme palettes are also extended to define custom variables for specific sections like blog, about, and subscribe pages:
+
+```ts
+blog: {
+  headerBgColor: "white",
+  h1Color: colors.purple[500],
+},
+subscribe: {
+  headerColor: colors.grey[800],
+},
+about: {
+  headerTitle: colors.grey[800],
+}
+```
+
+- MUI 6 converts all theme values into CSS variables automatically. This enables use of tokens in external stylesheets or with Tailwind:
+
+```ts
+about: {
+  headerTitle: colors.grey[800], // var(--mui-palette-about-headerTitle)
+  headerText: colors.grey[700],  // var(--mui-palette-about-headerText)
+}
+```
+
+- Components are styled using the sx prop or direct props, supporting shorthand token references for consistency and dark mode support:
+
+```tsx
+<Typography color="green.500">
+  Mareli Ramos
+</Typography>
+<Typography
+  sx={{
+    fontSize: "6",
+    color: "text.primary",
+  }}
+>
+  Mareli Ramos
+</Typography>
+```
+
+- Responsive styles are defined using MUI’s sx breakpoints:
 
 ```tsx
 <Box
