@@ -196,6 +196,52 @@ public/
 
 - Tokens are used in `theme.ts` as values for the theme palette, supporting light/dark mode via MUI’s color scheme.
 
+```tsx
+const theme = createTheme({
+  cssVariables: {
+    colorSchemeSelector: "class",
+  },
+  colorSchemes: {
+    light: {
+      palette: {
+        primary: {
+          main: colors.green[500],
+          ...
+        },
+        secondary: {
+          main: colors.purple[500],
+          ...
+        },
+        common: {
+          onBackground: colors.grey[900],
+          ...
+        },
+        text: {
+          primary: colors.grey[800],
+          ...
+        },
+      },
+    },
+    dark: {
+      palette: {
+        primary: {
+          main: colors.green[600],
+          ...
+        },
+        secondary: {
+          main: colors.purple[900],
+          ...
+        },
+        text: {
+          primary: colors.grey[100],
+          ...
+        },
+      },
+    },
+  },
+});
+```
+
 - Theme palettes are also extended to define custom variables for specific sections like blog, about, and subscribe pages:
 
 ```ts
