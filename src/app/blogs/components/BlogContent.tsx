@@ -58,7 +58,7 @@ export default function BlogContent({ mdxContent }: BlogContentProps) {
               position: "absolute",
               left: 0,
               borderLeft: "4px solid",
-              borderColor: "purple.400",
+              borderColor: "secondary.400",
               backgroundColor: "rgb(184 173 255 / 10%)",
               width: "100%",
             },

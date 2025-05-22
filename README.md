@@ -205,11 +205,11 @@ const theme = createTheme({
     light: {
       palette: {
         primary: {
-          main: colors.green[500],
+          main: colors.primary[500],
           ...
         },
         secondary: {
-          main: colors.purple[500],
+          main: colors.secondary[500],
           ...
         },
         common: {
@@ -225,11 +225,11 @@ const theme = createTheme({
     dark: {
       palette: {
         primary: {
-          main: colors.green[600],
+          main: colors.primary[600],
           ...
         },
         secondary: {
-          main: colors.purple[900],
+          main: colors.secondary[900],
           ...
         },
         text: {
@@ -247,7 +247,7 @@ const theme = createTheme({
 ```ts
 blog: {
   headerBgColor: "white",
-  h1Color: colors.purple[500],
+  h1Color: colors.secondary[500],
 },
 subscribe: {
   headerColor: colors.grey[800],
@@ -269,7 +269,7 @@ about: {
 - Components are styled using the sx prop or direct props, supporting shorthand token references for consistency and dark mode support:
 
 ```tsx
-<Typography color="green.500">
+<Typography color="primary.500">
   Mareli Ramos
 </Typography>
 <Typography

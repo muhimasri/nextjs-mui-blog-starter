@@ -35,7 +35,7 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
               fontSize="7"
               fontWeight="600"
               whiteSpace="nowrap"
-              color="green.500"
+              color="primary.500"
             >
               Mareli Ramos
             </Typography>
