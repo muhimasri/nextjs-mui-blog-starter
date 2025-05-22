@@ -42,7 +42,7 @@ function Banner(): JSX.Element {
                     fontWeight: 400,
                     pl: 3,
                     borderLeft: "3px solid",
-                    borderColor: "purple.100",
+                    borderColor: "secondary.100",
                   }}
                   component="div"
                 >

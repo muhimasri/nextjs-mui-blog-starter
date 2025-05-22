@@ -26,8 +26,6 @@ declare module "@mui/material/styles" {
     banner: {
       background: string;
     };
-    green: Record<string, string>;
-    purple: Record<string, string>;
   }
 
   interface PaletteOptions {
@@ -65,8 +63,6 @@ declare module "@mui/material/styles" {
       disabledBgColor: string;
       disabledColor: string;
     };
-    green?: Record<string, string>;
-    purple?: Record<string, string>;
   }
 }
 

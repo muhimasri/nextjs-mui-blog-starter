@@ -8,7 +8,7 @@ export const {
   lineHeight,
 } = {
   colors: {
-    green: {
+    primary: {
       100: "#f6fffa",
       200: "#e0f4e8",
       300: "#b5edcd",
@@ -20,7 +20,7 @@ export const {
       900: "#2a563c",
       1000: "#183e27",
     },
-    purple: {
+    secondary: {
       50: "#f5f3ff",
       100: "#dbdce8",
       200: "#b7b8d2",
