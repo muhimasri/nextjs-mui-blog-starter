@@ -63,7 +63,7 @@ export default function SuggestedArticles({
         sx={{ flexWrap: { xs: "wrap", lg: "nowrap" } }}
       >
         {suggestedBlogs.map((blog: Blog, index) => (
-          <Grid item xs={12} lg={4} key={index}>
+          <Grid size={{ xs: 12, lg: 4 }} key={index}>
             <PostCard
               title={blog.title}
               image={blog.featuredImage}

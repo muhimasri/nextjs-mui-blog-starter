@@ -2,6 +2,7 @@
 import type {} from "@mui/material/themeCssVarsAugmentation";
 import { styled } from "@mui/material";
 import Image from "next/image";
+import { JSX } from "react";
 
 const BannerImage = styled(Image)(({ theme }) => ({
   borderRadius: theme.shape.radius.large,

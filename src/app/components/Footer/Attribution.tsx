@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX } from "react";
 import { Typography, Link } from "@mui/material";
 
 const Attribution = (): JSX.Element => (

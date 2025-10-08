@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import { Box, CardActions } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { styled } from "@mui/system";
+import { styled } from "@mui/material/styles";
 import Tag from "./Tag";
 import { borderRadius } from "../styles/tokens";
 
@@ -74,15 +74,13 @@ export default function PostCard({
 
       <CardActions sx={{ p: 0, pl: 1 }}>
         {tags.split(",").map((cat, index) => (
-          <>
-            <Tag
-              size="small"
-              label={cat}
-              link={`/blogs?tag=${cat.trimStart()}`}
-              key={index}
-              bgColor="postCard.tagBgColor"
-            />
-          </>
+          <Tag
+            size="small"
+            label={cat}
+            link={`/blogs?tag=${cat.trimStart()}`}
+            key={index}
+            bgColor="postCard.tagBgColor"
+          />
         ))}
       </CardActions>
     </Card>

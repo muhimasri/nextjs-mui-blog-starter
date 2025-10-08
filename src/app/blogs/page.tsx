@@ -89,13 +89,14 @@ export default function BlogsPage({
       <Container sx={{ my: 6 }}>
         <Grid container rowGap={{ xs: 3, lg: 5 }}>
           {filteredBlogs.map((blog: Blog, index) => (
-            <Grid item xs={12} lg={4} key={index}>
+            <Grid size={{ xs: 12, lg: 4 }} key={index}>
               <PostCard
                 title={blog.title}
                 image={blog.featuredImage}
                 tags={blog.tags}
                 description={blog.description}
                 link={blog.slug}
+                maxWidth={{ xs: 554, lg: 355 }}
               />
             </Grid>
           ))}

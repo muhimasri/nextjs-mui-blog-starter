@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX } from "react";
 import Header from "../components/Header";
 import EmailSubscription from "../components/EmailSubscription";
 import Footer from "../components/Footer";

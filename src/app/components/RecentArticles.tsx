@@ -55,7 +55,7 @@ export default function RecentArticles() {
       </Box>
       <Grid container rowGap={{ xs: 3, lg: 5 }}>
         {recentBlogs.map((blog: Blog, index) => (
-          <Grid item xs={12} lg={4} key={index}>
+          <Grid size={{ xs: 12, lg: 4 }} key={index}>
             <PostCard
               title={blog.title}
               image={blog.featuredImage}

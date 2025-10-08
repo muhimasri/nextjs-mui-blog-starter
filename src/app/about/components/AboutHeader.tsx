@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX } from "react";
 import { Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import BannerContainer from "../../components/Banner/BannerContainer";
@@ -16,7 +16,7 @@ const AboutHeader = (): JSX.Element => {
           alignItems="center"
           width="auto"
         >
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, lg: 6 }}>
             <Container
               sx={{
                 display: "flex",
@@ -66,9 +66,7 @@ const AboutHeader = (): JSX.Element => {
             </Container>
           </Grid>
           <Grid
-            item
-            xs={12}
-            md={6}
+            size={{ xs: 12, lg: 6 }}
             sx={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
             <Image

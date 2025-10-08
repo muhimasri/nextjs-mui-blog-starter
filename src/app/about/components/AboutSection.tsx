@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 
 interface AboutSectionProps {

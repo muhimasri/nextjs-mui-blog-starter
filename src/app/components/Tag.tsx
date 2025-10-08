@@ -1,6 +1,7 @@
 import { Chip } from "@mui/material";
 import Link from "next/link";
 import { borderRadius } from "../styles/tokens";
+import { JSX } from "react";
 
 type TagProps = {
   size?: "small" | "large";
@@ -9,6 +10,7 @@ type TagProps = {
   selected?: boolean;
   bgColor?: string;
   selectedColor?: string;
+  key?: number | string;
 };
 
 const chipStyle = (

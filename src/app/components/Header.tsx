@@ -8,6 +8,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import Nav from "./Nav";
 import Link from "next/link";
+import { JSX } from "react";
 
 interface HeaderProps {
   size?: "small" | "large";

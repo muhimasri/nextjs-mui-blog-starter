@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX } from "react";
 import { Box, Container } from "@mui/material";
 import SchoolIcon from "@mui/icons-material/School";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
