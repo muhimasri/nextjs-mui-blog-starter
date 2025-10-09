@@ -1,7 +1,8 @@
 # nextjs-mui-blog-starter
 
-![Next.js](https://img.shields.io/badge/Next.js-14-blue?logo=nextdotjs)
-![Material UI](https://img.shields.io/badge/MUI-6-blueviolet?logo=mui)
+![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=nextdotjs)
+![Material UI](https://img.shields.io/badge/MUI-7-blueviolet?logo=mui)
+![React](https://img.shields.io/badge/react-19-blue?logo=react)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![SEO Optimized](https://img.shields.io/badge/SEO-Optimized-success)
 ![Lighthouse Score: 90](https://img.shields.io/badge/Lighthouse-Performance%3A%2090-brightgreen)
