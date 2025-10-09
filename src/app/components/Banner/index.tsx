@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX } from "react";
 import { Box, Container, Stack, Typography, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import BannerContainer from "./BannerContainer";
@@ -20,7 +20,7 @@ function Banner(): JSX.Element {
           alignItems="center"
           width="auto"
         >
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, lg: 6 }}>
             <Container
               sx={{
                 display: "flex",
@@ -78,9 +78,7 @@ function Banner(): JSX.Element {
             </Container>
           </Grid>
           <Grid
-            item
-            xs={12}
-            md={6}
+            size={{ xs: 12, md: 6 }}
             sx={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
             <ImageFrame />

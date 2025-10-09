@@ -1,5 +1,5 @@
 import { readFileSync, readdirSync } from "fs";
-import { compileMDX } from "next-mdx-remote/rsc";
+import { MDXRemote } from "next-mdx-remote-client/rsc";
 import path from "path";
 import matter from "gray-matter";
 
@@ -35,25 +35,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const headings = await extractHeadings(content);
 
-  const { content: mdxContent } = await compileMDX({
-    source: content,
-    components: { Counter },
-    options: {
-      mdxOptions: {
-        rehypePlugins: [
-          rehypeSlug,
-          [
-            rehypePrettyCode,
-            {
-              theme: "github-dark",
-              keepBackground: false,
-            },
-          ],
-        ],
-      },
-      parseFrontmatter: true,
-    },
-  });
+  // const { content: mdxContent } = await compileMDX({
+  //   source: content,
+  //   components: { Counter },
+  //   options: {
+  //     mdxOptions: {
+  //       rehypePlugins: [
+  //         rehypeSlug,
+  //         [
+  //           rehypePrettyCode,
+  //           {
+  //             theme: "github-dark",
+  //             keepBackground: false,
+  //           },
+  //         ],
+  //       ],
+  //     },
+  //     parseFrontmatter: true,
+  //   },
+  // });
 
   return (
     <>
@@ -136,7 +136,29 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           >
             <TableOfContents headings={headings} />
           </Box>
-          <BlogContent mdxContent={mdxContent} />
+          <BlogContent
+            mdxContent={
+              <MDXRemote
+                source={content}
+                components={{ Counter }}
+                options={{
+                  mdxOptions: {
+                    rehypePlugins: [
+                      rehypeSlug,
+                      [
+                        rehypePrettyCode,
+                        {
+                          theme: "github-dark",
+                          keepBackground: false,
+                        },
+                      ],
+                    ],
+                  },
+                  parseFrontmatter: true,
+                }}
+              ></MDXRemote>
+            }
+          />
         </Stack>
         <SuggestedArticles currentTags={frontmatter.tags.split(",")} />
       </Container>

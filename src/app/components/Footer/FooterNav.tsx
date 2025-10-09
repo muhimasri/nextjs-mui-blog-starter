@@ -1,14 +1,9 @@
-import React from "react";
+import React, { JSX } from "react";
 import { Link, Stack } from "@mui/material";
 
 const FooterNav = (): JSX.Element => (
   <Stack direction="row" gap={2}>
-    <Link
-      href="/"
-      color="text.secondary"
-      variant="body2"
-      underline="hover"
-    >
+    <Link href="/" color="text.secondary" variant="body2" underline="hover">
       Home
     </Link>
     <Link
@@ -19,12 +14,7 @@ const FooterNav = (): JSX.Element => (
     >
       About
     </Link>
-    <Link
-      href="/blog"
-      color="text.secondary"
-      variant="body2"
-      underline="hover"
-    >
+    <Link href="/blog" color="text.secondary" variant="body2" underline="hover">
       Blog
     </Link>
     <Link

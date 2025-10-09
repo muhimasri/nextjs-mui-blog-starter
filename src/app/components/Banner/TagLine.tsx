@@ -1,6 +1,7 @@
 "use client";
 import type {} from "@mui/material/themeCssVarsAugmentation";
 import { Typography } from "@mui/material";
+import { JSX } from "react";
 
 function TagLine(): JSX.Element {
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX } from "react";
 import { IconButton, Stack } from "@mui/material";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
