@@ -5,9 +5,8 @@ import Typography from "@mui/material/Typography";
 import { Box, CardActions } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 import Tag from "./Tag";
-import { borderRadius } from "../styles/tokens";
 
 const PostLink = styled(Link)({
   textDecoration: "none",
@@ -34,9 +33,11 @@ export default function PostCard({
   link,
   maxWidth,
 }: PostCardProps) {
+  const theme = useTheme();
+
   return (
     <Card
-      sx={{
+      sx={(theme) => ({
         maxWidth,
         overflow: "hidden",
         position: "relative",
@@ -46,39 +47,41 @@ export default function PostCard({
           top: 0,
           left: 0,
           right: 0,
-          height: "4px",
-          background:
-            "linear-gradient(90deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-secondary-500) 100%)",
+          height: theme.componentTokens.postCard.accentHeight,
+          background: theme.gradients.accentBar,
           opacity: 0,
-          transition: "opacity 0.3s ease",
+          transition: `opacity ${theme.animation.duration.normal} ${theme.animation.easing.standard}`,
         },
         "&:hover::before": {
           opacity: 1,
         },
-      }}
+      })}
     >
       <Box
-        sx={{
+        sx={(theme) => ({
           display: { xs: "none", lg: "initial" },
           overflow: "hidden",
-          borderRadius: borderRadius.medium,
-          m: 2,
-        }}
+          borderRadius: theme.componentTokens.postCard.imageRadius,
+          m: theme.componentTokens.postCard.imagePadding,
+        })}
       >
         <PostLink href={`/blogs/${link}/`}>
           <Box
-            sx={{
+            sx={(theme) => ({
               position: "relative",
-              transition: "transform 0.3s ease",
+              transition: `transform ${theme.animation.duration.normal} ${theme.animation.easing.standard}`,
               "&:hover": {
-                transform: "scale(1.05)",
+                transform: theme.effects.transform.scale,
               },
-            }}
+            })}
           >
             <Image
               src={image.src}
               alt={image.alt}
-              style={{ borderRadius: borderRadius.medium, display: "block" }}
+              style={{
+                borderRadius: theme.componentTokens.postCard.imageRadius,
+                display: "block",
+              }}
               width={355}
               height={200}
             />
@@ -88,16 +91,16 @@ export default function PostCard({
       <CardContent sx={{ pt: 3, px: 3, pb: 2 }}>
         <PostLink href={`/blogs/${link}/`}>
           <Typography
-            sx={{
+            sx={(theme) => ({
               fontWeight: 700,
               lineHeight: 1.3,
               fontSize: "6",
               color: "text.primary",
-              transition: "color 0.3s ease",
+              transition: `color ${theme.animation.duration.normal} ${theme.animation.easing.standard}`,
               "&:hover": {
                 color: "primary.main",
               },
-            }}
+            })}
             gutterBottom
           >
             {title}

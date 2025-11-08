@@ -1,3 +1,4 @@
+"use client";
 import { Chip } from "@mui/material";
 import Link from "next/link";
 import { borderRadius } from "../styles/tokens";
@@ -13,38 +14,36 @@ type TagProps = {
   key?: number | string;
 };
 
-const chipStyle = (
-  selected: boolean,
-  bgColor?: string,
-  selectedColor?: string
-) => ({
-  backgroundColor: selected ? selectedColor : bgColor,
-  borderRadius: borderRadius.pill,
-  color: selected ? "white" : "grey.700",
-  fontWeight: selected ? 600 : 500,
-  border: "1px solid",
-  borderColor: selected ? "transparent" : "grey.300",
-  transition: "all 0.2s ease",
-  "&:hover": {
-    transform: "translateY(-2px)",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    borderColor: selected ? "transparent" : "primary.300",
-  },
-});
+const chipStyle =
+  (selected: boolean, bgColor?: string, selectedColor?: string) =>
+  (theme: any) => ({
+    backgroundColor: selected ? selectedColor : bgColor,
+    borderRadius: borderRadius.pill,
+    color: selected ? "white" : "grey.700",
+    fontWeight: selected ? 600 : 500,
+    border: `${theme.componentTokens.tag.borderWidth} solid`,
+    borderColor: selected ? "transparent" : "grey.300",
+    transition: `all ${theme.animation.duration.fast} ${theme.animation.easing.standard}`,
+    "&:hover": {
+      transform: theme.effects.transform.liftSmall,
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      borderColor: selected ? "transparent" : "primary.300",
+    },
+  });
 
-const largeStyle = {
-  px: 3,
+const largeStyle = (theme: any) => ({
+  px: theme.componentTokens.tag.paddingLarge,
   py: 1,
   fontSize: "2",
   cursor: "pointer",
-};
+});
 
-const smallStyle = {
-  height: "24px",
+const smallStyle = (theme: any) => ({
+  height: theme.componentTokens.tag.heightSmall,
   cursor: "pointer",
   fontSize: "1.2rem",
-  px: 1.5,
-};
+  px: theme.componentTokens.tag.paddingSmall,
+});
 
 const Tag = ({
   size,
@@ -60,10 +59,16 @@ const Tag = ({
       <Chip
         {...other}
         label={label?.replace("-", " ")}
-        sx={
+        sx={(theme: any) =>
           size === "small"
-            ? { ...chipStyle(selected, bgColor, selectedColor), ...smallStyle }
-            : { ...chipStyle(selected, bgColor, selectedColor), ...largeStyle }
+            ? {
+                ...chipStyle(selected, bgColor, selectedColor)(theme),
+                ...smallStyle(theme),
+              }
+            : {
+                ...chipStyle(selected, bgColor, selectedColor)(theme),
+                ...largeStyle(theme),
+              }
         }
       />
     </Link>

@@ -1,3 +1,4 @@
+"use client";
 import React, { JSX } from "react";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -7,72 +8,70 @@ import EmailSubscriptionForm from "./EmailSubscriptionForm";
 const EmailSubscription = (): JSX.Element => {
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         px: { xs: 2, lg: 4 },
         py: { xs: 9, lg: 10 },
-        background:
-          "linear-gradient(135deg, var(--mui-palette-primary-50) 0%, var(--mui-palette-secondary-50) 100%)",
+        background: theme.gradients.emailSubscription,
         position: "relative",
         overflow: "hidden",
         "&::before": {
           content: '""',
           position: "absolute",
-          top: "-50%",
-          right: "-10%",
-          width: "400px",
-          height: "400px",
+          top: theme.componentTokens.emailSubscription.blobPositionTop,
+          right: theme.componentTokens.emailSubscription.blobPositionRight,
+          width: theme.componentTokens.emailSubscription.blobSize,
+          height: theme.componentTokens.emailSubscription.blobSize,
           background:
             "radial-gradient(circle, var(--mui-palette-primary-200) 0%, transparent 70%)",
-          opacity: 0.3,
+          opacity: theme.effects.opacity.subtle,
           borderRadius: "50%",
         },
         "&::after": {
           content: '""',
           position: "absolute",
-          bottom: "-50%",
-          left: "-10%",
-          width: "400px",
-          height: "400px",
+          bottom: theme.componentTokens.emailSubscription.blobPositionBottom,
+          left: theme.componentTokens.emailSubscription.blobPositionLeft,
+          width: theme.componentTokens.emailSubscription.blobSize,
+          height: theme.componentTokens.emailSubscription.blobSize,
           background:
             "radial-gradient(circle, var(--mui-palette-secondary-200) 0%, transparent 70%)",
-          opacity: 0.3,
+          opacity: theme.effects.opacity.subtle,
           borderRadius: "50%",
         },
-      }}
+      })}
     >
       <Box
-        sx={{
+        sx={(theme) => ({
           textAlign: "center",
           m: "auto",
-          maxWidth: "700px",
+          maxWidth: theme.componentTokens.emailSubscription.maxWidth,
           position: "relative",
           zIndex: 1,
-        }}
+        })}
       >
         <Typography
-          sx={{
+          sx={(theme) => ({
             fontSize: "7",
             fontWeight: 800,
             mb: 3,
-            background:
-              "linear-gradient(135deg, var(--mui-palette-primary-700) 0%, var(--mui-palette-secondary-700) 100%)",
+            background: theme.gradients.textGradient,
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-          }}
+          })}
         >
           Upskill Your Frontend Development Techniques 🚀
         </Typography>
         <Typography
           color="grey.700"
           fontSize="4"
-          sx={{
-            maxWidth: "600px",
+          sx={(theme) => ({
+            maxWidth: theme.componentTokens.emailSubscription.contentMaxWidth,
             mb: 7,
             mx: "auto",
             textWrapStyle: "balance",
             lineHeight: 1.7,
-          }}
+          })}
         >
           Subscribe to stay up-to-date and receive quality frontend development
           tutorials straight to your inbox! 💌

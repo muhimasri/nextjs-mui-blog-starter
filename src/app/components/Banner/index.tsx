@@ -1,3 +1,4 @@
+"use client";
 import React, { JSX } from "react";
 import { Box, Container, Stack, Typography, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
@@ -22,19 +23,19 @@ function Banner(): JSX.Element {
         >
           <Grid size={{ xs: 12, lg: 6 }}>
             <Container
-              sx={{
+              sx={(theme) => ({
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "baseline",
                 gap: 7,
                 maxWidth: 554,
-                animation: "fadeInUp 0.8s ease-out",
-              }}
+                animation: `fadeInUp ${theme.animation.duration.slower} ${theme.animation.easing.standard}`,
+              })}
             >
               <Stack>
                 <TagLine />
                 <Typography
-                  sx={{
+                  sx={(theme) => ({
                     fontSize: { xs: "3", sm: "4" },
                     color: "text.secondary",
                     position: "relative",
@@ -43,13 +44,12 @@ function Banner(): JSX.Element {
                     fontWeight: 400,
                     lineHeight: 1.8,
                     pl: 4,
-                    borderLeft: "4px solid",
+                    borderLeft: `${theme.componentTokens.banner.quoteBarWidth} solid`,
                     borderColor: "primary.400",
-                    background:
-                      "linear-gradient(90deg, var(--mui-palette-primary-50) 0%, transparent 100%)",
-                    borderRadius: "0 8px 8px 0",
+                    background: theme.gradients.bannerQuote,
+                    borderRadius: theme.componentTokens.banner.borderRadius,
                     py: 2,
-                  }}
+                  })}
                   component="div"
                 >
                   Empowering teams to build innovative and scalable software
@@ -63,11 +63,10 @@ function Banner(): JSX.Element {
                   component={Link}
                   variant="contained"
                   size="large"
-                  sx={{
-                    background:
-                      "linear-gradient(135deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-primary-600) 100%)",
-                    boxShadow: "0 4px 12px rgba(226, 67, 236, 0.3)",
-                  }}
+                  sx={(theme) => ({
+                    background: theme.gradients.primary,
+                    boxShadow: `${theme.componentTokens.button.shadowBlur} ${theme.componentTokens.button.shadowColor}`,
+                  })}
                 >
                   📚 Read Blog
                 </Button>
@@ -76,13 +75,13 @@ function Banner(): JSX.Element {
                   component={Link}
                   variant="outlined"
                   size="large"
-                  sx={{
-                    borderWidth: "2px",
+                  sx={(theme) => ({
+                    borderWidth: theme.componentTokens.button.borderWidth,
                     "&:hover": {
-                      borderWidth: "2px",
+                      borderWidth: theme.componentTokens.button.borderWidth,
                       backgroundColor: "primary.50",
                     },
-                  }}
+                  })}
                 >
                   👋 Learn More
                 </Button>
@@ -91,12 +90,12 @@ function Banner(): JSX.Element {
           </Grid>
           <Grid
             size={{ xs: 12, md: 6 }}
-            sx={{
+            sx={(theme) => ({
               width: "100%",
               display: "flex",
               justifyContent: "center",
-              animation: "fadeInUp 0.8s ease-out 0.2s backwards",
-            }}
+              animation: `fadeInUp ${theme.animation.duration.slower} ${theme.animation.easing.standard} 0.2s backwards`,
+            })}
           >
             <ImageFrame />
           </Grid>

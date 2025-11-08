@@ -9,6 +9,10 @@ import {
   lineHeight,
   shadows,
   spacing,
+  animation,
+  effects,
+  gradients,
+  components as componentTokens,
 } from "./tokens";
 import { Poppins, Inter } from "next/font/google";
 
@@ -51,7 +55,7 @@ const theme = createTheme({
           defaultBg: "rgba(255, 255, 255, 0.8)",
         },
         banner: {
-          background: `linear-gradient(135deg, ${colors.primary[50]} 0%, ${colors.secondary[50]} 50%, ${colors.accent[50]} 100%)`,
+          background: gradients.bannerLight,
         },
         blog: {
           headerBgColor: colors.primary[50],
@@ -162,11 +166,11 @@ const theme = createTheme({
           textTransform: "none",
           fontWeight: 600,
           borderRadius: borderRadius.pill,
-          padding: "12px 32px",
-          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          padding: componentTokens.button.paddingSmall,
+          transition: `all ${animation.duration.normal} ${animation.easing.standard}`,
           "&:hover": {
-            transform: "translateY(-2px)",
-            boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.15)",
+            transform: effects.transform.liftSmall,
+            boxShadow: componentTokens.button.shadowHover,
           },
           "&.MuiButton-contained.Mui-disabled": {
             backgroundColor: "var(--mui-palette-button-disabledBgColor)",
@@ -174,7 +178,7 @@ const theme = createTheme({
           },
         },
         sizeLarge: {
-          padding: "14px 40px",
+          padding: componentTokens.button.paddingLarge,
           fontSize: "1.6rem",
         },
       },
@@ -186,12 +190,12 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: borderRadius.large,
-          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-          border: "1px solid",
+          transition: `all ${animation.duration.normal} ${animation.easing.standard}`,
+          border: componentTokens.card.borderWidth,
           borderColor: "var(--mui-palette-grey-200)",
           "&:hover": {
-            transform: "translateY(-4px)",
-            boxShadow: "0px 12px 24px rgba(0, 0, 0, 0.1)",
+            transform: effects.transform.lift,
+            boxShadow: componentTokens.card.hoverShadow,
           },
         },
       },
@@ -199,7 +203,7 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backdropFilter: "blur(10px)",
+          backdropFilter: componentTokens.header.backdropBlur,
           backgroundColor: "var(--mui-palette-AppBar-defaultBg)",
         },
       },
@@ -238,6 +242,10 @@ const theme = createTheme({
   },
   spacing: Object.values(spacing),
   shadows: Object.values(shadows) as Shadows,
+  animation,
+  effects,
+  gradients,
+  componentTokens,
 });
 
 export default theme;

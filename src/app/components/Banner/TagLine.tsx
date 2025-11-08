@@ -25,9 +25,8 @@ function TagLine(): JSX.Element {
         fontSize="inherit"
         fontWeight="inherit"
         component="span"
-        sx={{
-          background:
-            "linear-gradient(135deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-secondary-500) 100%)",
+        sx={(theme) => ({
+          background: theme.gradients.primaryToSecondary,
           backgroundClip: "text",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
@@ -38,13 +37,12 @@ function TagLine(): JSX.Element {
             bottom: "-8px",
             left: "0",
             right: "0",
-            height: "6px",
-            background:
-              "linear-gradient(90deg, var(--mui-palette-primary-400) 0%, var(--mui-palette-secondary-400) 100%)",
+            height: theme.componentTokens.banner.accentHeight,
+            background: theme.gradients.accentBarVertical,
             borderRadius: "100px",
-            opacity: 0.3,
+            opacity: theme.effects.opacity.subtle,
           },
-        }}
+        })}
       >
         Software Development
       </Typography>

@@ -36,23 +36,23 @@ const EmailSubscriptionForm = (): JSX.Element => {
       <Stack flexWrap="nowrap" direction="row" spacing={2}>
         <TextField
           fullWidth
-          sx={{
+          sx={(theme) => ({
             "& input": {
-              pt: 3,
-              pb: 3,
-              fontSize: "1.6rem",
+              pt: theme.componentTokens.input.paddingVertical,
+              pb: theme.componentTokens.input.paddingVertical,
+              fontSize: theme.componentTokens.input.fontSize,
             },
             "& .MuiOutlinedInput-root": {
-              borderRadius: "100px",
-              transition: "all 0.3s ease",
+              borderRadius: theme.componentTokens.input.borderRadius,
+              transition: `all ${theme.animation.duration.normal} ${theme.animation.easing.standard}`,
               "&:hover": {
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
               },
               "&.Mui-focused": {
-                boxShadow: "0 4px 16px rgba(226, 67, 236, 0.15)",
+                boxShadow: `0 4px 16px ${theme.componentTokens.button.shadowColor}`,
               },
             },
-          }}
+          })}
           placeholder="✉️ Enter your email"
           type="email"
           required
@@ -71,17 +71,16 @@ const EmailSubscriptionForm = (): JSX.Element => {
         <Button
           type="submit"
           variant="contained"
-          sx={{
+          sx={(theme) => ({
             fontSize: "4",
             width: "200px",
-            height: "56px",
-            background:
-              "linear-gradient(135deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-primary-600) 100%)",
-            boxShadow: "0 4px 12px rgba(226, 67, 236, 0.3)",
+            height: theme.componentTokens.input.height,
+            background: theme.gradients.primary,
+            boxShadow: `${theme.componentTokens.button.shadowBlur} ${theme.componentTokens.button.shadowColor}`,
             "&.Mui-disabled": {
               backgroundColor: "grey.200",
             },
-          }}
+          })}
           endIcon={
             inProgress ? (
               <CircularProgress
@@ -101,11 +100,11 @@ const EmailSubscriptionForm = (): JSX.Element => {
         {subscribed && (
           <Alert
             severity="success"
-            sx={{
+            sx={(theme) => ({
               mt: 3,
               borderRadius: "12px",
-              animation: "fadeInUp 0.5s ease-out",
-            }}
+              animation: `fadeInUp ${theme.animation.duration.slow} ${theme.animation.easing.standard}`,
+            })}
           >
             🎉 Subscribed successfully!
           </Alert>

@@ -1,3 +1,4 @@
+"use client";
 import { Box, Container, Stack } from "@mui/material";
 import Attribution from "./Attribution";
 import Copyright from "./Copyright";
@@ -9,7 +10,7 @@ const Footer = (): JSX.Element => {
   return (
     <Box
       component="footer"
-      sx={{
+      sx={(theme) => ({
         py: 8,
         mt: 10,
         borderTop: "1px solid",
@@ -22,13 +23,12 @@ const Footer = (): JSX.Element => {
           top: 0,
           left: "50%",
           transform: "translateX(-50%)",
-          width: "200px",
-          height: "4px",
-          background:
-            "linear-gradient(90deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-secondary-500) 100%)",
-          borderRadius: "0 0 100px 100px",
+          width: theme.componentTokens.footer.accentWidth,
+          height: theme.componentTokens.footer.accentHeight,
+          background: theme.gradients.accentBar,
+          borderRadius: theme.componentTokens.footer.borderRadius,
         },
-      }}
+      })}
     >
       <Container>
         <Stack

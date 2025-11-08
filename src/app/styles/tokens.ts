@@ -6,6 +6,10 @@ export const {
   borderRadius,
   letterSpacing,
   lineHeight,
+  animation,
+  effects,
+  gradients,
+  components,
 } = {
   colors: {
     primary: {
@@ -160,5 +164,126 @@ export const {
     small: "1.3em",
     medium: "1.4em",
     large: "1.5em",
+  },
+  animation: {
+    duration: {
+      fastest: "0.15s",
+      fast: "0.2s",
+      normal: "0.3s",
+      slow: "0.5s",
+      slower: "0.8s",
+    },
+    easing: {
+      standard: "cubic-bezier(0.4, 0, 0.2, 1)",
+      enter: "cubic-bezier(0, 0, 0.2, 1)",
+      exit: "cubic-bezier(0.4, 0, 1, 1)",
+      sharp: "cubic-bezier(0.4, 0, 0.6, 1)",
+    },
+  },
+  effects: {
+    blur: {
+      sm: "4px",
+      md: "10px",
+      lg: "20px",
+      xl: "40px",
+    },
+    opacity: {
+      subtle: 0.3,
+      light: 0.5,
+      medium: 0.7,
+      strong: 0.8,
+      disabled: 0.38,
+    },
+    transform: {
+      liftSmall: "translateY(-2px)",
+      lift: "translateY(-4px)",
+      liftLarge: "translateY(-8px)",
+      scale: "scale(1.05)",
+      scaleSmall: "scale(1.02)",
+      rotate: "rotate(180deg)",
+    },
+  },
+  gradients: {
+    primary:
+      "linear-gradient(135deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-primary-600) 100%)",
+    secondary:
+      "linear-gradient(135deg, var(--mui-palette-secondary-500) 0%, var(--mui-palette-secondary-600) 100%)",
+    primaryToSecondary:
+      "linear-gradient(135deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-secondary-500) 100%)",
+    textGradient:
+      "linear-gradient(135deg, var(--mui-palette-primary-700) 0%, var(--mui-palette-secondary-700) 100%)",
+    bannerLight:
+      "linear-gradient(135deg, var(--mui-palette-primary-50) 0%, var(--mui-palette-secondary-50) 50%, var(--mui-palette-accent-50) 100%)",
+    bannerQuote:
+      "linear-gradient(90deg, var(--mui-palette-primary-50) 0%, transparent 100%)",
+    emailSubscription:
+      "linear-gradient(135deg, var(--mui-palette-primary-50) 0%, var(--mui-palette-secondary-50) 100%)",
+    accentBar:
+      "linear-gradient(90deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-secondary-500) 100%)",
+    accentBarVertical:
+      "linear-gradient(180deg, var(--mui-palette-primary-400) 0%, var(--mui-palette-secondary-400) 100%)",
+  },
+  components: {
+    banner: {
+      borderWidth: "4px",
+      borderRadius: "0 8px 8px 0",
+      accentWidth: "60px",
+      accentHeight: "4px",
+      quoteBarWidth: "4px",
+    },
+    button: {
+      paddingSmall: "12px 32px",
+      paddingLarge: "14px 40px",
+      shadowColor: "rgba(226, 67, 236, 0.3)",
+      shadowBlur: "0 4px 12px",
+      shadowHover: "0px 8px 16px rgba(0, 0, 0, 0.15)",
+      borderWidth: "2px",
+    },
+    card: {
+      borderWidth: "1px",
+      accentHeight: "4px",
+      hoverShadow: "0px 12px 24px rgba(0, 0, 0, 0.1)",
+    },
+    header: {
+      backdropBlur: "blur(10px)",
+      iconBorderRadius: "12px",
+      iconBorderWidth: "1px",
+    },
+    postCard: {
+      imageRadius: "12px",
+      imagePadding: "2",
+      accentHeight: "4px",
+    },
+    emailSubscription: {
+      blobSize: "400px",
+      blobPositionTop: "-50%",
+      blobPositionBottom: "-50%",
+      blobPositionLeft: "-10%",
+      blobPositionRight: "-10%",
+      maxWidth: "700px",
+      contentMaxWidth: "600px",
+    },
+    footer: {
+      accentWidth: "200px",
+      accentHeight: "4px",
+      borderRadius: "0 0 100px 100px",
+    },
+    tag: {
+      borderWidth: "1px",
+      heightSmall: "24px",
+      paddingSmall: "1.5",
+      paddingLarge: "3",
+    },
+    input: {
+      borderRadius: "100px",
+      paddingVertical: "3",
+      fontSize: "1.6rem",
+      height: "56px",
+    },
+    recentArticles: {
+      accentHeight: "4px",
+      accentWidth: "60px",
+      accentBottom: "-12px",
+    },
   },
 };

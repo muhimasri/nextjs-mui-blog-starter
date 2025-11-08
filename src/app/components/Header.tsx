@@ -33,14 +33,14 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
       <Container>
         <Toolbar sx={{ py: size === "large" ? 7 : 4 }}>
           <MUILink
-            sx={{
+            sx={(theme) => ({
               textDecoration: "none",
               mr: 7,
-              transition: "transform 0.2s ease",
+              transition: `transform ${theme.animation.duration.fast} ${theme.animation.easing.standard}`,
               "&:hover": {
-                transform: "scale(1.05)",
+                transform: theme.effects.transform.scaleSmall,
               },
-            }}
+            })}
             href="/"
             component={Link}
           >
@@ -48,13 +48,12 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
               fontSize="7"
               fontWeight="700"
               whiteSpace="nowrap"
-              sx={{
-                background:
-                  "linear-gradient(135deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-secondary-500) 100%)",
+              sx={(theme) => ({
+                background: theme.gradients.primaryToSecondary,
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
-              }}
+              })}
             >
               ✨ Mareli Ramos
             </Typography>
@@ -63,16 +62,16 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
           {mode && (
             <IconButton
               onClick={() => setMode(isDark ? "light" : "dark")}
-              sx={{
-                borderRadius: "12px",
-                border: "1px solid",
+              sx={(theme) => ({
+                borderRadius: theme.componentTokens.header.iconBorderRadius,
+                border: `${theme.componentTokens.header.iconBorderWidth} solid`,
                 borderColor: "divider",
-                transition: "all 0.3s ease",
+                transition: `all ${theme.animation.duration.normal} ${theme.animation.easing.standard}`,
                 "&:hover": {
-                  transform: "rotate(180deg)",
+                  transform: theme.effects.transform.rotate,
                   backgroundColor: "primary.50",
                 },
-              }}
+              })}
             >
               {isDark ? <LightModeIcon /> : <DarkModeIcon />}
             </IconButton>
