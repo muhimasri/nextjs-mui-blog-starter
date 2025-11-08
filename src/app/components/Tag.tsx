@@ -20,19 +20,30 @@ const chipStyle = (
 ) => ({
   backgroundColor: selected ? selectedColor : bgColor,
   borderRadius: borderRadius.pill,
-  color: "grey.800",
+  color: selected ? "white" : "grey.700",
+  fontWeight: selected ? 600 : 500,
+  border: "1px solid",
+  borderColor: selected ? "transparent" : "grey.300",
+  transition: "all 0.2s ease",
+  "&:hover": {
+    transform: "translateY(-2px)",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    borderColor: selected ? "transparent" : "primary.300",
+  },
 });
 
 const largeStyle = {
-  px: 2,
+  px: 3,
+  py: 1,
   fontSize: "2",
   cursor: "pointer",
 };
 
 const smallStyle = {
-  height: "19px",
+  height: "24px",
   cursor: "pointer",
-  fontSize: "1",
+  fontSize: "1.2rem",
+  px: 1.5,
 };
 
 const Tag = ({

@@ -21,29 +21,59 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
     mode === "dark" || (mode === "system" && systemMode === "dark");
 
   return (
-    <AppBar position="static" color="default" elevation={0}>
+    <AppBar
+      position="static"
+      color="default"
+      elevation={0}
+      sx={{
+        borderBottom: "1px solid",
+        borderColor: "divider",
+      }}
+    >
       <Container>
         <Toolbar sx={{ py: size === "large" ? 7 : 4 }}>
           <MUILink
             sx={{
               textDecoration: "none",
               mr: 7,
+              transition: "transform 0.2s ease",
+              "&:hover": {
+                transform: "scale(1.05)",
+              },
             }}
             href="/"
             component={Link}
           >
             <Typography
               fontSize="7"
-              fontWeight="600"
+              fontWeight="700"
               whiteSpace="nowrap"
-              color="primary.500"
+              sx={{
+                background:
+                  "linear-gradient(135deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-secondary-500) 100%)",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
             >
-              Mareli Ramos
+              ✨ Mareli Ramos
             </Typography>
           </MUILink>
           <Nav />
           {mode && (
-            <IconButton onClick={() => setMode(isDark ? "light" : "dark")}>
+            <IconButton
+              onClick={() => setMode(isDark ? "light" : "dark")}
+              sx={{
+                borderRadius: "12px",
+                border: "1px solid",
+                borderColor: "divider",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  transform: "rotate(180deg)",
+                  backgroundColor: "primary.50",
+                },
+              }}
+            >
               {isDark ? <LightModeIcon /> : <DarkModeIcon />}
             </IconButton>
           )}

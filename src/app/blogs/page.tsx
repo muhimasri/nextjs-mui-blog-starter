@@ -11,12 +11,12 @@ import Footer from "../components/Footer";
 
 const blogsDirectory = path.join(process.cwd(), "content");
 
-export default function BlogsPage({
+export default async function BlogsPage({
   searchParams,
 }: {
-  searchParams: { tag?: string };
+  searchParams: Promise<{ tag?: string }>;
 }) {
-  const selectedTag = searchParams?.tag;
+  const { tag: selectedTag } = await searchParams;
   const blogFolders = fs.readdirSync(blogsDirectory);
 
   const allBlogs = blogFolders

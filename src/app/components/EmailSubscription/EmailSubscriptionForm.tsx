@@ -40,9 +40,20 @@ const EmailSubscriptionForm = (): JSX.Element => {
             "& input": {
               pt: 3,
               pb: 3,
+              fontSize: "1.6rem",
+            },
+            "& .MuiOutlinedInput-root": {
+              borderRadius: "100px",
+              transition: "all 0.3s ease",
+              "&:hover": {
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
+              },
+              "&.Mui-focused": {
+                boxShadow: "0 4px 16px rgba(226, 67, 236, 0.15)",
+              },
             },
           }}
-          placeholder="Enter your email"
+          placeholder="✉️ Enter your email"
           type="email"
           required
           error={emailError}
@@ -51,7 +62,7 @@ const EmailSubscriptionForm = (): JSX.Element => {
             input: {
               startAdornment: (
                 <InputAdornment position="start">
-                  <MailOutline sx={{ color: "grey.300" }} />
+                  <MailOutline sx={{ color: "primary.main" }} />
                 </InputAdornment>
               ),
             },
@@ -61,10 +72,12 @@ const EmailSubscriptionForm = (): JSX.Element => {
           type="submit"
           variant="contained"
           sx={{
-            textTransform: "none",
             fontSize: "4",
             width: "200px",
-            height: "48px",
+            height: "56px",
+            background:
+              "linear-gradient(135deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-primary-600) 100%)",
+            boxShadow: "0 4px 12px rgba(226, 67, 236, 0.3)",
             "&.Mui-disabled": {
               backgroundColor: "grey.200",
             },
@@ -80,16 +93,21 @@ const EmailSubscriptionForm = (): JSX.Element => {
             ) : null
           }
           disabled={inProgress}
-          disableElevation
         >
           Subscribe
         </Button>
       </Stack>
       <Box>
         {subscribed && (
-          <Alert severity="success" sx={{ mt: 3 }}>
-            {" "}
-            Subscribed successfully!{" "}
+          <Alert
+            severity="success"
+            sx={{
+              mt: 3,
+              borderRadius: "12px",
+              animation: "fadeInUp 0.5s ease-out",
+            }}
+          >
+            🎉 Subscribed successfully!
           </Alert>
         )}
       </Box>

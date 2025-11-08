@@ -22,11 +22,11 @@ import Footer from "@/app/components/Footer";
 import { Metadata } from "next";
 
 interface BlogPostPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const filePath = path.join(process.cwd(), "content", slug, "page.mdx");
   const fileContents = readFileSync(filePath, "utf8");
@@ -207,9 +207,10 @@ async function extractHeadings(content: string): Promise<Heading[]> {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const filePath = path.join(process.cwd(), "content", params.slug, "page.mdx");
+  const { slug } = await params;
+  const filePath = path.join(process.cwd(), "content", slug, "page.mdx");
   const fileContents = readFileSync(filePath, "utf8");
   const { data: frontmatter } = matter(fileContents);
 
