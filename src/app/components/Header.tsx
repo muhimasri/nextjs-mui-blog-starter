@@ -50,9 +50,10 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
               whiteSpace="nowrap"
               sx={(theme) => ({
                 background: theme.gradients.primaryToSecondary,
-                backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                display: "inline-block",
               })}
             >
               ✨ Mareli Ramos

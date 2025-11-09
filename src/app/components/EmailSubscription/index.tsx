@@ -11,6 +11,7 @@ const EmailSubscription = (): JSX.Element => {
       sx={(theme) => ({
         px: { xs: 2, lg: 4 },
         py: { xs: 9, lg: 10 },
+        mb: 0, // Remove any margin
         background: theme.gradients.emailSubscription,
         position: "relative",
         overflow: "hidden",
@@ -55,9 +56,10 @@ const EmailSubscription = (): JSX.Element => {
             fontWeight: 800,
             mb: 3,
             background: theme.gradients.textGradient,
-            backgroundClip: "text",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            display: "inline-block",
           })}
         >
           Upskill Your Frontend Development Techniques 🚀

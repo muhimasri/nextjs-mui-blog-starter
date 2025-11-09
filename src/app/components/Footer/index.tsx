@@ -12,7 +12,7 @@ const Footer = (): JSX.Element => {
       component="footer"
       sx={(theme) => ({
         py: 8,
-        mt: 10,
+        mt: 0, // Remove top margin to eliminate gap
         borderTop: "1px solid",
         borderColor: "divider",
         bgcolor: "common.background",

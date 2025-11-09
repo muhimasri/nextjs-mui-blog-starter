@@ -27,9 +27,10 @@ function TagLine(): JSX.Element {
         component="span"
         sx={(theme) => ({
           background: theme.gradients.primaryToSecondary,
-          backgroundClip: "text",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          display: "inline-block",
           position: "relative",
           "&::after": {
             content: '""',

@@ -13,11 +13,12 @@ import {
   effects,
   gradients,
   components as componentTokens,
-} from "./tokens";
-import { Poppins, Inter } from "next/font/google";
+} from "./tokens.professional";
+import { Inter, IBM_Plex_Sans } from "next/font/google";
 
-const poppins = Poppins({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+// Professional, clean font pairing
+const inter = Inter({
+  weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -30,12 +31,12 @@ const theme = createTheme({
     light: {
       palette: {
         primary: {
-          main: colors.primary[500],
+          main: colors.primary[700],
           contrastText: "#ffffff",
           ...colors.primary,
         },
         secondary: {
-          main: colors.secondary[500],
+          main: colors.secondary[700],
           contrastText: "#ffffff",
           ...colors.secondary,
         },
@@ -53,26 +54,26 @@ const theme = createTheme({
           secondary: colors.grey[600],
         },
         background: {
-          default: "#fafafa",
+          default: "#ffffff",
           paper: "#ffffff",
         },
         AppBar: {
-          defaultBg: "rgba(255, 255, 255, 0.8)",
+          defaultBg: "rgba(255, 255, 255, 0.95)",
         },
         banner: {
           background: gradients.bannerLight,
         },
         blog: {
           headerBgColor: colors.primary[50],
-          h1Color: colors.primary[600],
-          preBorderColor: colors.primary[300],
+          h1Color: colors.primary[800],
+          preBorderColor: colors.primary[400],
           preBgColor: colors.grey[900],
-          codeBgColor: colors.primary[100],
-          codeColor: colors.primary[700],
-          linkColor: colors.primary[600],
+          codeBgColor: colors.primary[50],
+          codeColor: colors.primary[800],
+          linkColor: colors.accent[700],
         },
         subscribe: {
-          headerColor: colors.primary[700],
+          headerColor: colors.primary[900],
         },
         about: {
           headerTitle: colors.grey[900],
@@ -80,14 +81,14 @@ const theme = createTheme({
           sectionBorder: colors.primary[200],
           sectionTitle: colors.grey[900],
           sectionText: colors.grey[700],
-          sectionIcon: colors.primary[500],
+          sectionIcon: colors.primary[700],
         },
         postCard: {
-          tagBgColor: colors.primary[100],
+          tagBgColor: colors.grey[100],
         },
         blogs: {
           tagBgColor: colors.grey[200],
-          tagSelectedColor: colors.primary[500],
+          tagSelectedColor: colors.primary[700],
         },
         button: {
           disabledBgColor: colors.grey[200],
@@ -99,7 +100,7 @@ const theme = createTheme({
     dark: {
       palette: {
         primary: {
-          main: colors.primary[400],
+          main: colors.accent[400],
           contrastText: colors.grey[900],
           ...colors.primary,
         },
@@ -107,11 +108,6 @@ const theme = createTheme({
           main: colors.secondary[400],
           contrastText: colors.grey[900],
           ...colors.secondary,
-        },
-        accent: {
-          main: colors.accent[400],
-          contrastText: "#ffffff",
-          ...colors.accent,
         },
         common: {
           onBackground: colors.grey[50],
@@ -122,26 +118,26 @@ const theme = createTheme({
           secondary: colors.grey[400],
         },
         background: {
-          default: "#0f0f0f",
+          default: "#0a0e14",
           paper: colors.grey[900],
         },
         AppBar: {
-          defaultBg: "rgba(23, 23, 23, 0.8)",
+          defaultBg: "rgba(28, 31, 34, 0.95)",
         },
         banner: {
           background: `linear-gradient(135deg, ${colors.grey[900]} 0%, ${darken(
             colors.primary[900],
-            0.5
-          )} 50%, ${darken(colors.secondary[900], 0.5)} 100%)`,
+            0.3
+          )} 50%, ${darken(colors.accent[900], 0.3)} 100%)`,
         },
         blog: {
           headerBgColor: colors.grey[900],
-          h1Color: colors.primary[400],
+          h1Color: colors.accent[400],
           preBorderColor: colors.primary[700],
           preBgColor: colors.grey[900],
           codeBgColor: colors.grey[800],
-          codeColor: colors.primary[300],
-          linkColor: colors.primary[400],
+          codeColor: colors.accent[300],
+          linkColor: colors.accent[400],
         },
         subscribe: {
           headerColor: colors.grey[100],
@@ -152,14 +148,14 @@ const theme = createTheme({
           sectionBorder: colors.primary[800],
           sectionTitle: colors.grey[100],
           sectionText: colors.grey[400],
-          sectionIcon: colors.primary[400],
+          sectionIcon: colors.accent[400],
         },
         postCard: {
-          tagBgColor: colors.primary[900],
+          tagBgColor: colors.grey[800],
         },
         blogs: {
           tagBgColor: colors.grey[700],
-          tagSelectedColor: colors.primary[400],
+          tagSelectedColor: colors.accent[400],
         },
         button: {
           disabledBgColor: colors.grey[800],
@@ -175,9 +171,10 @@ const theme = createTheme({
         root: {
           textTransform: "none",
           fontWeight: 600,
-          borderRadius: borderRadius.pill,
+          borderRadius: borderRadius.medium,
           padding: componentTokens.button.paddingSmall,
           transition: `all ${animation.duration.normal} ${animation.easing.standard}`,
+          letterSpacing: "0.01em",
           "&:hover": {
             transform: effects.transform.liftSmall,
             boxShadow: componentTokens.button.shadowHover,
@@ -199,13 +196,14 @@ const theme = createTheme({
       },
       styleOverrides: {
         root: {
-          borderRadius: borderRadius.large,
+          borderRadius: borderRadius.medium,
           transition: `all ${animation.duration.normal} ${animation.easing.standard}`,
-          border: componentTokens.card.borderWidth,
+          border: `${componentTokens.card.borderWidth} solid`,
           borderColor: "var(--mui-palette-grey-200)",
           "&:hover": {
             transform: effects.transform.lift,
             boxShadow: componentTokens.card.hoverShadow,
+            borderColor: "var(--mui-palette-grey-300)",
           },
         },
       },
@@ -215,13 +213,14 @@ const theme = createTheme({
         root: {
           backdropFilter: componentTokens.header.backdropBlur,
           backgroundColor: "var(--mui-palette-AppBar-defaultBg)",
+          boxShadow: "0 1px 3px rgba(16, 42, 67, 0.1)",
         },
       },
     },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          borderRadius: borderRadius.medium,
+          borderRadius: componentTokens.input.borderRadius,
           "&:hover:not(.Mui-focused)": {
             "& .MuiOutlinedInput-notchedOutline": {
               borderColor: colors.grey[400],
@@ -233,21 +232,22 @@ const theme = createTheme({
     MuiChip: {
       styleOverrides: {
         root: {
-          borderRadius: borderRadius.pill,
+          borderRadius: borderRadius.small,
           fontWeight: 500,
+          letterSpacing: "0.01em",
         },
       },
     },
   },
   typography: {
     htmlFontSize: 10,
-    fontFamily: poppins.style.fontFamily,
+    fontFamily: inter.style.fontFamily,
     letterSpacing: letterSpacing,
     lineHeight: lineHeight,
     ...font.size,
   },
   shape: {
-    borderRadius: 12,
+    borderRadius: 6,
     radius: borderRadius,
   },
   spacing: Object.values(spacing),
@@ -259,6 +259,3 @@ const theme = createTheme({
 });
 
 export default theme;
-
-// #98f3bf
-// #6767c6
