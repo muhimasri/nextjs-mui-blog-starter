@@ -13,6 +13,8 @@ export const {
 } = {
   colors: {
     // Neutral modern palette - balanced and versatile
+    white: "#ffffff",
+    black: "#000000",
     primary: {
       50: "#f0f4ff",
       100: "#e0e7ff",
@@ -238,6 +240,8 @@ export const {
       backdropBlur: "blur(8px)",
       iconBorderRadius: "10px",
       iconBorderWidth: "1px",
+      bgLight: "rgba(255, 255, 255, 0.9)",
+      bgDark: "rgba(24, 24, 27, 0.9)",
     },
     postCard: {
       imageRadius: "10px",
