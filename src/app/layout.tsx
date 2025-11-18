@@ -1,6 +1,6 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import theme from "./styles/theme";
+import theme from "./styles/theme.base";
 import globalStyles from "./styles/global";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 

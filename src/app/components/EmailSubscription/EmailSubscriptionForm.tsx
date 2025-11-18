@@ -53,7 +53,7 @@ const EmailSubscriptionForm = (): JSX.Element => {
               },
             },
           })}
-          placeholder="✉️ Enter your email"
+          placeholder="Enter your email"
           type="email"
           required
           error={emailError}

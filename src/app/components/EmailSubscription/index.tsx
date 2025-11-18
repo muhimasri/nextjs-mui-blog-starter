@@ -62,7 +62,7 @@ const EmailSubscription = (): JSX.Element => {
             display: "inline-block",
           })}
         >
-          Upskill Your Frontend Development Techniques 🚀
+          Upskill Your Frontend Development Techniques 🌟
         </Typography>
         <Typography
           color="grey.700"
@@ -76,11 +76,11 @@ const EmailSubscription = (): JSX.Element => {
           })}
         >
           Subscribe to stay up-to-date and receive quality frontend development
-          tutorials straight to your inbox! 💌
+          tutorials straight to your inbox!
         </Typography>
         <EmailSubscriptionForm />
         <Typography mt={5} fontSize="2.5" color="grey.500" fontWeight={500}>
-          🔒 No spam, sales, or ads. Unsubscribe anytime you wish.
+          No spam, sales, or ads. Unsubscribe anytime you wish.
         </Typography>
       </Box>
     </Box>

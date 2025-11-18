@@ -26,7 +26,7 @@ export default function RecentArticlesHeader() {
           },
         })}
       >
-        📚 Recent Articles
+        Recent Articles
       </Typography>
     </Box>
   );

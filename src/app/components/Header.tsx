@@ -56,7 +56,7 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
                 display: "inline-block",
               })}
             >
-              ✨ Mareli Ramos
+              Mareli Ramos
             </Typography>
           </MUILink>
           <Nav />

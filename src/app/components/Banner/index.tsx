@@ -54,7 +54,7 @@ function Banner(): JSX.Element {
                 >
                   Empowering teams to build innovative and scalable software
                   solutions. My expertise in frontend development drives success
-                  through cutting-edge technologies and best practices. ✨
+                  through cutting-edge technologies and best practices.
                 </Typography>
               </Stack>
               <Stack direction="row" gap={3} flexWrap="wrap">
@@ -68,7 +68,7 @@ function Banner(): JSX.Element {
                     boxShadow: `${theme.componentTokens.button.shadowBlur} ${theme.componentTokens.button.shadowColor}`,
                   })}
                 >
-                  📚 Read Blog
+                  Read Blog
                 </Button>
                 <Button
                   href="/about/"
@@ -83,7 +83,7 @@ function Banner(): JSX.Element {
                     },
                   })}
                 >
-                  👋 Learn More
+                  Learn More
                 </Button>
               </Stack>
             </Container>
