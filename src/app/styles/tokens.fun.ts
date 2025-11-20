@@ -13,15 +13,17 @@ export const {
 } = {
   colors: {
     // Neutral modern palette - balanced and versatile
+    white: "#ffffff",
+    black: "#000000",
     primary: {
       50: "#f0f4ff",
       100: "#e0e7ff",
       200: "#c7d2fe",
       300: "#a5b4fc",
-      400: "#818cf8",
-      500: "#6366f1",
-      600: "#4f46e5",
-      700: "#4338ca",
+      "400": "#8b5cf6",
+      "500": "#7c3aed",
+      "600": "#6366f1",
+      "700": "#4f46e5",
       800: "#3730a3",
       900: "#312e81",
       1000: "#1e1b4b",
@@ -31,17 +33,17 @@ export const {
       100: "#f1f5f9",
       200: "#e2e8f0",
       300: "#cbd5e1",
-      400: "#94a3b8",
-      500: "#64748b",
-      600: "#475569",
+      "400": "#f472b6",
+      "500": "#fb7185",
+      "600": "#f43f5e",
       700: "#334155",
       800: "#1e293b",
       900: "#0f172a",
     },
     grey: {
-      50: "#fafafa",
-      100: "#f4f4f5",
-      200: "#e4e4e7",
+      "50": "#fdf6fd",
+      "100": "#f8f2fa",
+      "200": "#eee9f5",
       300: "#d4d4d8",
       400: "#a1a1aa",
       500: "#71717a",
@@ -83,16 +85,16 @@ export const {
   },
   font: {
     size: {
-      1: "1rem",
-      2: "1.2rem",
-      3: "1.4rem",
-      4: "1.6rem",
-      5: "1.8rem",
-      6: "2rem",
-      7: "2.4rem",
-      8: "3rem",
-      9: "3.6rem",
-      10: "4.8rem",
+      "1": "1.08rem",
+      "2": "1.26rem",
+      "3": "1.48rem",
+      "4": "1.7rem",
+      "5": "2rem",
+      "6": "2.3rem",
+      "7": "2.7rem",
+      "8": "3.3rem",
+      "9": "4.2rem",
+      "10": "5.2rem",
     },
   },
   spacing: {
@@ -138,10 +140,10 @@ export const {
     "0px 115px 230px rgba(0, 0, 0, 0.49), 0px 57px 110px rgba(0, 0, 0, 0.27)",
   ],
   borderRadius: {
-    small: "6px",
-    medium: "10px",
-    large: "14px",
-    xLarge: "20px",
+    small: "8px",
+    medium: "14px",
+    large: "22px",
+    xLarge: "32px",
     pill: "100px",
     circle: "50%",
   },
@@ -194,24 +196,24 @@ export const {
   },
   gradients: {
     // Subtle, modern gradients
-    primary:
-      "linear-gradient(135deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-primary-600) 100%)",
-    secondary:
-      "linear-gradient(135deg, var(--mui-palette-secondary-500) 0%, var(--mui-palette-secondary-600) 100%)",
-    primaryToSecondary:
-      "linear-gradient(135deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-primary-700) 100%)",
-    textGradient:
-      "linear-gradient(135deg, var(--mui-palette-primary-600) 0%, var(--mui-palette-primary-800) 100%)",
-    bannerLight:
-      "linear-gradient(135deg, var(--mui-palette-primary-50) 0%, var(--mui-palette-grey-50) 100%)",
     bannerQuote:
       "linear-gradient(90deg, var(--mui-palette-primary-50) 0%, transparent 100%)",
     emailSubscription:
       "linear-gradient(135deg, var(--mui-palette-grey-50) 0%, var(--mui-palette-primary-50) 100%)",
+    primary:
+      "linear-gradient(135deg, var(--mui-palette-primary-400) 0%, var(--mui-palette-primary-600) 100%)",
+    secondary:
+      "linear-gradient(135deg, var(--mui-palette-secondary-400) 0%, var(--mui-palette-secondary-600) 100%)",
+    primaryToSecondary:
+      "linear-gradient(135deg, var(--mui-palette-primary-400) 0%, var(--mui-palette-secondary-400) 100%)",
+    textGradient:
+      "linear-gradient(135deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-secondary-400) 100%)",
+    bannerLight:
+      "linear-gradient(135deg, var(--mui-palette-primary-50) 0%, var(--mui-palette-secondary-100) 100%)",
     accentBar:
-      "linear-gradient(90deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-primary-600) 100%)",
+      "linear-gradient(90deg, var(--mui-palette-primary-400) 0%, var(--mui-palette-secondary-400) 100%)",
     accentBarVertical:
-      "linear-gradient(180deg, var(--mui-palette-primary-500) 0%, var(--mui-palette-primary-600) 100%)",
+      "linear-gradient(180deg, var(--mui-palette-primary-400) 0%, var(--mui-palette-secondary-400) 100%)",
   },
   components: {
     banner: {
@@ -222,22 +224,24 @@ export const {
       quoteBarWidth: "3px",
     },
     button: {
-      paddingSmall: "11px 28px",
-      paddingLarge: "13px 36px",
+      paddingSmall: "13px 32px",
+      paddingLarge: "15px 40px",
       shadowColor: "rgba(99, 102, 241, 0.25)",
       shadowBlur: "0 3px 10px",
       shadowHover: "0px 6px 14px rgba(0, 0, 0, 0.12)",
       borderWidth: "2px",
     },
     card: {
-      borderWidth: "1px",
+      borderWidth: "2px",
       accentHeight: "3px",
       hoverShadow: "0px 10px 20px rgba(0, 0, 0, 0.08)",
     },
     header: {
       backdropBlur: "blur(8px)",
-      iconBorderRadius: "10px",
+      iconBorderRadius: "14px",
       iconBorderWidth: "1px",
+      bgLight: "rgba(255, 255, 255, 0.9)",
+      bgDark: "rgba(24, 24, 27, 0.9)",
     },
     postCard: {
       imageRadius: "10px",

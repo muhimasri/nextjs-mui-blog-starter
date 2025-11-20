@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
-import { spacing } from "../styles/tokens";
 
 interface TOCProps {
   headings: { text: string; slug: string; depth: number }[];
@@ -35,13 +34,13 @@ export default function TableOfContents({ headings }: TOCProps) {
   return (
     <Box
       component="nav"
-      sx={{
+      sx={(theme: any) => ({
         position: "sticky",
-        top: spacing[6],
-        height: `calc(100vh - ${spacing[6]})`,
+        top: theme.spacing[6],
+        height: `calc(100vh - ${theme.spacing[6]})`,
         overflowY: "auto",
         display: { xs: "none", lg: "block" }, // Hide on mobile, show on desktop
-      }}
+      })}
     >
       <Typography variant="h6" sx={{ mb: 2 }}>
         Contents

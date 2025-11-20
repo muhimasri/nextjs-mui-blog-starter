@@ -1,7 +1,6 @@
 "use client";
 import { Chip } from "@mui/material";
 import Link from "next/link";
-import { borderRadius } from "../styles/tokens";
 import { JSX } from "react";
 
 type TagProps = {
@@ -18,7 +17,7 @@ const chipStyle =
   (selected: boolean, bgColor?: string, selectedColor?: string) =>
   (theme: any) => ({
     backgroundColor: selected ? selectedColor : bgColor,
-    borderRadius: borderRadius.pill,
+    borderRadius: theme.shape.radius.pill,
     color: selected ? "white" : "grey.700",
     fontWeight: selected ? 600 : 500,
     border: `${theme.componentTokens.tag.borderWidth} solid`,
