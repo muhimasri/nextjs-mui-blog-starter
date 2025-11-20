@@ -32,12 +32,12 @@ const theme = createTheme({
       palette: {
         primary: {
           main: colors.primary[600],
-          contrastText: "#ffffff",
+          contrastText: colors.white,
           ...colors.primary,
         },
         secondary: {
           main: colors.secondary[600],
-          contrastText: "#ffffff",
+          contrastText: colors.white,
           ...colors.secondary,
         },
         common: {
@@ -49,11 +49,11 @@ const theme = createTheme({
           secondary: colors.grey[600],
         },
         background: {
-          default: "#ffffff",
-          paper: "#ffffff",
+          default: colors.white,
+          paper: colors.white,
         },
         AppBar: {
-          defaultBg: "rgba(255, 255, 255, 0.9)",
+          defaultBg: componentTokens.header.bgLight,
         },
         banner: {
           background: gradients.bannerLight,
@@ -117,7 +117,7 @@ const theme = createTheme({
           paper: colors.grey[900],
         },
         AppBar: {
-          defaultBg: "rgba(24, 24, 27, 0.9)",
+          defaultBg: componentTokens.header.bgDark,
         },
         banner: {
           background: `linear-gradient(135deg, ${colors.grey[900]} 0%, ${darken(
@@ -169,19 +169,19 @@ const theme = createTheme({
           borderRadius: borderRadius.medium,
           padding: componentTokens.button.paddingSmall,
           transition: `all ${animation.duration.normal} ${animation.easing.standard}`,
-          letterSpacing: "0.015em",
+          letterSpacing: letterSpacing.large,
           "&:hover": {
             transform: effects.transform.liftSmall,
             boxShadow: componentTokens.button.shadowHover,
           },
           "&.MuiButton-contained.Mui-disabled": {
-            backgroundColor: "var(--mui-palette-button-disabledBgColor)",
-            color: "var(--mui-palette-button-disabledColor)",
+            backgroundColor: colors.grey[200],
+            color: colors.grey[400],
           },
         },
         sizeLarge: {
           padding: componentTokens.button.paddingLarge,
-          fontSize: "1.6rem",
+          fontSize: font.size[4],
         },
       },
     },
@@ -194,11 +194,11 @@ const theme = createTheme({
           borderRadius: borderRadius.medium,
           transition: `all ${animation.duration.normal} ${animation.easing.standard}`,
           border: `${componentTokens.card.borderWidth} solid`,
-          borderColor: "var(--mui-palette-grey-200)",
+          borderColor: colors.grey[200],
           "&:hover": {
             transform: effects.transform.lift,
             boxShadow: componentTokens.card.hoverShadow,
-            borderColor: "var(--mui-palette-grey-300)",
+            borderColor: colors.grey[300],
           },
         },
       },
@@ -207,8 +207,8 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           backdropFilter: componentTokens.header.backdropBlur,
-          backgroundColor: "var(--mui-palette-AppBar-defaultBg)",
-          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.08)",
+          backgroundColor: "rgba(255, 255, 255, 0.9)",
+          boxShadow: shadows[2],
         },
       },
     },
@@ -229,7 +229,7 @@ const theme = createTheme({
         root: {
           borderRadius: borderRadius.small,
           fontWeight: 500,
-          letterSpacing: "0.015em",
+          letterSpacing: letterSpacing.large,
         },
       },
     },
@@ -242,7 +242,7 @@ const theme = createTheme({
     ...font.size,
   },
   shape: {
-    borderRadius: 10,
+    borderRadius: parseInt(borderRadius.medium),
     radius: borderRadius,
   },
   spacing: Object.values(spacing),
