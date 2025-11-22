@@ -28,7 +28,7 @@ function Banner(): JSX.Element {
                 flexDirection: "column",
                 alignItems: "baseline",
                 gap: 7,
-                maxWidth: 554,
+                maxWidth: theme.layout.contentWidth.md,
                 animation: `fadeInUp ${theme.animation.duration.slower} ${theme.animation.easing.standard}`,
               })}
             >
@@ -39,12 +39,12 @@ function Banner(): JSX.Element {
                     fontSize: { xs: "3", sm: "4" },
                     color: "text.secondary",
                     position: "relative",
-                    maxWidth: 560,
+                    maxWidth: theme.layout.contentWidth.md,
                     mt: 7,
-                    fontWeight: 400,
-                    lineHeight: 1.8,
+                    fontWeight: theme.typography.fontWeightRegular,
+                    lineHeight: theme.lineHeight.loose,
                     pl: 4,
-                    borderLeft: `${theme.componentTokens.banner.quoteBarWidth} solid`,
+                    borderLeft: `${theme.border.width.thick} solid`,
                     borderColor: "primary.400",
                     background: theme.gradients.bannerQuote,
                     borderRadius: theme.componentTokens.banner.borderRadius,
@@ -76,9 +76,9 @@ function Banner(): JSX.Element {
                   variant="outlined"
                   size="large"
                   sx={(theme) => ({
-                    borderWidth: theme.componentTokens.button.borderWidth,
+                    borderWidth: theme.border.width.medium,
                     "&:hover": {
-                      borderWidth: theme.componentTokens.button.borderWidth,
+                      borderWidth: theme.border.width.medium,
                       backgroundColor: "primary.50",
                     },
                   })}

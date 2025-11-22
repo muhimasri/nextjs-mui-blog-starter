@@ -3,16 +3,21 @@
 import { createTheme, darken, Shadows } from "@mui/material";
 import {
   borderRadius,
+  border,
   colors,
   font,
   letterSpacing,
   lineHeight,
   shadows,
+  customShadows,
   spacing,
   animation,
   effects,
   gradients,
   components as componentTokens,
+  layout,
+  zIndex,
+  transitions,
 } from "./tokens.base";
 import { Inter } from "next/font/google";
 
@@ -165,14 +170,14 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: "none",
-          fontWeight: 600,
+          fontWeight: font.weight.semibold,
           borderRadius: borderRadius.medium,
           padding: componentTokens.button.paddingSmall,
-          transition: `all ${animation.duration.normal} ${animation.easing.standard}`,
+          transition: transitions.all,
           letterSpacing: letterSpacing.large,
           "&:hover": {
             transform: effects.transform.liftSmall,
-            boxShadow: componentTokens.button.shadowHover,
+            boxShadow: customShadows.buttonHover,
           },
           "&.MuiButton-contained.Mui-disabled": {
             backgroundColor: colors.grey[200],
@@ -192,12 +197,12 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: borderRadius.medium,
-          transition: `all ${animation.duration.normal} ${animation.easing.standard}`,
-          border: `${componentTokens.card.borderWidth} solid`,
+          transition: transitions.all,
+          border: `${border.width.thin} solid`,
           borderColor: colors.grey[200],
           "&:hover": {
             transform: effects.transform.lift,
-            boxShadow: componentTokens.card.hoverShadow,
+            boxShadow: customShadows.cardHover,
             borderColor: colors.grey[300],
           },
         },
@@ -228,8 +233,101 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: borderRadius.small,
-          fontWeight: 500,
+          fontWeight: font.weight.medium,
           letterSpacing: letterSpacing.large,
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        h1: {
+          fontSize: font.size[10],
+          fontWeight: font.weight.extrabold,
+          lineHeight: lineHeight.tight,
+        },
+        h2: {
+          fontSize: font.size[9],
+          fontWeight: font.weight.bold,
+          lineHeight: lineHeight.tight,
+        },
+        h3: {
+          fontSize: font.size[8],
+          fontWeight: font.weight.bold,
+          lineHeight: lineHeight.snug,
+        },
+        h4: {
+          fontSize: font.size[7],
+          fontWeight: font.weight.semibold,
+          lineHeight: lineHeight.snug,
+        },
+        h5: {
+          fontSize: font.size[6],
+          fontWeight: font.weight.semibold,
+          lineHeight: lineHeight.small,
+        },
+        h6: {
+          fontSize: font.size[5],
+          fontWeight: font.weight.semibold,
+          lineHeight: lineHeight.small,
+        },
+        body1: {
+          fontSize: font.size[4],
+          lineHeight: lineHeight.large,
+        },
+        body2: {
+          fontSize: font.size[3],
+          lineHeight: lineHeight.medium,
+        },
+      },
+    },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          textDecoration: "none",
+          transition: transitions.color,
+          "&:hover": {
+            textDecoration: "underline",
+          },
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: borderRadius.medium,
+          transition: transitions.all,
+          "&:hover": {
+            transform: effects.transform.liftSmall,
+          },
+        },
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          "& .MuiOutlinedInput-root": {
+            transition: transitions.boxShadow,
+            "&:hover": {
+              boxShadow: customShadows.inputHover,
+            },
+            "&.Mui-focused": {
+              boxShadow: customShadows.focus,
+            },
+          },
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          borderRadius: `${borderRadius.large} 0 0 ${borderRadius.large}`,
+        },
+      },
+    },
+    MuiAlert: {
+      styleOverrides: {
+        root: {
+          borderRadius: borderRadius.medium,
         },
       },
     },
@@ -237,20 +335,29 @@ const theme = createTheme({
   typography: {
     htmlFontSize: 10,
     fontFamily: inter.style.fontFamily,
-    letterSpacing: letterSpacing,
-    lineHeight: lineHeight,
+    fontWeightLight: font.weight.light,
+    fontWeightRegular: font.weight.regular,
+    fontWeightMedium: font.weight.medium,
+    fontWeightBold: font.weight.bold,
     ...font.size,
   },
   shape: {
     borderRadius: parseInt(borderRadius.medium),
-    radius: borderRadius,
   },
   spacing: Object.values(spacing),
   shadows: Object.values(shadows) as Shadows,
+  customShadows,
+  border,
+  layout,
+  zIndex,
+  transitions,
   animation,
   effects,
   gradients,
   componentTokens,
+  letterSpacing,
+  lineHeight,
+  borderRadius,
 });
 
 export default theme;

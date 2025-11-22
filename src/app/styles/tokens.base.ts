@@ -2,14 +2,19 @@ export const {
   font,
   spacing,
   shadows,
+  customShadows,
   colors,
   borderRadius,
+  border,
   letterSpacing,
   lineHeight,
   animation,
   effects,
   gradients,
   components,
+  layout,
+  zIndex,
+  transitions,
 } = {
   colors: {
     // Neutral modern palette - balanced and versatile
@@ -96,6 +101,14 @@ export const {
       9: "3.6rem",
       10: "4.8rem",
     },
+    weight: {
+      light: 300,
+      regular: 400,
+      medium: 500,
+      semibold: 600,
+      bold: 700,
+      extrabold: 800,
+    },
   },
   spacing: {
     0: "0rem",
@@ -139,6 +152,13 @@ export const {
     "0px 110px 220px rgba(0, 0, 0, 0.47), 0px 55px 105px rgba(0, 0, 0, 0.26)",
     "0px 115px 230px rgba(0, 0, 0, 0.49), 0px 57px 110px rgba(0, 0, 0, 0.27)",
   ],
+  customShadows: {
+    focus: "0 0 0 3px rgba(99, 102, 241, 0.25)",
+    inputHover: "0 4px 12px rgba(0, 0, 0, 0.08)",
+    tagHover: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    cardHover: "0px 10px 20px rgba(0, 0, 0, 0.08)",
+    buttonHover: "0px 6px 14px rgba(0, 0, 0, 0.12)",
+  },
   borderRadius: {
     small: "6px",
     medium: "10px",
@@ -147,14 +167,26 @@ export const {
     pill: "100px",
     circle: "50%",
   },
+  border: {
+    width: {
+      thin: "1px",
+      medium: "2px",
+      thick: "3px",
+      heavy: "4px",
+    },
+  },
   letterSpacing: {
     large: "0.03em",
     xLarge: "0.06em",
   },
   lineHeight: {
+    tight: "1.2em",
+    snug: "1.3em",
     small: "1.4em",
     medium: "1.5em",
     large: "1.6em",
+    relaxed: "1.7em",
+    loose: "1.8em",
   },
   animation: {
     duration: {
@@ -279,5 +311,38 @@ export const {
       accentWidth: "50px",
       accentBottom: "-11px",
     },
+  },
+  layout: {
+    contentWidth: {
+      sm: "355px",
+      md: "554px",
+      lg: "720px",
+      xl: "1200px",
+    },
+    nav: {
+      mobileWidth: "185px",
+      desktopHeight: "34px",
+    },
+    image: {
+      cardWidth: "355px",
+      cardHeight: "200px",
+      featuredMaxWidth: "500px",
+    },
+  },
+  zIndex: {
+    dropdown: 1000,
+    sticky: 1020,
+    fixed: 1030,
+    modalBackdrop: 1040,
+    modal: 1050,
+    popover: 1060,
+    tooltip: 1070,
+  },
+  transitions: {
+    color: "color 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    transform: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    all: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    background: "background 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    boxShadow: "box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
   },
 };

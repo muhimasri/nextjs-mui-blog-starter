@@ -44,12 +44,12 @@ const EmailSubscriptionForm = (): JSX.Element => {
             },
             "& .MuiOutlinedInput-root": {
               borderRadius: theme.componentTokens.input.borderRadius,
-              transition: `all ${theme.animation.duration.normal} ${theme.animation.easing.standard}`,
+              transition: theme.transitions.all,
               "&:hover": {
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
+                boxShadow: theme.customShadows.inputHover,
               },
               "&.Mui-focused": {
-                boxShadow: `0 4px 16px ${theme.componentTokens.button.shadowColor}`,
+                boxShadow: theme.customShadows.focus,
               },
             },
           })}
@@ -73,7 +73,7 @@ const EmailSubscriptionForm = (): JSX.Element => {
           variant="contained"
           sx={(theme) => ({
             fontSize: "4",
-            width: "200px",
+            minWidth: "200px",
             height: theme.componentTokens.input.height,
             background: theme.gradients.primary,
             boxShadow: `${theme.componentTokens.button.shadowBlur} ${theme.componentTokens.button.shadowColor}`,
@@ -102,7 +102,7 @@ const EmailSubscriptionForm = (): JSX.Element => {
             severity="success"
             sx={(theme) => ({
               mt: 3,
-              borderRadius: "12px",
+              borderRadius: theme.borderRadius.medium,
               animation: `fadeInUp ${theme.animation.duration.slow} ${theme.animation.easing.standard}`,
             })}
           >

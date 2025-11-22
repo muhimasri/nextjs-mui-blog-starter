@@ -52,13 +52,16 @@ export default function TableOfContents({ headings }: TOCProps) {
               component="a"
               href={`#${slug}`}
               variant="body2"
-              sx={{
+              sx={(theme) => ({
                 textDecoration: "none",
                 color:
                   activeHeading === slug ? "text.primary" : "blog.linkColor",
                 "&:hover, &:focus": { color: "text.primary" },
-                fontWeight: activeHeading === slug ? "600" : "normal",
-              }}
+                fontWeight:
+                  activeHeading === slug
+                    ? theme.typography.fontWeightBold
+                    : theme.typography.fontWeightRegular,
+              })}
             >
               {text}
             </Typography>

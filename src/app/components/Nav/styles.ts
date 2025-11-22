@@ -6,11 +6,11 @@ export const pages = [
 
 export const afterStyle = {
   position: "absolute",
-  height: 2,
+  height: "2px",
   display: "block",
   content: '""',
   bottom: -5,
-  transition: "width 0.3s ease-in-out",
+  transition: "width 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
   backgroundColor: "primary.main",
 };
 

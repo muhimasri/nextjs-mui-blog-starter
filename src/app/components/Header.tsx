@@ -36,7 +36,7 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
             sx={(theme) => ({
               textDecoration: "none",
               mr: 7,
-              transition: `transform ${theme.animation.duration.fast} ${theme.animation.easing.standard}`,
+              transition: theme.transitions.transform,
               "&:hover": {
                 transform: theme.effects.transform.scaleSmall,
               },
@@ -46,9 +46,9 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
           >
             <Typography
               fontSize="7"
-              fontWeight="700"
-              whiteSpace="nowrap"
               sx={(theme) => ({
+                fontWeight: theme.typography.fontWeightBold,
+                whiteSpace: "nowrap",
                 background: theme.gradients.primaryToSecondary,
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -65,9 +65,9 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
               onClick={() => setMode(isDark ? "light" : "dark")}
               sx={(theme) => ({
                 borderRadius: theme.componentTokens.header.iconBorderRadius,
-                border: `${theme.componentTokens.header.iconBorderWidth} solid`,
+                border: `${theme.border.width.thin} solid`,
                 borderColor: "divider",
-                transition: `all ${theme.animation.duration.normal} ${theme.animation.easing.standard}`,
+                transition: theme.transitions.all,
                 "&:hover": {
                   transform: theme.effects.transform.rotate,
                   backgroundColor: "primary.50",

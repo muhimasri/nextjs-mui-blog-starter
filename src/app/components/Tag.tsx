@@ -17,15 +17,17 @@ const chipStyle =
   (selected: boolean, bgColor?: string, selectedColor?: string) =>
   (theme: any) => ({
     backgroundColor: selected ? selectedColor : bgColor,
-    borderRadius: theme.shape.radius.pill,
+    borderRadius: theme.borderRadius.pill,
     color: selected ? "white" : "grey.700",
-    fontWeight: selected ? 600 : 500,
-    border: `${theme.componentTokens.tag.borderWidth} solid`,
+    fontWeight: selected
+      ? theme.typography.fontWeightSemibold
+      : theme.typography.fontWeightMedium,
+    border: `${theme.border.width.thin} solid`,
     borderColor: selected ? "transparent" : "grey.300",
-    transition: `all ${theme.animation.duration.fast} ${theme.animation.easing.standard}`,
+    transition: theme.transitions.all,
     "&:hover": {
       transform: theme.effects.transform.liftSmall,
-      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      boxShadow: theme.customShadows.tagHover,
       borderColor: selected ? "transparent" : "primary.300",
     },
   });
@@ -40,7 +42,7 @@ const largeStyle = (theme: any) => ({
 const smallStyle = (theme: any) => ({
   height: theme.componentTokens.tag.heightSmall,
   cursor: "pointer",
-  fontSize: "1.2rem",
+  fontSize: "2",
   px: theme.componentTokens.tag.paddingSmall,
 });
 

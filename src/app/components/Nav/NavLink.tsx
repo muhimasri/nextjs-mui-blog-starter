@@ -14,15 +14,15 @@ const NavLink = ({ name, path, onMenuToggle }: NavLinkProps) => {
       href={path}
       component={Link}
       onClick={() => onMenuToggle(false)}
-      sx={{
+      sx={(theme) => ({
         color: "text.primary",
         fontSize: "4",
-        letterSpacing: (theme) => theme.typography.letterSpacing.large,
+        letterSpacing: theme.letterSpacing.large,
         textDecoration: "none",
         position: "relative",
-        transition: "color 0.3s ease-in-out",
+        transition: theme.transitions.color,
         whiteSpace: "nowrap",
-        fontWeight: 500,
+        fontWeight: theme.typography.fontWeightMedium,
         "&::after": {
           width: 0,
           ...afterStyle,
@@ -34,7 +34,7 @@ const NavLink = ({ name, path, onMenuToggle }: NavLinkProps) => {
           },
         },
         ...getActiveStyles(pathname, path),
-      }}
+      })}
     >
       {name}
     </MUILink>

@@ -16,9 +16,13 @@ type LetterSpacing = {
 };
 
 type LineHeight = {
+  tight: string;
+  snug: string;
   small: string;
   medium: string;
   large: string;
+  relaxed: string;
+  loose: string;
 };
 
 type Animation = {
@@ -71,6 +75,59 @@ type Gradients = {
   emailSubscription: string;
   accentBar: string;
   accentBarVertical: string;
+};
+
+type Border = {
+  width: {
+    thin: string;
+    medium: string;
+    thick: string;
+    heavy: string;
+  };
+};
+
+type Layout = {
+  contentWidth: {
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
+  };
+  nav: {
+    mobileWidth: string;
+    desktopHeight: string;
+  };
+  image: {
+    cardWidth: string;
+    cardHeight: string;
+    featuredMaxWidth: string;
+  };
+};
+
+type ZIndex = {
+  dropdown: number;
+  sticky: number;
+  fixed: number;
+  modalBackdrop: number;
+  modal: number;
+  popover: number;
+  tooltip: number;
+};
+
+type Transitions = {
+  color: string;
+  transform: string;
+  all: string;
+  background: string;
+  boxShadow: string;
+};
+
+type CustomShadows = {
+  focus: string;
+  inputHover: string;
+  tagHover: string;
+  cardHover: string;
+  buttonHover: string;
 };
 
 type ComponentTokens = {
@@ -143,6 +200,14 @@ declare module "@mui/material/styles" {
     effects: Effects;
     gradients: Gradients;
     componentTokens: ComponentTokens;
+    customShadows: CustomShadows;
+    border: Border;
+    layout: Layout;
+    zIndex: ZIndex;
+    transitions: Transitions;
+    letterSpacing: LetterSpacing;
+    lineHeight: LineHeight;
+    borderRadius: BorderRadius;
   }
 
   interface ThemeOptions {
@@ -150,6 +215,14 @@ declare module "@mui/material/styles" {
     effects?: Effects;
     gradients?: Gradients;
     componentTokens?: ComponentTokens;
+    customShadows?: CustomShadows;
+    border?: Border;
+    layout?: Layout;
+    zIndex?: ZIndex;
+    transitions?: Transitions;
+    letterSpacing?: LetterSpacing;
+    lineHeight?: LineHeight;
+    borderRadius?: BorderRadius;
   }
 
   interface Palette {

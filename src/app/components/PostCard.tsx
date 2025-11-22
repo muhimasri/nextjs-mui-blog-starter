@@ -69,7 +69,7 @@ export default function PostCard({
           <Box
             sx={(theme) => ({
               position: "relative",
-              transition: `transform ${theme.animation.duration.normal} ${theme.animation.easing.standard}`,
+              transition: theme.transitions.transform,
               "&:hover": {
                 transform: theme.effects.transform.scale,
               },
@@ -82,8 +82,8 @@ export default function PostCard({
                 borderRadius: theme.componentTokens.postCard.imageRadius,
                 display: "block",
               }}
-              width={355}
-              height={200}
+              width={parseInt(theme.layout.image.cardWidth)}
+              height={parseInt(theme.layout.image.cardHeight)}
             />
           </Box>
         </PostLink>
@@ -92,11 +92,11 @@ export default function PostCard({
         <PostLink href={`/blogs/${link}/`}>
           <Typography
             sx={(theme) => ({
-              fontWeight: 700,
-              lineHeight: 1.3,
+              fontWeight: theme.typography.fontWeightBold,
+              lineHeight: theme.lineHeight.snug,
               fontSize: "6",
               color: "text.primary",
-              transition: `color ${theme.animation.duration.normal} ${theme.animation.easing.standard}`,
+              transition: theme.transitions.color,
               "&:hover": {
                 color: "primary.main",
               },
@@ -107,11 +107,11 @@ export default function PostCard({
           </Typography>
         </PostLink>
         <Typography
-          sx={{
+          sx={(theme) => ({
             color: "text.secondary",
             fontSize: "3",
-            lineHeight: 1.7,
-          }}
+            lineHeight: theme.lineHeight.relaxed,
+          })}
           component="p"
         >
           {description}

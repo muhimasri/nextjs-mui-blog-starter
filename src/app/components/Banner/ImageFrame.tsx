@@ -5,7 +5,7 @@ import Image from "next/image";
 import { JSX } from "react";
 
 const BannerImage = styled(Image)(({ theme }) => ({
-  borderRadius: theme.shape.radius.large,
+  borderRadius: theme.borderRadius.large,
   boxShadow: theme.shadows[2],
   maxWidth: "100%",
   maxHeight: "fit-content",

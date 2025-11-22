@@ -12,12 +12,12 @@ export default function FeaturedImage({ frontmatter }: FeaturedImageProps) {
       component="img"
       src={frontmatter.featuredImage.src}
       alt={frontmatter.featuredImage.alt}
-      sx={{
-        maxWidth: "500px",
-        borderRadius: (theme) => theme.vars.shape.radius.large,
+      sx={(theme) => ({
+        maxWidth: theme.layout.image.featuredMaxWidth,
+        borderRadius: theme.borderRadius.large,
         position: "relative",
         zIndex: 2,
-      }}
+      })}
     />
   );
 }
