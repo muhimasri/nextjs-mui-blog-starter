@@ -155,6 +155,8 @@ type ComponentTokens = {
     backdropBlur: string;
     iconBorderRadius: string;
     iconBorderWidth: string;
+    bgLight: string;
+    bgDark: string;
   };
   postCard: {
     imageRadius: string;
@@ -226,14 +228,35 @@ declare module "@mui/material/styles" {
   }
 
   interface Palette {
+    AppBar: {
+      defaultBg: string;
+      backgroundColor: string;
+    };
     banner: {
       background: string;
+      quoteBackground: string;
+    };
+    subscribe: {
+      headerColor: string;
+      background: string;
+    };
+    card: {
+      borderColor: string;
+      borderColorHover: string;
+    };
+    tag: {
+      borderColor: string;
     };
   }
 
   interface PaletteOptions {
+    AppBar?: {
+      defaultBg?: string;
+      backgroundColor?: string;
+    };
     banner?: {
       background: string;
+      quoteBackground?: string;
     };
     blog?: {
       headerBgColor: string;
@@ -246,6 +269,7 @@ declare module "@mui/material/styles" {
     };
     subscribe?: {
       headerColor: string;
+      background?: string;
     };
     about?: {
       headerTitle: string;
@@ -265,6 +289,13 @@ declare module "@mui/material/styles" {
     button?: {
       disabledBgColor: string;
       disabledColor: string;
+    };
+    card?: {
+      borderColor: string;
+      borderColorHover: string;
+    };
+    tag?: {
+      borderColor: string;
     };
   }
 }

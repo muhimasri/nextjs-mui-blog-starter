@@ -46,7 +46,7 @@ function Banner(): JSX.Element {
                     pl: 4,
                     borderLeft: `${theme.border.width.thick} solid`,
                     borderColor: "primary.400",
-                    background: theme.gradients.bannerQuote,
+                    background: theme.vars.palette.banner.quoteBackground,
                     borderRadius: theme.componentTokens.banner.borderRadius,
                     py: 2,
                   })}
@@ -75,13 +75,6 @@ function Banner(): JSX.Element {
                   component={Link}
                   variant="outlined"
                   size="large"
-                  sx={(theme) => ({
-                    borderWidth: theme.border.width.medium,
-                    "&:hover": {
-                      borderWidth: theme.border.width.medium,
-                      backgroundColor: "primary.50",
-                    },
-                  })}
                 >
                   Learn More
                 </Button>

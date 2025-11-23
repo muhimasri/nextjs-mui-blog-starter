@@ -12,7 +12,7 @@ const EmailSubscription = (): JSX.Element => {
         px: { xs: 2, lg: 4 },
         py: { xs: 9, lg: 10 },
         mb: 0, // Remove any margin
-        background: theme.gradients.emailSubscription,
+        background: theme.vars.palette.subscribe.background,
         position: "relative",
         overflow: "hidden",
         "&::before": {

@@ -79,7 +79,6 @@ export default function PostCard({
               src={image.src}
               alt={image.alt}
               style={{
-                borderRadius: theme.componentTokens.postCard.imageRadius,
                 display: "block",
               }}
               width={parseInt(theme.layout.image.cardWidth)}

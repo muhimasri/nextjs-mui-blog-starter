@@ -36,10 +36,11 @@ export default function TableOfContents({ headings }: TOCProps) {
       component="nav"
       sx={(theme: any) => ({
         position: "sticky",
-        top: theme.spacing[6],
-        height: `calc(100vh - ${theme.spacing[6]})`,
+        top: theme.spacing(6),
+        maxHeight: `calc(100vh - ${theme.spacing(12)})`,
         overflowY: "auto",
-        display: { xs: "none", lg: "block" }, // Hide on mobile, show on desktop
+        display: { xs: "none", lg: "block" },
+        alignSelf: "flex-start",
       })}
     >
       <Typography variant="h6" sx={{ mb: 2 }}>
@@ -55,8 +56,8 @@ export default function TableOfContents({ headings }: TOCProps) {
               sx={(theme) => ({
                 textDecoration: "none",
                 color:
-                  activeHeading === slug ? "text.primary" : "blog.linkColor",
-                "&:hover, &:focus": { color: "text.primary" },
+                  activeHeading === slug ? "primary.main" : "text.secondary",
+                "&:hover, &:focus": { color: "primary.main" },
                 fontWeight:
                   activeHeading === slug
                     ? theme.typography.fontWeightBold

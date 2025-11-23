@@ -18,17 +18,17 @@ const chipStyle =
   (theme: any) => ({
     backgroundColor: selected ? selectedColor : bgColor,
     borderRadius: theme.borderRadius.pill,
-    color: selected ? "white" : "grey.700",
+    color: selected ? "white" : "text.primary",
     fontWeight: selected
       ? theme.typography.fontWeightSemibold
       : theme.typography.fontWeightMedium,
     border: `${theme.border.width.thin} solid`,
-    borderColor: selected ? "transparent" : "grey.300",
+    borderColor: selected ? "transparent" : "tag.borderColor",
     transition: theme.transitions.all,
     "&:hover": {
       transform: theme.effects.transform.liftSmall,
       boxShadow: theme.customShadows.tagHover,
-      borderColor: selected ? "transparent" : "primary.300",
+      borderColor: selected ? "transparent" : "primary.400",
     },
   });
 

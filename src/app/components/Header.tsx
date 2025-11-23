@@ -21,15 +21,7 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
     mode === "dark" || (mode === "system" && systemMode === "dark");
 
   return (
-    <AppBar
-      position="static"
-      color="default"
-      elevation={0}
-      sx={{
-        borderBottom: "1px solid",
-        borderColor: "divider",
-      }}
-    >
+    <AppBar position="static" color="default" elevation={0}>
       <Container>
         <Toolbar sx={{ py: size === "large" ? 7 : 4 }}>
           <MUILink
@@ -39,6 +31,7 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
               transition: theme.transitions.transform,
               "&:hover": {
                 transform: theme.effects.transform.scaleSmall,
+                textDecoration: "none",
               },
             })}
             href="/"
@@ -70,7 +63,7 @@ export default function Header({ size = "large" }: HeaderProps): JSX.Element {
                 transition: theme.transitions.all,
                 "&:hover": {
                   transform: theme.effects.transform.rotate,
-                  backgroundColor: "primary.50",
+                  backgroundColor: "action.hover",
                 },
               })}
             >

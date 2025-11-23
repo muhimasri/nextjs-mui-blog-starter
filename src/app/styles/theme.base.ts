@@ -59,9 +59,11 @@ const theme = createTheme({
         },
         AppBar: {
           defaultBg: componentTokens.header.bgLight,
+          backgroundColor: colors.primary[50],
         },
         banner: {
-          background: gradients.bannerLight,
+          background: `linear-gradient(180deg, ${colors.primary[50]} 0%, ${colors.primary[50]} 20%, ${colors.grey[50]} 100%)`,
+          quoteBackground: `linear-gradient(90deg, ${colors.primary[50]} 0%, transparent 100%)`,
         },
         blog: {
           headerBgColor: colors.primary[50],
@@ -74,6 +76,7 @@ const theme = createTheme({
         },
         subscribe: {
           headerColor: colors.primary[800],
+          background: `linear-gradient(135deg, ${colors.grey[50]} 0%, ${colors.primary[50]} 100%)`,
         },
         about: {
           headerTitle: colors.grey[900],
@@ -93,6 +96,13 @@ const theme = createTheme({
         button: {
           disabledBgColor: colors.grey[200],
           disabledColor: colors.grey[400],
+        },
+        card: {
+          borderColor: colors.grey[200],
+          borderColorHover: colors.grey[300],
+        },
+        tag: {
+          borderColor: colors.grey[300],
         },
         grey: colors.grey,
       },
@@ -123,12 +133,16 @@ const theme = createTheme({
         },
         AppBar: {
           defaultBg: componentTokens.header.bgDark,
+          backgroundColor: colors.grey[900],
         },
         banner: {
-          background: `linear-gradient(135deg, ${colors.grey[900]} 0%, ${darken(
-            colors.primary[900],
+          background: `linear-gradient(180deg, ${colors.grey[900]} 0%, ${
+            colors.grey[900]
+          } 20%, ${darken(colors.primary[900], 0.4)} 60%, ${darken(
+            colors.secondary[900],
             0.4
-          )} 50%, ${darken(colors.secondary[900], 0.4)} 100%)`,
+          )} 100%)`,
+          quoteBackground: `linear-gradient(90deg, ${colors.grey[800]} 0%, transparent 100%)`,
         },
         blog: {
           headerBgColor: colors.grey[900],
@@ -141,6 +155,10 @@ const theme = createTheme({
         },
         subscribe: {
           headerColor: colors.grey[100],
+          background: `linear-gradient(135deg, ${colors.grey[900]} 0%, ${darken(
+            colors.primary[900],
+            0.5
+          )} 100%)`,
         },
         about: {
           headerTitle: colors.grey[100],
@@ -160,6 +178,13 @@ const theme = createTheme({
         button: {
           disabledBgColor: colors.grey[800],
           disabledColor: colors.grey[600],
+        },
+        card: {
+          borderColor: colors.grey[700],
+          borderColorHover: colors.grey[600],
+        },
+        tag: {
+          borderColor: colors.grey[600],
         },
         grey: colors.grey,
       },
@@ -184,6 +209,13 @@ const theme = createTheme({
             color: colors.grey[400],
           },
         },
+        outlined: {
+          borderWidth: border.width.medium,
+          "&:hover": {
+            borderWidth: border.width.medium,
+            backgroundColor: "action.hover",
+          },
+        },
         sizeLarge: {
           padding: componentTokens.button.paddingLarge,
           fontSize: font.size[4],
@@ -195,26 +227,26 @@ const theme = createTheme({
         elevation: 0,
       },
       styleOverrides: {
-        root: {
+        root: ({ theme }) => ({
           borderRadius: borderRadius.medium,
           transition: transitions.all,
           border: `${border.width.thin} solid`,
-          borderColor: colors.grey[200],
+          borderColor: theme.vars.palette.card.borderColor,
           "&:hover": {
             transform: effects.transform.lift,
             boxShadow: customShadows.cardHover,
-            borderColor: colors.grey[300],
+            borderColor: theme.vars.palette.card.borderColorHover,
           },
-        },
+        }),
       },
     },
     MuiAppBar: {
       styleOverrides: {
-        root: {
+        root: ({ theme }) => ({
           backdropFilter: componentTokens.header.backdropBlur,
-          backgroundColor: "rgba(255, 255, 255, 0.9)",
-          boxShadow: shadows[2],
-        },
+          backgroundColor: theme.vars.palette.AppBar.backgroundColor,
+          boxShadow: "none",
+        }),
       },
     },
     MuiOutlinedInput: {
