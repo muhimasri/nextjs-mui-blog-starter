@@ -77,6 +77,9 @@ const theme = createTheme({
         subscribe: {
           headerColor: colors.primary[800],
           background: `linear-gradient(135deg, ${colors.grey[50]} 0%, ${colors.primary[50]} 100%)`,
+          blobPrimary: colors.primary[200],
+          blobSecondary: colors.secondary[200],
+          blobOpacity: 0.2,
         },
         about: {
           headerTitle: colors.grey[900],
@@ -136,12 +139,7 @@ const theme = createTheme({
           backgroundColor: colors.grey[900],
         },
         banner: {
-          background: `linear-gradient(180deg, ${colors.grey[900]} 0%, ${
-            colors.grey[900]
-          } 20%, ${darken(colors.primary[900], 0.4)} 60%, ${darken(
-            colors.secondary[900],
-            0.4
-          )} 100%)`,
+          background: `linear-gradient(180deg, ${colors.grey[900]} 0%, ${colors.grey[900]} 40%, rgba(79, 70, 229, 0.08) 70%, rgba(100, 116, 139, 0.08) 100%)`,
           quoteBackground: `linear-gradient(90deg, ${colors.grey[800]} 0%, transparent 100%)`,
         },
         blog: {
@@ -155,10 +153,10 @@ const theme = createTheme({
         },
         subscribe: {
           headerColor: colors.grey[100],
-          background: `linear-gradient(135deg, ${colors.grey[900]} 0%, ${darken(
-            colors.primary[900],
-            0.5
-          )} 100%)`,
+          background: colors.grey[900],
+          blobPrimary: colors.primary[800],
+          blobSecondary: colors.secondary[800],
+          blobOpacity: 0.1,
         },
         about: {
           headerTitle: colors.grey[100],

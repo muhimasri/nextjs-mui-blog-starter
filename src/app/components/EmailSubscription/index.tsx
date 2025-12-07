@@ -22,9 +22,8 @@ const EmailSubscription = (): JSX.Element => {
           right: theme.componentTokens.emailSubscription.blobPositionRight,
           width: theme.componentTokens.emailSubscription.blobSize,
           height: theme.componentTokens.emailSubscription.blobSize,
-          background:
-            "radial-gradient(circle, var(--mui-palette-primary-200) 0%, transparent 70%)",
-          opacity: theme.effects.opacity.subtle,
+          background: `radial-gradient(circle, ${theme.vars.palette.subscribe.blobPrimary} 0%, transparent 70%)`,
+          opacity: theme.vars.palette.subscribe.blobOpacity,
           borderRadius: "50%",
         },
         "&::after": {
@@ -34,9 +33,8 @@ const EmailSubscription = (): JSX.Element => {
           left: theme.componentTokens.emailSubscription.blobPositionLeft,
           width: theme.componentTokens.emailSubscription.blobSize,
           height: theme.componentTokens.emailSubscription.blobSize,
-          background:
-            "radial-gradient(circle, var(--mui-palette-secondary-200) 0%, transparent 70%)",
-          opacity: theme.effects.opacity.subtle,
+          background: `radial-gradient(circle, ${theme.vars.palette.subscribe.blobSecondary} 0%, transparent 70%)`,
+          opacity: theme.vars.palette.subscribe.blobOpacity,
           borderRadius: "50%",
         },
       })}

@@ -239,6 +239,9 @@ declare module "@mui/material/styles" {
     subscribe: {
       headerColor: string;
       background: string;
+      blobPrimary: string;
+      blobSecondary: string;
+      blobOpacity: number;
     };
     card: {
       borderColor: string;
