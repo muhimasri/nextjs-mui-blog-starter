@@ -51,8 +51,8 @@ const EmailSubscription = (): JSX.Element => {
         })}
       >
         <Typography
+          variant="h4"
           sx={(theme) => ({
-            fontSize: "7",
             fontWeight: 800,
             mb: 3,
             background: theme.gradients.textGradient,
@@ -65,8 +65,8 @@ const EmailSubscription = (): JSX.Element => {
           Upskill Your Frontend Development Techniques 🌟
         </Typography>
         <Typography
+          variant="body1"
           color="grey.700"
-          fontSize="4"
           sx={(theme) => ({
             maxWidth: theme.componentTokens.emailSubscription.contentMaxWidth,
             mb: 7,
@@ -79,7 +79,7 @@ const EmailSubscription = (): JSX.Element => {
           tutorials straight to your inbox!
         </Typography>
         <EmailSubscriptionForm />
-        <Typography mt={5} fontSize="2.5" color="grey.500" fontWeight={500}>
+        <Typography variant="caption" mt={5} color="grey.500" fontWeight={500}>
           No spam, sales, or ads. Unsubscribe anytime you wish.
         </Typography>
       </Box>

@@ -72,7 +72,6 @@ const EmailSubscriptionForm = (): JSX.Element => {
           type="submit"
           variant="contained"
           sx={(theme) => ({
-            fontSize: "4",
             minWidth: "200px",
             height: theme.componentTokens.input.height,
             background: theme.gradients.primary,

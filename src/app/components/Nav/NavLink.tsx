@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { afterStyle, getActiveStyles } from "./styles";
 import { NavLinkProps } from "./types";
+import { font } from "../../styles/tokens.base";
 
 const NavLink = ({ name, path, onMenuToggle }: NavLinkProps) => {
   const pathname = usePathname();
@@ -16,13 +17,13 @@ const NavLink = ({ name, path, onMenuToggle }: NavLinkProps) => {
       onClick={() => onMenuToggle(false)}
       sx={(theme) => ({
         color: "text.primary",
-        fontSize: "4",
         letterSpacing: theme.letterSpacing.large,
         textDecoration: "none",
         position: "relative",
         transition: theme.transitions.color,
         whiteSpace: "nowrap",
         fontWeight: theme.typography.fontWeightMedium,
+        fontSize: font.size[4],
         "&::after": {
           width: 0,
           ...afterStyle,

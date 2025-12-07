@@ -7,6 +7,7 @@ import TagLine from "./TagLine";
 import ImageFrame from "./ImageFrame";
 import Header from "../Header";
 import Link from "next/link";
+import { font } from "../../styles/tokens.base";
 
 function Banner(): JSX.Element {
   return (
@@ -35,14 +36,16 @@ function Banner(): JSX.Element {
               <Stack>
                 <TagLine />
                 <Typography
+                  variant="body2"
                   sx={(theme) => ({
-                    fontSize: { xs: "3", sm: "4" },
                     color: "text.secondary",
                     position: "relative",
                     maxWidth: theme.layout.contentWidth.md,
                     mt: 7,
-                    fontWeight: theme.typography.fontWeightRegular,
                     lineHeight: theme.lineHeight.loose,
+                    [theme.breakpoints.up("sm")]: {
+                      fontSize: font.size[4],
+                    },
                     pl: 4,
                     borderLeft: `${theme.border.width.thick} solid`,
                     borderColor: "primary.400",

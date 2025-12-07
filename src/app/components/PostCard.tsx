@@ -90,10 +90,8 @@ export default function PostCard({
       <CardContent sx={{ pt: 3, px: 3, pb: 2 }}>
         <PostLink href={`/blogs/${link}/`}>
           <Typography
+            variant="h5"
             sx={(theme) => ({
-              fontWeight: theme.typography.fontWeightBold,
-              lineHeight: theme.lineHeight.snug,
-              fontSize: "6",
               color: "text.primary",
               transition: theme.transitions.color,
               "&:hover": {
@@ -106,9 +104,9 @@ export default function PostCard({
           </Typography>
         </PostLink>
         <Typography
+          variant="body2"
           sx={(theme) => ({
             color: "text.secondary",
-            fontSize: "3",
             lineHeight: theme.lineHeight.relaxed,
           })}
           component="p"

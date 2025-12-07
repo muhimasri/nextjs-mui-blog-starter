@@ -20,7 +20,6 @@ export default function BlogContent({ mdxContent }: BlogContentProps) {
         sx={(theme) => ({
           "& h1": {
             color: "blog.h1Color",
-            fontSize: "3",
             fontWeight: theme.typography.fontWeightMedium,
             "&:first-child": {
               mt: 0,

@@ -267,31 +267,44 @@ const theme = createTheme({
           borderRadius: borderRadius.small,
           fontWeight: font.weight.medium,
           letterSpacing: letterSpacing.large,
+          fontSize: font.size[2],
         },
       },
     },
     MuiTypography: {
       styleOverrides: {
-        h1: {
-          fontSize: font.size[10],
+        h1: ({ theme }) => ({
+          fontSize: font.size[9],
           fontWeight: font.weight.extrabold,
           lineHeight: lineHeight.tight,
-        },
-        h2: {
-          fontSize: font.size[9],
-          fontWeight: font.weight.bold,
-          lineHeight: lineHeight.tight,
-        },
-        h3: {
+          [theme.breakpoints.up("sm")]: {
+            fontSize: font.size[10],
+          },
+        }),
+        h2: ({ theme }) => ({
           fontSize: font.size[8],
           fontWeight: font.weight.bold,
-          lineHeight: lineHeight.snug,
-        },
-        h4: {
+          lineHeight: lineHeight.tight,
+          [theme.breakpoints.up("sm")]: {
+            fontSize: font.size[9],
+          },
+        }),
+        h3: ({ theme }) => ({
           fontSize: font.size[7],
+          fontWeight: font.weight.bold,
+          lineHeight: lineHeight.snug,
+          [theme.breakpoints.up("sm")]: {
+            fontSize: font.size[8],
+          },
+        }),
+        h4: ({ theme }) => ({
+          fontSize: font.size[6],
           fontWeight: font.weight.semibold,
           lineHeight: lineHeight.snug,
-        },
+          [theme.breakpoints.up("sm")]: {
+            fontSize: font.size[7],
+          },
+        }),
         h5: {
           fontSize: font.size[6],
           fontWeight: font.weight.semibold,
@@ -309,6 +322,17 @@ const theme = createTheme({
         body2: {
           fontSize: font.size[3],
           lineHeight: lineHeight.medium,
+        },
+        caption: {
+          fontSize: font.size[2],
+          lineHeight: lineHeight.medium,
+        },
+        overline: {
+          fontSize: font.size[1],
+          fontWeight: font.weight.medium,
+          lineHeight: lineHeight.medium,
+          textTransform: "uppercase",
+          letterSpacing: letterSpacing.xLarge,
         },
       },
     },

@@ -5,10 +5,9 @@ export default function RecentArticlesHeader() {
   return (
     <Box textAlign={{ xs: "left", lg: "center" }} mb={{ xs: 6, lg: 8 }}>
       <Typography
-        variant="h4"
+        variant="h3"
         component="h2"
         sx={(theme) => ({
-          fontSize: "8",
           color: "text.primary",
           fontWeight: 800,
           position: "relative",

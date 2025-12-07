@@ -35,14 +35,12 @@ const chipStyle =
 const largeStyle = (theme: any) => ({
   px: theme.componentTokens.tag.paddingLarge,
   py: 1,
-  fontSize: "2",
   cursor: "pointer",
 });
 
 const smallStyle = (theme: any) => ({
   height: theme.componentTokens.tag.heightSmall,
   cursor: "pointer",
-  fontSize: "2",
   px: theme.componentTokens.tag.paddingSmall,
 });
 

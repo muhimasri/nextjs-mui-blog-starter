@@ -16,7 +16,6 @@ export default function Counter() {
         color="primary"
         disableElevation
         onClick={decrement}
-        sx={{ fontSize: "6" }}
       >
         -
       </Button>
@@ -26,7 +25,6 @@ export default function Counter() {
         variant="contained"
         color="primary"
         onClick={increment}
-        sx={{ fontSize: "6" }}
       >
         +
       </Button>

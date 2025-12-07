@@ -46,10 +46,9 @@ export default function SuggestedArticles({
     >
       <Box textAlign={{ xs: "left", lg: "center" }} mb={{ xs: 5, lg: 7 }}>
         <Typography
-          variant="h4"
+          variant="h3"
           component="h2"
           sx={{
-            fontSize: "8",
             color: "text.primary",
             fontWeight: 600,
           }}

@@ -6,13 +6,11 @@ import { JSX } from "react";
 function TagLine(): JSX.Element {
   return (
     <Typography
+      variant="h2"
       component="span"
       sx={(theme) => ({
-        fontSize: { xs: "8", sm: "9" },
         color: "text.primary",
         position: "relative",
-        fontWeight: theme.typography.fontWeightBold,
-        lineHeight: theme.lineHeight.tight,
         background:
           "linear-gradient(135deg, var(--mui-palette-text-primary) 0%, var(--mui-palette-grey-700) 100%)",
         backgroundClip: "text",

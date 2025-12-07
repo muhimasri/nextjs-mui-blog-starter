@@ -32,22 +32,20 @@ const AboutHeader = (): JSX.Element => {
                 }}
               >
                 <Typography
-                  variant="h3"
+                  variant="h1"
+                  component="h1"
                   sx={{
-                    fontWeight: "bold",
                     color: "about.headerTitle",
                     mb: 7,
-                    fontSize: { xs: "9", sm: "10" },
                   }}
                 >
                   Hello, I'm Mareli 👋
                 </Typography>
                 <Typography
+                  variant="body1"
                   sx={{
-                    fontSize: { xs: "4", sm: "5" },
                     color: "about.headerText",
                     position: "relative",
-                    fontWeight: 400,
                   }}
                   component="div"
                 >
