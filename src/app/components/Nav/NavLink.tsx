@@ -30,6 +30,7 @@ const NavLink = ({ name, path, onMenuToggle }: NavLinkProps) => {
         },
         "&:hover": {
           color: "primary.main",
+          textDecoration: "none",
           "&::after": {
             width: 15,
           },
