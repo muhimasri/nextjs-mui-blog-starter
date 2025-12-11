@@ -273,6 +273,9 @@ declare module "@mui/material/styles" {
     subscribe?: {
       headerColor: string;
       background?: string;
+      blobPrimary?: string;
+      blobSecondary?: string;
+      blobOpacity?: number;
     };
     about?: {
       headerTitle: string;
